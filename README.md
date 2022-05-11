@@ -1,7 +1,10 @@
 <div align="center">
     <!-- <h1>Kangaroo</h1> -->
     <h1>Proyecto DAW</h1>
-    <h6>Francisco Jerobel Rodriguez Niño <br> Siomara de las Nieves Alonso Hernández <br> Mónica Roka Paco <br> Laura María Sarmiento Melián</h6>
+    <h6>Francisco Jerobel Rodriguez Niño</h6>
+    <h6>Siomara de las Nieves Alonso Hernández</h6>
+    <h6>Mónica Roka Paco</h6>
+    <h6>Laura María Sarmiento Melián</h6>
 </div>
 <hr>
 
