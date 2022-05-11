@@ -1,0 +1,14 @@
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+
+# Python
+*.pyc
+__pycache__/
+venv/
+.venv/
+
+#VsCode
+*workspace*
