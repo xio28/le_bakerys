@@ -20,7 +20,7 @@ git merge main -m "Fusionados cambios en la main con la rama."
 
 # Para aplicar cambios hechos en la main en tu propia rama, hay que hacer lo siguiente:
 git switch nombre_rama
-git fetch origin (para actualizarla)
+git fetch origin (para actualizarla sin aplicar los cambios)
 git merge origin/main
 
 # Si quieres subir tu rama al repositorio debes escribir:
