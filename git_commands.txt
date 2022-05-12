@@ -40,6 +40,12 @@ git fetch
 ## No actualizará tu repo local, como hace "pull", pero sí te permitirá saber qué cambios se han hecho antes de que decidas hacer el "pull".
 
 
+
+############################## VERSIONES DE ARCHIVOS ##############################
+# Este comando muestra las versiones y códigos de los commits hechos.
+git log --oneline
+
+
 ################################# RESUMEN #################################
 
 git checkout nombre_rama
