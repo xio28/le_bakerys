@@ -18,10 +18,12 @@ git merge nombre_rama -m "Se ha fusionado la rama con la main."
 # Si trabajas en la rama experimental y quieres unir los cambios hechos en la "main" a tu rama, puedes hacerlo así:
 git merge main -m "Fusionados cambios en la main con la rama."
 
-# Para aplicar cambios hechos en la main en tu propia rama, hay que hacer lo siguiente:
+# Para aplicar cambios hechos en remoto en tu propia rama (habiendo hecho un fork), hay que hacer lo siguiente:
 git switch nombre_rama
 git fetch origin (para actualizarla sin aplicar los cambios)
-git merge origin/main
+git merge origin/main (mezcla)
+
+git pull origin (es un fetch y merge al mismo tiempo, pero aquí sí se aplican los cambios)
 
 # Si quieres subir tu rama al repositorio debes escribir:
 git push -u origin nombre_rama
