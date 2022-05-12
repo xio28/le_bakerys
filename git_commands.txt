@@ -1,16 +1,16 @@
 # Muestra en qué rama estás trabajando; la rama master sería "main"; además, la rama seleccionada debe venir precedida de un asterisco.
 git branch
 
+# Si usas este comando, hace lo mismo, pero se creó para especificar. Antes, git checkout se usaba para cambiar entre ramas o restaurar o ver las versiones de los archivos, etc.
+git switch
+
 # Añadiendo un nombre después de "branch" estás creando una rama.
 git branch nombre_rama
+o 
+git switch -c nombre_rama (Cambia a la rama creada a la vez que la crea)
 
 # Este comando te permite ver información más detallada de los cambios hechos, si se ha hecho algún commit, además de ver en qué rama estás trabajando.
 git show-branch
-
-# Este comando te permite cambiar de rama a la vez que la creas.
-git checkout -b nombre_rama
-# Si usas este comando, hace lo mismo pero es mejor.
-git switch
 
 # Para hacer un "merge" y fusionar las ramas, es necesario estar ubicado en la rama "master" o "main" (como se llama ahora), y añadir el comando más el nombre de la rama. Lo ideal, además, es añadir un commit al "merge".
 git merge nombre_rama -m "Se ha fusionado la rama con la main."
@@ -19,7 +19,7 @@ git merge nombre_rama -m "Se ha fusionado la rama con la main."
 git merge main -m "Fusionados cambios en la main con la rama."
 
 # Para aplicar cambios hechos en la main en tu propia rama, hay que hacer lo siguiente:
-git checkout nombre_rama
+git switch nombre_rama
 git fetch origin (para actualizarla)
 git merge origin/main
 
@@ -78,3 +78,10 @@ git remote rm nombre_asignado_remote
 
 # También podemos renombrarlo usando:
 git remote rename old_name new_name
+
+
+
+################################# COMANDOS VIEJOS #################################
+
+# Este comando te permite cambiar de rama a la vez que la creas.
+git checkout -b nombre_rama
