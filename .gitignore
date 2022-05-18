@@ -13,3 +13,7 @@ venv/
 
 #VsCode
 *workspace*
+
+
+#DB files
+*.db
