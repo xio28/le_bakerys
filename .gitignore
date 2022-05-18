@@ -3,7 +3,7 @@
 .DS_Store?
 ._*
 .Trashes
-*.txt
+git_commands.txt
 
 # Python
 *.pyc
