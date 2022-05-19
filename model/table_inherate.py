@@ -47,11 +47,11 @@ class TableInherate:
                 conn.close()
             return True
 
-    def insert(self, attr, values):
+    def insert(self, values, attr=""):
         try:
             conn = self._connect()
             c = conn.cursor()
-            c.execute('INSERT INTO {} {} VALUES {}'.format(self._get_table_name, str(attr), str(values)))
+            c.execute('INSERT INTO {} {} VALUES {}'.format(self._get_table_name(), str(attr), str(values)))
             conn.commit()
             c.close()
         
