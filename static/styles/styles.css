@@ -2,18 +2,30 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-@font-face {
+:root {
+    --title-font: vegetables;
+    --subtitle-italic: zenloop-italic;
+    --subtitle-regular: zenloop-regular;
+    --body-font: quicksand;
+
+    /** COLORS **/
+    --dark-golden: #FF9F1C; /* Naranja oscuro */
+    --tan: #FFBF69; /* Naranja menos oscuro */
+    --white: #FCFCFC;
+    --light-blue: #CBF3F0;
+    --turquoise: #2EC4B6;
+}
+
+h1, h2 {
     font-family: vegetables;
-    src: url(/static/fonts/vegetables/vegetables.ttf);
 }
 
-@import url(fonts.css);
-h1 {
-    font-family: vegetables;
+h3, h4 {
+    font-family: zenloop-regular;
 }
-
 
 
 
@@ -21,4 +33,22 @@ h1 {
 /* ************************************************************** FONTS ************************************************************** */
 /* *********************************************************************************************************************************** */
 
+@font-face {
+    font-family: quicksand;
+    src: url(/static/fonts/quicksand/quicksand-variable.ttf);
+}
 
+@font-face {
+    font-family: vegetables;
+    src: url(/static/fonts/vegetables/vegetables.ttf);
+}
+
+@font-face {
+    font-family: zenloop-italic;
+    src: url(/static/fonts/zenloop/zenloop-italic.ttf);
+}
+
+@font-face {
+    font-family: zenloop-regular;
+    src: url(/static/fonts/zenloop/zenloop-regular.ttf);
+}
