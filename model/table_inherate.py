@@ -1,15 +1,13 @@
-from distutils.log import error
-from msilib.schema import Error
 import sqlite3
 
 class TableInherate:
 
-    def __init__(self, database, table):
+    def __init__(self, database):
         self.database = database
-        self.table = table
 
     def _connect(self):
-        return sqlite3.connect(self.database)
+        conn = sqlite3.connect(self.database)
+        return conn
     
     def _get_table_name(self):
         # Returns the name of the class (matches the name of the table)
@@ -49,9 +47,18 @@ class TableInherate:
                 conn.close()
             return True
 
-
-    def update(self):
-        pass
-
-    def insert(self):
-        pass
+    def insert(self, attr, values):
+        try:
+            conn = self._connect()
+            c = conn.cursor()
+            c.execute('INSERT INTO {} {} VALUES {}'.format(self._get_table_name, str(attr), str(values)))
+            conn.commit()
+            c.close()
+        
+        except sqlite3.Error as error:
+            print('Error while executing sqlite script', error)
+        
+        finally:
+            if conn:
+                conn.close()
+            return True
