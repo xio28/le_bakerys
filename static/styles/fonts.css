@@ -1,34 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
-
-:root {
-    --title-font: vegetables;
-    --subtitle-italic: zenloop-italic;
-    --subtitle-regular: zenloop-regular;
-    --body-font: quicksand;
-
-    /** COLORS **/
-    --dark-golden: #FF9F1C; /* Naranja oscuro */
-    --tan: #FFBF69; /* Naranja menos oscuro */
-    --white: #FCFCFC;
-    --light-blue: #CBF3F0;
-    --turquoise: #2EC4B6;
-}
-
-h1, h2 {
-    font-family: vegetables;
-}
-
-h3, h4 {
-    font-family: zenloop-regular;
-}
-
-
-
 /* *********************************************************************************************************************************** */
 /* ************************************************************** FONTS ************************************************************** */
 /* *********************************************************************************************************************************** */
