@@ -6,8 +6,11 @@ html{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+<<<<<<< HEAD
 }
 body {
+=======
+>>>>>>> 1bb01de6f000d5765405bc88ae689f934933646f
     overflow-x: hidden;
 }
 

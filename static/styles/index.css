@@ -5,6 +5,7 @@ body {
 h1 {
     color: var(--white);
     font-size: 8rem;
+<<<<<<< HEAD
     padding-left: 4rem;
 }
 
@@ -75,12 +76,26 @@ header nav ul li a {
     position: relative;
     top: 15%;
 }
+=======
+    text-align: center;
+}
+
+
+header {
+    width: 100vw;
+    height: 100vh;
+}
+>>>>>>> 1bb01de6f000d5765405bc88ae689f934933646f
 .waves {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+<<<<<<< HEAD
     height: 350px;
+=======
+    height: 200px;
+>>>>>>> 1bb01de6f000d5765405bc88ae689f934933646f
     background-color: var(--dark-golden);
     box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
     transition: 5000ms;
@@ -88,7 +103,10 @@ header nav ul li a {
     -moz-transition: 5000ms;
     -ms-transition: 5000ms;
     -o-transition: 5000ms;
+<<<<<<< HEAD
     overflow: hidden;
+=======
+>>>>>>> 1bb01de6f000d5765405bc88ae689f934933646f
 }
 .waves::before, .waves::after {
     content: '';
@@ -117,6 +135,7 @@ header nav ul li a {
     -webkit-animation: waves 20s linear infinite;
 }
 
+<<<<<<< HEAD
 .bg-effects {
     background: url(/static/resources/img/wood-pattern.jpg);
     background-position: center;
@@ -135,6 +154,8 @@ header nav ul li a {
     z-index: -1;
 }
 
+=======
+>>>>>>> 1bb01de6f000d5765405bc88ae689f934933646f
 
 /* KEYFRAMES */
 @keyframes waves {
@@ -144,7 +165,11 @@ header nav ul li a {
         -moz-transform: translate(-50%, -75%) rotate(0deg);
         -ms-transform: translate(-50%, -75%) rotate(0deg);
         -o-transform: translate(-50%, -75%) rotate(0deg);
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> 1bb01de6f000d5765405bc88ae689f934933646f
 
     100% {
         transform: translate(-50%, -75%) rotate(360deg);
@@ -152,5 +177,9 @@ header nav ul li a {
         -moz-transform: translate(-50%, -75%) rotate(360deg);
         -ms-transform: translate(-50%, -75%) rotate(360deg);
         -o-transform: translate(-50%, -75%) rotate(360deg);
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> 1bb01de6f000d5765405bc88ae689f934933646f
 }
