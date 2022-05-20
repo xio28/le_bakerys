@@ -1,5 +1,5 @@
 import sqlite3
-from bottle import route, get, post, run, template, request, redirect
+from bottle import *
 
 @get('/')
 def index():
