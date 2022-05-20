@@ -49,10 +49,30 @@ CREATE TABLE orders (
     FOREIGN KEY (client_nid) REFERENCES clients(nid)
 );
 
+CREATE TABLE invoices (
+    inv_id INT NOT NULL,
+    c_nid VARCHAR(9) NOT NULL,
+    c_name VARCHAR(80) NOT NULL,
+    c_surname1 VARCHAR(80) NOT NULL,
+    c_surname2 VARCHAR(80) NULL,
+    c_street VARCHAR(100) NOT NULL,
+    c_number INT NOT NULL,
+    c_postal_code INT NOT NULL,
+    c_city VARCHAR(50) NOT NULL,
+    o_subtotal DEC(5,2) NOT NULL,
+    o_total DEC(5,2) NOT NULL,
+    product_id INT NOT NULL,
+    order_id INT NOT NULL,
+    CONSTRAINT fk_client FOREIGN KEY (c_nid) references clients(nid),
+    CONSTRAINT fk_order FOREIGN KEY (o_id) references orders(order_id),
+    CONSTRAINT fk_order FOREIGN KEY (p_id) references products(product_id),
+    CONSTRAINT pk_invoice UNIQUE (inv_id, product_id, client_nid)
+);
+
 CREATE TABLE clients_orders (
     id_client INT NOT NULL,
     id_order INT NOT NULL,
-    order_date datetime
+    order_date DATETIME
 );
 
 CREATE TABLE employees_orders (
