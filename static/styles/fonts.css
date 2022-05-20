@@ -1,0 +1,23 @@
+/* *********************************************************************************************************************************** */
+/* ************************************************************** FONTS ************************************************************** */
+/* *********************************************************************************************************************************** */
+
+@font-face {
+    font-family: quicksand;
+    src: url(/static/fonts/quicksand/quicksand-variable.ttf);
+}
+
+@font-face {
+    font-family: vegetables;
+    src: url(/static/fonts/vegetables/vegetables.ttf);
+}
+
+@font-face {
+    font-family: zenloop-italic;
+    src: url(/static/fonts/zenloop/zenloop-italic.ttf);
+}
+
+@font-face {
+    font-family: zenloop-regular;
+    src: url(/static/fonts/zenloop/zenloop-regular.ttf);
+}
