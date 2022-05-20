@@ -19,7 +19,7 @@ CREATE TABLE clients (
     city VARCHAR(50) NOT NULL,
     contact VARCHAR(12),
     CONSTRAINT fk_user_client FOREIGN KEY (username) REFERENCES users(username),
-    PRIMARY KEY (nid, username), -- en clientes, el nid y el username son clave primera compuesta ¿?
+    PRIMARY KEY (nid, username), -- en clientes, el nid y el username son clave primaria compuesta ¿?
     email VARCHAR(40) REFERENCES users(email),
     pass VARCHAR(20) REFERENCES users(pass)
 );
