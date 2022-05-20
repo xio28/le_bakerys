@@ -3,6 +3,7 @@ CREATE DATABASE le_bakery;
 USE le_bakery;
 
 CREATE TABLE users (
+    users_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(30) PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) UNIQUE,
     pass VARCHAR(30) NOT NULL
@@ -10,32 +11,31 @@ CREATE TABLE users (
 
 CREATE TABLE clients (
     nid VARCHAR(9) NOT NULL,
-    name VARCHAR(80) NOT NULL,
+    c_name VARCHAR(80) NOT NULL,
+    client_id INT AUTO_INCREMENT, -- Quitarlo si no hace falta.
     surname1 VARCHAR(80) NOT NULL,
     surname2 VARCHAR(80) NULL,
     street VARCHAR(100) NOT NULL,
-    number INT NOT NULL,
+    s_number INT NOT NULL,
     postal_code INT NOT NULL,
     city VARCHAR(50) NOT NULL,
     contact VARCHAR(12),
-    CONSTRAINT fk_user_client FOREIGN KEY (username) REFERENCES users(username),
-    PRIMARY KEY (nid, username), -- en clientes, el nid y el username son clave primaria compuesta ¿?
-    email VARCHAR(40) REFERENCES users(email),
-    pass VARCHAR(20) REFERENCES users(pass)
+    PRIMARY KEY (nid, client_id) -- en clientes, el nid y el username son clave primaria compuesta ¿?
+    FOREIGN KEY (client_id) REFERENCES users(user_id),
 );
 
 CREATE TABLE employees (
     emp_id INT PRIMARY KEY AUTO_INCREMENT,
-    FOREIGN KEY (username) REFERENCES users(username),
-    name VARCHAR(80) NOT NULL,
+    e_name VARCHAR(80) NOT NULL,
     surname1 VARCHAR(80) NOT NULL,
-    surname2 VARCHAR(80) NOT NULL,
-    admin BOOLEAN DEFAULT false
+    surname2 VARCHAR(80) NULL,
+    admin BOOLEAN DEFAULT false,
+    FOREIGN KEY (emp_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE products (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
+    p_name VARCHAR(50) NOT NULL,
     price DEC(5,2) NOT NULL,
     category VARCHAR(50) NOT NULL,
     stock INT DEFAULT 0
@@ -46,7 +46,8 @@ CREATE TABLE orders (
     discount DEC(5,2) NOT NULL,
     subtotal DEC(5,2) NOT NULL,
     total DEC(5,2) NOT NULL,
-    FOREIGN KEY (client_nid) REFERENCES clients(nid)
+    order_date DATETIME NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(client_id)
 );
 
 CREATE TABLE invoices (
@@ -63,44 +64,38 @@ CREATE TABLE invoices (
     o_total DEC(5,2) NOT NULL,
     product_id INT NOT NULL,
     order_id INT NOT NULL,
-    CONSTRAINT fk_client FOREIGN KEY (c_nid) references clients(nid),
-    CONSTRAINT fk_order FOREIGN KEY (o_id) references orders(order_id),
-    CONSTRAINT fk_order FOREIGN KEY (p_id) references products(product_id),
-    CONSTRAINT pk_invoice UNIQUE (inv_id, product_id, client_nid)
-);
-
-CREATE TABLE clients_orders (
-    id_client INT NOT NULL,
-    id_order INT NOT NULL,
-    order_date DATETIME
+    PRIMARY KEY (inv_id, product_id, client_nid),
+    FOREIGN KEY (c_nid) REFERENCES clients(nid),
+    FOREIGN KEY (o_id) REFERENCES orders(order_id),
+    FOREIGN KEY (p_id) REFERENCES products(product_id)
 );
 
 CREATE TABLE employees_orders (
     emp_id INT NOT NULL,
-    id_order INT NOT NULL,
+    order_id INT NOT NULL,
     order_prepared datetime,
-    CONSTRAINT employees_orders_employee FOREIGN KEY (emp_id) references orders(emp_id),
-    CONSTRAINT employees_orders_order FOREIGN KEY (id_order) references products(order_id),
-    CONSTRAINT employees_orders_unique UNIQUE (id_order, emp_id)
+    PRIMARY KEY (id_order, emp_id),
+    FOREIGN KEY (emp_id) REFERENCES employees(emp_id),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
 CREATE TABLE products_orders (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     amount INT NOT NULL,
-    CONSTRAINT products_orders_order FOREIGN KEY (order_id) references orders(order_id),
-    CONSTRAINT products_orders_product FOREIGN KEY (product_id) references products(product_id),
-    CONSTRAINT products_orders_unique UNIQUE (product_id, order_id)
+    PRIMARY KEY (product_id, order_id),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
 CREATE TABLE clients_products (
-    client_nid VARCHAR(9) NOT NULL,
+    client_id VARCHAR(9) NOT NULL,
     product_id INT NOT NULL,
     rating INT NOT NULL,
     comment VARCHAR(100),
-    CONSTRAINT clients_products_client FOREIGN KEY (client_nid) references clients(nid),
-    CONSTRAINT clients_products_product FOREIGN KEY (product_id) references products(product_id),
-    CONSTRAINT clients_products_unique UNIQUE (product_id, client_nid)
+    PRIMARY KEY (product_id, client_nid),
+    FOREIGN KEY (client_id) REFERENCES clients(client_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
 
