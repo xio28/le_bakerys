@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/styles/styles.css">
     <link rel="stylesheet" href="/static/styles/register.css">
+    <script src="/static/js/jquery-min.js" async></script>
     <title>{{title}}</title>
 </head>
 <body>
