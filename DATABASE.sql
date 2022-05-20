@@ -52,22 +52,13 @@ CREATE TABLE orders (
 
 CREATE TABLE invoices (
     inv_id INT NOT NULL,
-    c_nid VARCHAR(9) NOT NULL,
-    c_name VARCHAR(80) NOT NULL,
-    c_surname1 VARCHAR(80) NOT NULL,
-    c_surname2 VARCHAR(80) NULL,
-    c_street VARCHAR(100) NOT NULL,
-    c_number INT NOT NULL,
-    c_postal_code INT NOT NULL,
-    c_city VARCHAR(50) NOT NULL,
-    o_subtotal DEC(5,2) NOT NULL,
-    o_total DEC(5,2) NOT NULL,
+    client_id INT NOT NULL,
     product_id INT NOT NULL,
     order_id INT NOT NULL,
-    PRIMARY KEY (inv_id, product_id, client_nid),
-    FOREIGN KEY (c_nid) REFERENCES clients(nid),
-    FOREIGN KEY (o_id) REFERENCES orders(order_id),
-    FOREIGN KEY (p_id) REFERENCES products(product_id)
+    PRIMARY KEY (inv_id, product_id, client_id, order_id),
+    FOREIGN KEY (client_id) REFERENCES clients(client_id),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
 CREATE TABLE employees_orders (
