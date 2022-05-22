@@ -132,6 +132,19 @@ header nav ul li a {
     -ms-border-radius: 0 0 50% 50%;
     -o-border-radius: 0 0 50% 50%;
     box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.774);
+    z-index: -2;
+}
+.bg-effects::before {
+    content: '';
+    background: url(/static/resources/img/cake-header.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 45rem;
+    height: 45rem;
+    position: absolute;
+    top: 25%;
+    right: 15%;
     z-index: -1;
 }
 
