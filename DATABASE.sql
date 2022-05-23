@@ -4,13 +4,13 @@ USE le_bakery;
 
 CREATE TABLE users (
     users_id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(30) PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) UNIQUE,
-    pass VARCHAR(30) NOT NULL
+    pass VARCHAR(50 NOT NULL
 );
 
 CREATE TABLE clients (
-    nid VARCHAR(9) NOT NULL,
+    nid VARCHAR(9) UNIQUE,
     c_name VARCHAR(80) NOT NULL,
     client_id INT AUTO_INCREMENT, -- Quitarlo si no hace falta.
     surname1 VARCHAR(80) NOT NULL,
@@ -20,8 +20,8 @@ CREATE TABLE clients (
     postal_code INT NOT NULL,
     city VARCHAR(50) NOT NULL,
     contact VARCHAR(12),
-    PRIMARY KEY (nid, client_id) -- en clientes, el nid y el username son clave primaria compuesta ¿?
-    FOREIGN KEY (client_id) REFERENCES users(user_id),
+    PRIMARY KEY (nid, client_id), -- en clientes, el nid y el username son clave primaria compuesta ¿?
+    FOREIGN KEY (client_id) REFERENCES users(users_id)
 );
 
 CREATE TABLE employees (
@@ -30,12 +30,12 @@ CREATE TABLE employees (
     surname1 VARCHAR(80) NOT NULL,
     surname2 VARCHAR(80) NULL,
     admin BOOLEAN DEFAULT false,
-    FOREIGN KEY (emp_id) REFERENCES users(user_id)
+    FOREIGN KEY (emp_id) REFERENCES users(users_id)
 );
 
 CREATE TABLE products (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
-    p_name VARCHAR(50) NOT NULL,
+    p_name VARCHAR(80) NOT NULL,
     price DEC(5,2) NOT NULL,
     category VARCHAR(50) NOT NULL,
     stock INT DEFAULT 0
@@ -64,7 +64,7 @@ CREATE TABLE invoices (
 CREATE TABLE employees_orders (
     emp_id INT NOT NULL,
     order_id INT NOT NULL,
-    order_prepared datetime,
+    order_prepared DATETIME,
     PRIMARY KEY (id_order, emp_id),
     FOREIGN KEY (emp_id) REFERENCES employees(emp_id),
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
