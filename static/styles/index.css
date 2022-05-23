@@ -2,19 +2,35 @@ body {
     background: var(--turquoise);
 }
 
-h1 {
+header h1 {
     color: var(--white);
     font-size: 8rem;
     padding-left: 4rem;
+    z-index: 3;
 }
 
 header {
+    background: url(/static/resources/img/header-img2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     text-align: center;
     width: 100vw;
     height: 100vh;
 }
-header img {
-    width: 35rem;
+header::before {
+    content: '';
+    background-color: var(--tan);
+    position: absolute;
+    width: 60vw;
+    height: 100vh;
+    left: -10vw;
+    transform: skewX(-12deg);
+    -webkit-transform: skewX(-12deg);
+    -moz-transform: skewX(-12deg);
+    -ms-transform: skewX(-12deg);
+    -o-transform: skewX(-12deg);
+    box-shadow: 5px 0px 5px 5px rgba(20, 20, 20, 0.288);
 }
 header nav {
     width: 100%;
@@ -29,6 +45,7 @@ header nav {
     width: 55%;
     display: inline-flex;
     align-items: center;
+    z-index: 3;
 }
 header nav ul {
     list-style: none;
@@ -72,17 +89,40 @@ header nav ul li a {
     width: 3rem;
 }
 .logo {
+    width: 35rem;
     position: relative;
     top: 15%;
+    right: 25vw;
+    z-index: 3;
+    animation-name: fade-in-right;
+    animation-duration: 3s;
+}
+header h2 {
+    color: var(--white);
+    font-size: 4rem;
+    position: relative;
+    top: 42vh;
+    left: -25vw;
+    z-index: 4;
+    opacity: 0;
+    animation-name: fade-in-right;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+footer {
+    background: var(--dark-golden);
+    width: 100vw;
+    height: 30vh;
 }
 .waves {
     position: absolute;
-    bottom: 0;
+    bottom: -30vh;
     left: 0;
     right: 0;
-    height: 350px;
+    height: 250px;
     background-color: var(--dark-golden);
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
     transition: 5000ms;
     -webkit-transition: 5000ms;
     -moz-transition: 5000ms;
@@ -92,9 +132,9 @@ header nav ul li a {
 }
 .waves::before, .waves::after {
     content: '';
-    position: absolute;
     width: 300vw;
     height: 300vw;
+    position: absolute;
     top: -65vw;
     left: 50%;
     transform: translate(-50%, -75%);
@@ -117,37 +157,6 @@ header nav ul li a {
     -webkit-animation: waves 20s linear infinite;
 }
 
-.bg-effects {
-    background: url(/static/resources/img/wood-pattern.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 65rem;
-    height: 65rem;
-    position: absolute;
-    top: -6%;
-    left: 59%;
-    border-radius: 0 0 50% 50%;
-    -webkit-border-radius: 0 0 50% 50%;
-    -moz-border-radius: 0 0 50% 50%;
-    -ms-border-radius: 0 0 50% 50%;
-    -o-border-radius: 0 0 50% 50%;
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.774);
-    z-index: -2;
-}
-.bg-effects::before {
-    content: '';
-    background: url(/static/resources/img/cake-header.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 45rem;
-    height: 45rem;
-    position: absolute;
-    top: 25%;
-    right: 15%;
-    z-index: -1;
-}
-
 
 /* KEYFRAMES */
 @keyframes waves {
@@ -165,5 +174,14 @@ header nav ul li a {
         -moz-transform: translate(-50%, -75%) rotate(360deg);
         -ms-transform: translate(-50%, -75%) rotate(360deg);
         -o-transform: translate(-50%, -75%) rotate(360deg);
+    }
+}
+@keyframes fade-in-right {
+    from {
+        right: -110vw;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
