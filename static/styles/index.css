@@ -15,7 +15,7 @@ header::before {
     content: '';
     background: rgba(247, 247, 247, 0.555);
     width: 33vw;
-    height: 120vh;
+    height: 90vh;
     top: 10vh;
     position: absolute;
     border-radius: 0 5px;
@@ -71,7 +71,7 @@ header nav {
     margin: 0 auto;
 }
 nav .menu-items {
-    background: #ffbe698f;
+    background: #ffbe69c7;
     text-align: center;
     width: 100%;
     list-style: none;
@@ -85,8 +85,7 @@ nav .menu-items {
     -o-border-radius: 0 0 5px 5px;
 }
 nav .menu-items li {
-    width: 25%;
-    height: 5rem;
+
     margin: 0 auto;
 }
 nav .menu-items li a {
@@ -95,36 +94,40 @@ nav .menu-items li a {
     font-size: 2rem;
     font-weight: 700;
     text-decoration: none;
-    width: 100%;
-    height: 100%;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.63);    
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    transition: all 0.5s ease-in-out;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
 }
 nav .menu-items li a::before {
     content: attr(data-item);
-    color: var(--light-blue);
-    top: 0;
-    bottom: 0;
+    color: #2EC4B6;
+    bottom: 25%;
     left: 0;
     right: 0;
     width: 0;
     position: absolute;
     overflow: hidden;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
+    transition: 0.25s;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -o-transition: 0.25s;
+}
+nav .menu-items li a:hover {
+    text-shadow: none;  
 }
 nav .menu-items li a:hover::before {
     width: 100%;
     transition: all 0.5s ease-in-out;
 }
-
-
 
 
 .carousel__container {
@@ -140,17 +143,24 @@ nav .menu-items li a:hover::before {
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     overflow: hidden;
+    display: flex;
 }
 .carousel_item {
     background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
     animation-name: carousel-slide;
-    animation-duration: 15;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
+    left: 0%;
 }
 .carousel_item:nth-child(1) {
     background-size: cover;
     background: url(/static/resources/img/header1.jpg);
     background-position: center center;
+    left: -100%;
 }
 .carousel_item:nth-child(2) {
     background: url(/static/resources/img/header-carousel2.jpg);
@@ -158,46 +168,19 @@ nav .menu-items li a:hover::before {
     background-position: center;
     width: 100%;
     height: 100%;
-    animation-delay: 2s;
+    left: -200%;
 }
-.carousel_item:nth-child(2) {
+.carousel_item:nth-child(3) {
     background: url(/static/resources/img/header-carousel3.jpg);
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 100%;
-    animation-delay: 5s;
 }
-@keyframes carousel-slide-in {
-    from {
-        transform: translateX(101%);
-        -webkit-transform: translateX(101%);
-        -moz-transform: translateX(101%);
-        -ms-transform: translateX(101%);
-        -o-transform: translateX(101%);
-}
+
+@keyframes carousel-slide {
     to {
-        transform: translateX(0);
-        -webkit-transform: translateX(0);
-        -moz-transform: translateX(0);
-        -ms-transform: translateX(0);
-        -o-transform: translateX(0);
-    }
-}
-@keyframes carousel-slide-out {
-    from {
-        transform: translateX(0);
-        -webkit-transform: translateX(0);
-        -moz-transform: translateX(0);
-        -ms-transform: translateX(0);
-        -o-transform: translateX(0);
-    }
-    to {
-        transform: translateX(101%);
-        -webkit-transform: translateX(101%);
-        -moz-transform: translateX(101%);
-        -ms-transform: translateX(101%);
-        -o-transform: translateX(101%);
+        left: -100%;
     }
 }
 
