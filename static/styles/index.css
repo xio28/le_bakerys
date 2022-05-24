@@ -3,6 +3,7 @@ body {
     /* https://www.behance.net/gallery/60867921/Magic-Sushi */
 }
 
+
 header {
     background: url(/static/resources/img/header-img2.jpg);
     background-position: center;
@@ -65,40 +66,65 @@ header h2 {
     z-index: 3;
     text-shadow: #3f3f3f94 3px 1px 2px;
 }
-header button {
-    background: var(--turquoise);
-    width: 20rem;
-    height: 20rem;
-    border: none;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    position: fixed;
-    top: -10vh;
-    right: -10vh;
-    transition: 0.7s;
-    -webkit-transition: 0.7s;
-    -moz-transition: 0.7s;
-    -ms-transition: 0.7s;
-    -o-transition: 0.7s;
-    z-index: 3;
+header nav {
+    width: 80vw;
+    margin: 0 auto;
 }
-header button:hover {
-    width: 35rem;
-    height: 35rem;
-    top: -17.5vh;
-    right: -17.5vh;
-}
-header nav ul {
+nav .menu-items {
+    background: #ffbe698f;
+    text-align: center;
+    width: 100%;
     list-style: none;
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -ms-border-radius: 0 0 5px 5px;
+    -o-border-radius: 0 0 5px 5px;
 }
-.nav-item a {
-    color: var(--dark-golden);
+nav .menu-items li {
+    width: 25%;
+    height: 5rem;
+    margin: 0 auto;
+}
+nav .menu-items li a {
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: 2rem;
+    font-weight: 700;
     text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.5s ease-in-out;
 }
+nav .menu-items li a::before {
+    content: attr(data-item);
+    color: var(--light-blue);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    position: absolute;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+nav .menu-items li a:hover::before {
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+
 
 
 .carousel__container {
