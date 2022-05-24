@@ -39,7 +39,6 @@ h1 {
 }
 
 #slider .sld {
-    float: left;
     list-style-type: none;
     width: 720px;
     height: 400px;

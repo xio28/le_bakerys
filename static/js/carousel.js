@@ -1,5 +1,7 @@
 $(function() {
 
-    $('#slider').animate()
+    $('#slider').animate({
+        left: "-=150%"
+    }, 1000);
 
 });
