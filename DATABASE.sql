@@ -43,6 +43,7 @@ CREATE TABLE products (
 
 CREATE TABLE orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
+    client_id INT,
     discount DEC(5,2) NOT NULL,
     subtotal DEC(5,2) NOT NULL,
     total DEC(5,2) NOT NULL,
