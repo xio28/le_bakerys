@@ -1,24 +1,31 @@
 import sqlite3
+from abc import ABC
+from config.config import DATABASE
 
-class TableInherate:
+class TableInherate(ABC):
 
-    def __init__(self, database):
-        self.database = database
+    def __init__(self):
+        self.database = DATABASE
 
-    def _connect(self):
-        conn = sqlite3.connect(self.database)
-        return conn
-    
-    def _get_table_name(self):
-        # Returns the name of the class (matches the name of the table)
+    def get_name(self):
         return type(self).__name__.lower()
 
+    def _connect(self):
+        return sqlite3.connect(self.database)
+
+    def create(self, definitions):
+        conn = self._connect()
+        cursor = conn.cursor()
+        cursor.execute(f'CREATE TABLE IF NOT EXISTS {self.get_name()} ({definitions})')
+        conn.commit()
+        conn.close()
+
     def select(self):
-        data = None
+        data = ""
         try:
             conn = self._connect()
             c = conn.cursor()
-            c.execute('SELECT * FROM ?', (self._get_table_name()))
+            c.execute(f'SELECT * FROM {self.get_name()}')
             data = c.fetchall()
             conn.commit()
             c.close()
@@ -31,14 +38,14 @@ class TableInherate:
                 conn.close()
             return data
 
-    def delete(self, id):
+    def insert(self, values, attr=""):
         try:
             conn = self._connect()
             c = conn.cursor()
-            c.execute('DELETE FROM ? WHERE id LIKE ?', (self._get_table_name, id))
+            c.execute(f'INSERT INTO {self.get_name()} {str(attr)} VALUES {str(values)}')
             conn.commit()
             c.close()
-        
+
         except sqlite3.Error as error:
             print('Error while executing sqlite script', error)
 
@@ -47,17 +54,17 @@ class TableInherate:
                 conn.close()
             return True
 
-    def insert(self, values, attr=""):
+    def delete(self, where):
         try:
             conn = self._connect()
             c = conn.cursor()
-            c.execute('INSERT INTO {} {} VALUES {}'.format(self._get_table_name(), str(attr), str(values)))
+            c.execute(f'DELETE FROM {self.get_name()} WHERE {where}')
             conn.commit()
             c.close()
         
         except sqlite3.Error as error:
             print('Error while executing sqlite script', error)
-        
+
         finally:
             if conn:
                 conn.close()
