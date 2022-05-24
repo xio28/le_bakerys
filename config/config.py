@@ -1,1 +1,1 @@
-DATABASE = 'boutique.db'
+DATABASE = 'le_bakery.db'

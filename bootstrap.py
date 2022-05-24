@@ -1,6 +1,8 @@
 import sqlite3
 from config.config import DATABASE
 from os.path import exists
+from model.products import Products
+from model.users import Users
 
 def create_connection(db):
     conn = None
@@ -14,6 +16,7 @@ def create_connection(db):
         if conn:
             conn.close()
 
+'''
 def create_database(db_file):
     conn = create_connection(DATABASE)
     conn.executescript("""
@@ -104,6 +107,11 @@ def create_database(db_file):
     );
     """)
     conn.commit()
+
+'''
+
+products = Products()
+users = Users()
 
 if __name__ == '__main__':
     if not exists(DATABASE):
