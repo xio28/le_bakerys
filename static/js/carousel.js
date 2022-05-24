@@ -1,5 +1,5 @@
 $(function() {
 
-    $('#slider')
+    $('#slider').animate()
 
 });
