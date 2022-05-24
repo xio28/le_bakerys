@@ -1,121 +1,181 @@
 body {
-    background: var(--turquoise);
-}
-
-header h1 {
-    color: var(--white);
-    font-size: 8rem;
-    padding-left: 4rem;
-    z-index: 3;
+    background: var(--tan);
+    /* https://www.behance.net/gallery/60867921/Magic-Sushi */
 }
 
 header {
     background: url(/static/resources/img/header-img2.jpg);
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    text-align: center;
     width: 100vw;
     height: 100vh;
 }
 header::before {
     content: '';
-    background-color: var(--tan);
+    background: rgba(247, 247, 247, 0.555);
+    width: 33vw;
+    height: 120vh;
+    top: 10vh;
     position: absolute;
-    width: 60vw;
-    height: 100vh;
-    left: -10vw;
-    transform: skewX(-12deg);
-    -webkit-transform: skewX(-12deg);
-    -moz-transform: skewX(-12deg);
-    -ms-transform: skewX(-12deg);
-    -o-transform: skewX(-12deg);
-    box-shadow: 5px 0px 5px 5px rgba(20, 20, 20, 0.288);
+    border-radius: 0 5px;
+    -webkit-border-radius: 0 5px;
+    -moz-border-radius: 0 5px;
+    -ms-border-radius: 0 5px;
+    -o-border-radius: 0 5px;
+    z-index: 0;
 }
-header nav {
-    width: 100%;
-    height: 12%;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-    z-index: 2;
+header h1 {
+    color: var(--light-blue);
+    text-shadow: #3f3f3f 3px 5px 2px;
+    text-align: center;
+    font-size: 12rem;
+    padding-top: 8rem;
 }
-.nav-bar_elements {
-    width: 55%;
-    display: inline-flex;
-    align-items: center;
+header a img {
+    background: var(--light-blue);
+    width: 4.5rem;
+    position: fixed;
+    top: 2.75rem;
+    right: 4.5rem;
     z-index: 3;
 }
-header nav ul {
-    list-style: none;
-    width: 100%;
-    display: inline-flex;
-    justify-content: center;
-}
-header nav ul li {
-    width: 25%;
-    height: 4rem;
-    margin: 0 1rem;
-}
-header nav ul li:last-of-type {
-    margin-right: 0;
-}
-header nav ul li a {
-    color: var(--light-blue);
-    text-decoration: none;
-    font-family: var(--body-font);
-    font-size: 1.8rem;
-    font-weight: 700;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.nav-item::before {
-
-}
-.nav-item:hover {
-    
-}
-.nav-bar_elements .icons {
-    width: 10rem;
-    display: inline-flex;
-    justify-content: space-between;
-    margin-right: 3rem;
-}
-.nav-bar_elements .icons img {
-    width: 3rem;
+.logo, header h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    z-index: 3;
 }
 .logo {
+    background: url(/static/resources/img/LOGO-LB.png);
+    background-size: cover;
     width: 35rem;
-    position: relative;
-    top: 15%;
-    right: 25vw;
-    z-index: 3;
-    animation-name: fade-in-right;
-    animation-duration: 3s;
+    height: 35rem;
+    filter: drop-shadow(1px 5px 1px rgba(46, 46, 46, 0.582));
+    -webkit-filter: drop-shadow(1px 5px 1px rgba(46, 46, 46, 0.582));
 }
 header h2 {
     color: var(--white);
     font-size: 4rem;
-    position: relative;
-    top: 42vh;
-    left: -25vw;
-    z-index: 4;
-    opacity: 0;
-    animation-name: fade-in-right;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.7s;
+    top: 55%;
+    z-index: 3;
+    text-shadow: #3f3f3f94 3px 1px 2px;
+}
+header button {
+    background: var(--turquoise);
+    width: 20rem;
+    height: 20rem;
+    border: none;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: fixed;
+    top: -10vh;
+    right: -10vh;
+    transition: 0.7s;
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -ms-transition: 0.7s;
+    -o-transition: 0.7s;
+    z-index: 3;
+}
+header button:hover {
+    width: 35rem;
+    height: 35rem;
+    top: -17.5vh;
+    right: -17.5vh;
+}
+header nav ul {
+    list-style: none;
+    display: none;
+}
+.nav-item a {
+    color: var(--dark-golden);
+    text-decoration: none;
 }
 
-footer {
-    background: var(--dark-golden);
-    width: 100vw;
-    height: 30vh;
+
+.carousel__container {
+    background: #2EC4B6;
+    width: 85vw;
+    height: 85vh;
+    margin: 0 auto;
+    position: relative;
+    top: -40vh;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    overflow: hidden;
 }
+.carousel_item {
+    background-repeat: no-repeat;
+    animation-name: carousel-slide;
+    animation-duration: 15;
+    animation-iteration-count: infinite;
+}
+.carousel_item:nth-child(1) {
+    background-size: cover;
+    background: url(/static/resources/img/header1.jpg);
+    background-position: center center;
+}
+.carousel_item:nth-child(2) {
+    background: url(/static/resources/img/header-carousel2.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    animation-delay: 2s;
+}
+.carousel_item:nth-child(2) {
+    background: url(/static/resources/img/header-carousel3.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    animation-delay: 5s;
+}
+@keyframes carousel-slide-in {
+    from {
+        transform: translateX(101%);
+        -webkit-transform: translateX(101%);
+        -moz-transform: translateX(101%);
+        -ms-transform: translateX(101%);
+        -o-transform: translateX(101%);
+}
+    to {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+@keyframes carousel-slide-out {
+    from {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+    to {
+        transform: translateX(101%);
+        -webkit-transform: translateX(101%);
+        -moz-transform: translateX(101%);
+        -ms-transform: translateX(101%);
+        -o-transform: translateX(101%);
+    }
+}
+
+
 .waves {
     position: absolute;
     bottom: -30vh;
@@ -178,7 +238,7 @@ footer {
 }
 @keyframes fade-in-right {
     from {
-        right: -110vw;
+        left: -110vw;
         opacity: 0;
     }
     to {
