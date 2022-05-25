@@ -322,14 +322,18 @@ video {
     margin: 0 auto 0 3rem;
 }
 
-
+footer {
+    background: var(--tan);
+    height: 50vh;
+    margin-top: 10rem;
+}
 .waves {
-    position: absolute;
-    bottom: -30vh;
+    position: relative;
+    bottom: -20%;
     left: 0;
     right: 0;
-    height: 250px;
-    background-color: var(--dark-golden);
+    height: 300px;
+    background-color: var(--turquoise);
     transition: 5000ms;
     -webkit-transition: 5000ms;
     -moz-transition: 5000ms;
@@ -351,14 +355,14 @@ video {
     -o-transform: translate(-50%, -75%);
 }
 .waves::before {
-    background: #ffbf69;
+    background: var(--light-blue);
     border-radius: 44%;
     animation: waves 12s linear infinite;
     -webkit-animation: waves 12s linear infinite;
 }
 
 .waves::after {
-    background: #2EC4B6;
+    background: var(--tan);
     border-radius: 44%;
     animation: waves 15s linear infinite;
     -webkit-animation: waves 20s linear infinite;
