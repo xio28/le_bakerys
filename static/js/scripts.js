@@ -23,5 +23,5 @@ $(window).scroll(() => {
 function scrollToSection() {
     $("html, body").animate({
         scrollTop: $('#main_section').position().top
-    }, 800)
+    }, 801)
 };
