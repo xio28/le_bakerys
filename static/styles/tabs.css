@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.tabs {
+    width: 60%;
+    min-height: 10vh;
+    margin: 0 auto;
+}
+
+.tabs-list {
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+}
+
+.tab {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.tab-content {
+    display: none;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.tab-content.show {
+    display: block;
+}

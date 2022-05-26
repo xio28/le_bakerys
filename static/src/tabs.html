@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/styles/styles.css">
+        <link rel="stylesheet" href="/static/styles/tabs.css">
+        <script src="/static/js/jquery-3.6.0.min.js" async></script>
+        <script src="/static/js/tabs.js" defer></script>
+        <title>Pestañas con jquery</title>
+    </head>
+    <body>
+        <div class="container">
+            <form class="tabs" action="#" method="POST">
+                <div class="tab-list">
+                    <a class="tab active" href="#tab-3">Datos Personales</a>
+                    <a class="tab" href="#tab-1">Dirección</a>
+                    <a class="tab" href="#tab-2">Observaciones</a>
+                </div>
+                <div id="tab-1" class="tab-content show">
+                    <label for="name">Nombre</label>
+                    <input type="text" placeholder="Escribe tu nombre...">
+                    <label for="surname">Apellidos</label>
+                    <input type="text" placeholder="Escribe sus apellidos...">
+                </div>
+                <div id="tab-2" class="tab-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, ipsam dolores quia nostrum est nemo harum voluptate aut maxime esse aspernatur dignissimos dolore maiores quod rerum, perspiciatis sint itaque qui?</p>
+                </div>
+                <div id="tab-1" class="tab-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, ipsam dolores quia nostrum est nemo harum voluptate aut maxime esse aspernatur dignissimos dolore maiores quod rerum, perspiciatis sint itaque qui?</p>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
