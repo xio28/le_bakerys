@@ -22,20 +22,31 @@ header::before {
     height: 100vh;
     z-index: -1;
 }
+.account {
+    background: var(--dark-golden);
+    width: 4.3rem;
+    height: 4.3rem;
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    top: 1rem;
+    right: 3rem;
+}
+.account img {
+    width: 70%;
+}
 header h1 {
     color: var(--light-blue);
     text-shadow: #3f3f3f 3px 5px 2px;
     text-align: center;
     font-size: 12rem;
     padding-top: 8rem;
-}
-header a img {
-    background: var(--light-blue);
-    width: 4.5rem;
-    position: fixed;
-    top: 2.75rem;
-    right: 4.5rem;
-    z-index: 3;
 }
 .logo, header h2 {
     position: absolute;
@@ -308,7 +319,6 @@ video {
 }
 
 footer {
-    background: var(--tan);
     height: 50vh;
     margin-top: 10rem;
 }
@@ -372,7 +382,7 @@ footer {
         -o-transform: translate(-50%, -75%) rotate(360deg);
     }
 }
-@keyframes fade-in-right {
+@keyframes fade-in  {
     from {
         left: -110vw;
         opacity: 0;
