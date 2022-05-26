@@ -2,12 +2,6 @@ window.addEventListener("load", () => {
     console.log("Funciona")
 });
 
-/* if ($(this).scrollTop() > (pos.top + 10) && fixadent.css('position') == 'static') {
-    fixadent.addClass('fixed');
-} else {
-if ($(this).scrollTop() <= pos.top && fixadent.hasClass('fixed')) { 
-fixadent.removeClass('fixed');
-} */
 
 $(window).scroll(() => {
    let icon = $(".account");
@@ -20,7 +14,14 @@ $(window).scroll(() => {
    } else if ($(this).scrollTop() < 102 && icon.css("position") == "fixed") {
         icon.css("position", "absolute")
         .css("top", "1rem")
-        .css("transition", "0.5s")
+        .css("transition", "0.5s");
    };
 
 });
+
+
+function scrollToSection() {
+    $("html, body").animate({
+        scrollTop: $('#main_section').position().top
+    }, 800)
+};
