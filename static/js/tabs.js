@@ -10,7 +10,6 @@ $(function() {
         $(this).addClass('active');
         // Recoge el valor del href que es igual al id del contenido, y le añade la clase "show"
         $($(this).attr('href')).addClass('show');
-    
     });
-    
+
 });
