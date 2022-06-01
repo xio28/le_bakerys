@@ -13,7 +13,7 @@ CREATE TABLE clients (
     surname2 VARCHAR(80) NULL,
     street VARCHAR(100) NOT NULL,
     s_number INT NOT NULL,
-    story INT, -- Story es el piso
+    story VARCHAR(10), -- Story es el piso
     postal_code INT NOT NULL,
     city VARCHAR(50) NOT NULL,
     contact VARCHAR(12)

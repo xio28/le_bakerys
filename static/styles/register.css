@@ -1,0 +1,111 @@
+* {
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: var(--body-font);
+}
+
+html, body, div, form {
+    margin-right: 0;
+}
+
+/*********** CONTAINER *************/
+
+.container-register {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.form-item {
+    position: relative;
+    width: 70%;
+    height: 70vh;
+    margin: 0 auto;
+    /* display: flex; */
+    background-color: aquamarine;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.left-content {
+    width: 50%;
+    height: 100%;
+    background-image: url('/static/resources/img/cake.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.right-content {
+    width: 50%;
+    height: 100%;
+}
+
+.form-item form {
+    width: 50%;
+    height: 100%;
+    /* display: grid;
+    grid-template-rows: 10% 90%;
+    align-items: center;
+    position: relative; */
+}
+
+.list-tabs {
+    height: 3px;
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+
+.list-tabs .tab {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: black;
+}
+
+/* .active-t {
+    color: var(--white) !important;
+    background-color: rgba(255, 159, 28, 1) !important;
+	border: 2px solid rgba(252, 252, 252, 1) !important;
+} */
+
+label {
+    display: block;
+    font-size: 1.8rem;
+    width: 80%;
+    height: 2.5rem;
+}
+
+input {
+    display: block;
+    width: 80%;
+    height: 2.5rem;
+    border-style: none;
+    background-color: transparent;
+    border-bottom: 2px solid var(--dark-golden);
+    margin-bottom: 4%;
+}
+
+input:focus {
+    border: 0px solid;
+}
+
+.form-content {
+    width: 100%;
+    /* grid-row: 2 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute; */
+    display: none;
+}
+
+.show {
+    display: block;
+}
