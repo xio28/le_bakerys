@@ -32,6 +32,9 @@ h1, h2 {
 h3, h4 {
     font-family: zenloop-regular;
 }
+p {
+    font-family: var(--body-font);
+}
 
 
 
