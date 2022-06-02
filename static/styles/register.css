@@ -21,13 +21,14 @@ html, body, div, form {
     width: 70%;
     height: 70vh;
     margin: 0 auto;
-    /* display: flex; */
+    display: flex;
     background-color: aquamarine;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+    box-shadow: 10px 10px 10px #cbf3f0;
 }
 
 .left-content {
@@ -47,7 +48,8 @@ html, body, div, form {
 }
 
 .form-item form {
-    width: 50%;
+    position: relative;
+    width: 100%;
     height: 100%;
     /* display: grid;
     grid-template-rows: 10% 90%;
@@ -56,15 +58,42 @@ html, body, div, form {
 }
 
 .list-tabs {
-    height: 3px;
+    height: 15%;
+    width: 100%;
     display: inline-flex;
     justify-content: space-evenly;
+    position: relative;
 }
 
 .list-tabs .tab {
     width: 20px;
     height: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     border-radius: 100%;
+    background-color: black;
+}
+
+.t1 {
+    left: 17%;
+}
+
+.t2 {
+    left: 47%;
+}
+
+.t3 {
+    left: 78%;
+}
+
+.timeline_line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 2px;
+    width: 90%;
     background-color: black;
 }
 
@@ -97,6 +126,7 @@ input:focus {
 
 .form-content {
     width: 100%;
+    height: 85%;
     /* grid-row: 2 / 3;
     display: flex;
     flex-wrap: wrap;
