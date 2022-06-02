@@ -3,6 +3,8 @@ body {
     background-size: 14px 14px;
     background-image:  repeating-linear-gradient(to right, #2EC4B6, #2EC4B6 0.7000000000000001px, #CBF3F0 0.7000000000000001px, #CBF3F0);
     /* https://www.behance.net/gallery/60867921/Magic-Sushi */
+    /* https://dribbble.com/shots/15579378-Food-Delivery-Landing-page */
+    /* https://dribbble.com/shots/17990314-Food-Delivery-Landing-page */
 }
 
 
@@ -230,6 +232,13 @@ nav .menu-items li a:hover::before {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     box-shadow: 3px 4px 10px -1px rgba(26, 26, 26, 0.699);
+    margin: 5vh auto;
+/*     border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px; */
+    box-shadow: 1px 2px 14px -3px rgba(0,0,0,0.75);
 }
 #main_section h2 {
     color: var(--dark-golden);
