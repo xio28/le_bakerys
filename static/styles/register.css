@@ -22,13 +22,13 @@ html, body, div, form {
     height: 70vh;
     margin: 0 auto;
     display: flex;
-    background-color: aquamarine;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    box-shadow: 10px 10px 10px #cbf3f0;
+    background-color: var(--white);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    box-shadow: 6px 6px 12px grey;
 }
 
 .left-content {
@@ -38,13 +38,12 @@ html, body, div, form {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
 }
 
 .right-content {
     width: 50%;
     height: 100%;
+    padding: calc(20px + 1.4rem);
 }
 
 .form-item form {
@@ -59,32 +58,16 @@ html, body, div, form {
 
 .list-tabs {
     height: 15%;
-    width: 100%;
+    width: 90%;
     display: inline-flex;
     justify-content: space-evenly;
     position: relative;
-}
-
-.list-tabs .tab {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 100%;
-    background-color: black;
-}
-
-.t1 {
-    left: 17%;
-}
-
-.t2 {
-    left: 47%;
-}
-
-.t3 {
-    left: 78%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }
 
 .timeline_line {
@@ -93,9 +76,32 @@ html, body, div, form {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 2px;
-    width: 90%;
+    width: 100%;
     background-color: black;
 }
+
+.list-tabs .tab {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 100%;
+    background-color: black;
+}
+
+.t1 {
+    left: 0;
+}
+
+.t2 {
+    left: 47%;
+}
+
+.t3 {
+    left: 94.7%;
+}
+
 
 /* .active-t {
     color: var(--white) !important;
@@ -104,16 +110,12 @@ html, body, div, form {
 } */
 
 label {
-    display: block;
     font-size: 1.8rem;
     width: 80%;
     height: 2.5rem;
 }
 
 input {
-    display: block;
-    width: 80%;
-    height: 2.5rem;
     border-style: none;
     background-color: transparent;
     border-bottom: 2px solid var(--dark-golden);
@@ -127,6 +129,9 @@ input:focus {
 .form-content {
     width: 100%;
     height: 85%;
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     /* grid-row: 2 / 3;
     display: flex;
     flex-wrap: wrap;
@@ -137,5 +142,5 @@ input:focus {
 }
 
 .show {
-    display: block;
+    display: flex;
 }
