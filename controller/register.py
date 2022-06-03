@@ -73,7 +73,7 @@ class RegistrationForm(Form):
                                     ], 
                                         default='Escriba su localidad', 
                                         render_kw={'class': text_class})
-    privacy_policy = BooleanField('<a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">Acepto la política de privacidad.</a>', [
+    privacy_policy = BooleanField('Acepto la política de privacidad.', [
                                         validators.InputRequired()
                                     ])
     save = SubmitField('Guardar')
