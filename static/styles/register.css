@@ -12,7 +12,7 @@ html, body, div, form {
 .item-background{
     width: 100%;
     height: 100vh;
-    background-image: url('/cake.jpg');
+    background-image: url('/static/resources/img/cake.jpg');
     background-position: -150% 50%;
     background-repeat: no-repeat;
     background-size: 80%;
@@ -122,8 +122,8 @@ label {
 
 input {
     border-style: none;
-    background-color: var(--light-blue);
-    color: var(--turquoise);
+    background-color: #b3ac8e73;
+    color:#512907;
     border-radius: 0.4rem;
     width: 80%;
     height: 3rem;
@@ -131,12 +131,31 @@ input {
 }
 
 input:hover{
-    outline: 3px solid var(--turquoise);
+    outline: 3px solid #a13d167c;
     transition: all 100ms;
     -webkit-transition: all 100ms;
     -moz-transition: all 100ms;
     -ms-transition: all 100ms;
     -o-transition: all 100ms;
+}
+
+input:focus {
+    caret-color: #e95420;
+    animation-name: input-focus;
+    transition: all 300s;
+    -webkit-transition: all 300s;
+    -moz-transition: all 300s;
+    -ms-transition: all 300s;
+    -o-transition: all 300s;
+}
+
+@keyframes input-focus{
+    0%{
+        outline: 0px;
+    }
+    100%{
+        outline: 2px solid #a13d167c;
+    }
 }
 
 input:focus {
