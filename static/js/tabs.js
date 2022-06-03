@@ -1,5 +1,9 @@
 $(function() {
 
+    function next() {
+        // $('#next').
+    };
+
     $('.list-tabs').on('click', '.tab', function(e) {
         // En este caso, evita que se abran los links cuando se clique en ellos
         e.preventDefault();
