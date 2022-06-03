@@ -112,13 +112,6 @@ html, body, div, form {
     left: 94.7%;
 }
 
-
-/* .active-t {
-    color: var(--white) !important;
-    background-color: rgba(255, 159, 28, 1) !important;
-	border: 2px solid rgba(252, 252, 252, 1) !important;
-} */
-
 label {
     font-size: 1.8rem;
     font-weight: 500;
@@ -130,16 +123,39 @@ label {
 input {
     border-style: none;
     background-color: #b3ac8e73;
+    color:#512907;
     border-radius: 0.4rem;
-    height: 3rem;
     width: 80%;
     height: 3rem;
     margin: 1%;
 }
 
+input:hover{
+    outline: 3px solid #a13d167c;
+    transition: all 100ms;
+    -webkit-transition: all 100ms;
+    -moz-transition: all 100ms;
+    -ms-transition: all 100ms;
+    -o-transition: all 100ms;
+}
+
 input:focus {
-    outline: 2px solid #512907;
-    z-index: 1;
+    caret-color: #e95420;
+    animation-name: input-focus;
+    transition: all 300s;
+    -webkit-transition: all 300s;
+    -moz-transition: all 300s;
+    -ms-transition: all 300s;
+    -o-transition: all 300s;
+}
+
+@keyframes input-focus{
+    0%{
+        outline: 0px;
+    }
+    100%{
+        outline: 2px solid #a13d167c;
+    }
 }
 
 .form-content {
