@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
-    <link rel="stylesheet" type="text/css" href="register.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/register.css"/>
     <script src="jquery-3.6.0.min.js"></script>
-    <script src="tabs.js"></script>
+    <script src="/static/js/tabs.js"></script>
     <title>Registro | Le bakerys</title>
 </head>
 <body>
@@ -20,9 +20,9 @@
                 <form action="#" method="post">
                     <div class="list-tabs">
                         <div class="timeline_line"></div>
-                        <a class="t1 tab active-t" href="#tab-1"></a>
-                        <a class="t2 tab" href="#tab-2"></a>
-                        <a class="t3 tab" href="#tab-3"></a>
+                        <a class="t1 tab active-t" href="#tab-1"><span class="span icon-checkmark"></span></a>
+                        <a class="t2 tab" href="#tab-2"><span class="span"></span></a>
+                        <a class="t3 tab" href="#tab-3"><span class="span"></span></a>
                     </div>
                     <div id="tab-1" class="form-content show">
                         <label for="user">Nombre de usuario:</label>
@@ -31,7 +31,7 @@
                         <input type="text" name="pass">
                         <label for="email">Email:</label>
                         <input type="email" name="email">
-                        <input type="submit" value="Enviar"/>
+                        <input type="submit" value="Siguiente"/>
                     </div>
                     <div id="tab-2" class="form-content">
                         <label for="name">Nombre:</label>
@@ -56,6 +56,8 @@
                         <input type="number" name="p_code">
                         <label for="city">Localidad:</label>
                         <input type="text" name="city">
+                        <input type="button" value="Volver">
+                        <input type="button" value="Enviar"/>
                     </div>
                 </form>
             </div>
