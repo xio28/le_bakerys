@@ -13,6 +13,7 @@ def validatePhone(form, field):
 class RegistrationForm(Form):
     text_class = 'input-text'
     radio_class = 'input-radio'
+    policy = 'check-policy'
 
     username = StringField('Nombre de usuario ', [
                                         validators.Length(min=4, max=25, message="Longitud incorrecta"),
@@ -75,7 +76,8 @@ class RegistrationForm(Form):
                                         render_kw={'class': text_class})
     privacy_policy = BooleanField('Acepto la política de privacidad.', [
                                         validators.InputRequired()
-                                    ])
+                                    ],
+                                    render_kw={'class': policy})
     save = SubmitField('Guardar')
     cancel = SubmitField('Cancelar')
 
