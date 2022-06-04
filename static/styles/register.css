@@ -1,3 +1,29 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('/static/fonts/iconmoon/icomoon.eot?75a5nr');
+    src:  url('/static/fonts/iconmoon/icomoon.eot?75a5nr#iefix') format('embedded-opentype'),
+      url('/static/fonts/iconmoon/icomoon.ttf?75a5nr') format('truetype'),
+      url('/static/fonts/iconmoon/icomoon.woff?75a5nr') format('woff'),
+      url('/static/fonts/iconmoon/icomoon.svg?75a5nr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
 * {
     text-decoration: none;
     font-size: 2rem;
@@ -17,7 +43,6 @@ html, body, div, form {
     background-repeat: no-repeat;
     background-size: 80%;
     filter: blur(0.4rem);
-    /* Hola mundo*/
  }
 
 /*********** CONTAINER *************/
@@ -44,7 +69,7 @@ html, body, div, form {
 .left-content {
     width: 50%;
     height: 100%;
-    background-image: url('/cake.jpg');
+    background-image: url('/static/resources/img/cake.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -55,16 +80,13 @@ html, body, div, form {
     height: 100%;
     padding: calc(20px + 1.4rem);
     background-color: var(--white);
+    overflow-y: auto;
 }
 
 .form-item form {
     position: relative;
     width: 100%;
     height: 100%;
-    /* display: grid;
-    grid-template-rows: 10% 90%;
-    align-items: center;
-    position: relative; */
 }
 
 .list-tabs {
@@ -81,14 +103,19 @@ html, body, div, form {
     -o-transform: translateX(-50%);
 }
 
+.icon-checkmark:before {
+    content: "\ea10";
+    color: var(--turquoise);
+    font-size: 150%;
+}
+
 .timeline_line {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 2px;
     width: 100%;
-    background-color: black;
+    border: 4px double var(--light-blue);
 }
 
 .list-tabs .tab {
@@ -98,7 +125,8 @@ html, body, div, form {
     top: 50%;
     transform: translateY(-50%);
     border-radius: 100%;
-    background-color: black;
+    background-color: var(--white);
+    border: 4px double var(--light-blue);
 }
 
 .t1 {
@@ -118,45 +146,26 @@ label {
     font-weight: 500;
     width: 80%;
     height: 3rem;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 input {
     border-style: none;
-    background-color: #b3ac8e73;
-    color:#512907;
+    background-color: var(--light-blue);
+    color:var(--turquoise);
     border-radius: 0.4rem;
     width: 80%;
     height: 3rem;
-    margin: 1%;
+    margin: 2%;
 }
 
 input:hover{
-    outline: 3px solid #a13d167c;
+    outline: 3px solid var(--turquoise);
     transition: all 100ms;
     -webkit-transition: all 100ms;
     -moz-transition: all 100ms;
     -ms-transition: all 100ms;
     -o-transition: all 100ms;
-}
-
-input:focus {
-    caret-color: #e95420;
-    animation-name: input-focus;
-    transition: all 300s;
-    -webkit-transition: all 300s;
-    -moz-transition: all 300s;
-    -ms-transition: all 300s;
-    -o-transition: all 300s;
-}
-
-@keyframes input-focus{
-    0%{
-        outline: 0px;
-    }
-    100%{
-        outline: 2px solid #a13d167c;
-    }
 }
 
 input:focus {
@@ -169,28 +178,11 @@ input:focus {
     -o-transition: all 300s;
 }
 
-/* @keyframes input-focus{
-    0%{
-        outline: 0px;
-    }
-    100%{
-        outline: 2px solid #a13d167c;
-    }
-} */
-
 .form-content {
     width: 100%;
-    /* display: flex; */
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* grid-row: 2 / 3;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    position: absolute; */
     display: none;
-    /*color: #2d1c0c*/
 }
 
 .show {
@@ -202,7 +194,7 @@ input[type="submit"]{
     height: 4rem;
     font-weight: 600;
     position: relative;
-    top: 50;
+    top: 5rem;
     border: 1px solid var(--turquoise);
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -211,7 +203,7 @@ input[type="submit"]{
     -o-border-radius: 20px;
     box-shadow: 4px 0px 6px var(--light-blue);
     background-color: var(--light-blue);
-    color:var(--turquoise);
+    color: var(--turquoise);
     cursor: pointer;
 }
 
