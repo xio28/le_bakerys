@@ -189,7 +189,8 @@ input:focus {
     display: flex;
 }
 
-input[type="submit"]{
+input[type="submit"],
+input[type="button"]{
     width: 32%;
     height: 4rem;
     font-weight: 600;
