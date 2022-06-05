@@ -50,12 +50,14 @@
                             {{ form.privacy_policy.label }}
                             {{ form.save }}
                         </div>
-                        <div class="pagination">
-                            <button id="prev" class="pag-btn" disabled>Anterior</button>
-                            <button id="next" class="pag-btn">Siguiente</button>
-                        </div>
                     </div>
                 </form>
+                <div class="pagination">
+                    <img id="prev" src="/static/resources/img/left-arrow.svg" alt="flecha izquierda">
+                    <img id="next" src="/static/resources/img/right-arrow.svg" alt="flecha derechapointer-events">
+                    <!-- <button id="prev" disabled>Anterior</button> -->
+                    <!-- <button id="next">Siguiente</button> -->
+                </div>
             </div>
         </div>
     </div>

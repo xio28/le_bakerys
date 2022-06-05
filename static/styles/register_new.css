@@ -77,21 +77,27 @@ html, body, div, form {
 
 .right-content {
     width: 50%;
-    height: 100%;
+    min-height: 100%;
     padding: calc(20px + 1.4rem);
     background-color: var(--white);
     overflow-y: auto;
 }
 
+.form-title {
+    width: 100%;
+    height: 10%;
+    position: relative;
+}
+
 .form-item form {
     position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 70%;
 }
 
 .list-tabs {
     height: 15%;
-    width: 90%;
+    width: 100%;
     display: inline-flex;
     justify-content: space-evenly;
     position: relative;
@@ -101,6 +107,19 @@ html, body, div, form {
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
+}
+
+.pagination {
+    position: relative;
+    width: 80%;
+    height: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#prev {
+    margin-right: 1rem;
 }
 
 .icon-checkmark:before {
@@ -127,6 +146,7 @@ html, body, div, form {
     border-radius: 100%;
     background-color: var(--white);
     border: 4px double var(--light-blue);
+    cursor: none;
 }
 
 .t1 {
@@ -139,6 +159,18 @@ html, body, div, form {
 
 .t3 {
     left: 94.7%;
+}
+
+#next, #prev {
+    width: 5rem;
+    height: 5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#prev {
+    opacity: .4;
+    pointer-events: none;
 }
 
 label {
@@ -180,25 +212,16 @@ input:focus {
 
 .content-container {
     width: 100%;
+    height: 85%;
+    position: relative;
 }
 
 .form-content {
     width: 100%;
+    height: 100%;
     flex-wrap: wrap;
     justify-content: space-evenly;
     display: none;
-}
-
-.form-content:first-child {
-    background-color: red;
-}
-
-.form-content:last-child {
-    background-color: blue;
-}
-
-.show {
-    display: flex;
 }
 
 input[type="submit"],
