@@ -4,13 +4,25 @@
         <div class="form-item">
             <div class="left-content"></div>
             <div class="right-content">
-                <div class="form-title">Crear cuenta nueva</div>
+                <div class="header-reg-content">
+                    <div class="form-title">Crear cuenta nueva</div>
+                    <div class="pagination">
+                        <img id="prev" class="btn" src="/static/resources/img/left-arrow.svg" alt="flecha izquierda">
+                        <img id="next" class="btn" src="/static/resources/img/right-arrow.svg" alt="flecha derechapointer-events">
+                    </div>
+                </div>
                 <form action="#" method="POST">
                     <div class="list-tabs">
-                        <div class="timeline_line"></div>
-                        <a class="t1 tab active-t" href="#tab-1"></a>
+                        <div class="progress-bar-container">
+                            <div class="progress-value"></div>
+                            <span class="bubble t1"></span>
+                            <span class="bubble t2"></span>
+                            <span class="bubble t3"></span> 
+                        </div>
+                        <!-- <div class="timeline_line"></div>
+                        <a class="t1 tab" href="#tab-1"></a>
                         <a class="t2 tab" href="#tab-2"></a>
-                        <a class="t3 tab" href="#tab-3"></a>
+                        <a class="t3 tab" href="#tab-3"></a> -->
                     </div>
                     <div class="content-container">
                         <div id="tab-1" class="form-content">
@@ -35,7 +47,7 @@
                             {{ form.contact.label }}
                             {{ form.contact }}
                         </div>
-                        <div id="tab-3" class="form-content show">
+                        <div id="tab-3" class="form-content">
                             {{ form.street.label }}
                             {{ form.street }}
                             {{ form.s_num.label }}
@@ -46,16 +58,16 @@
                             {{ form.postal_code }}
                             {{ form.city.label }}
                             {{ form.city }}
-                            {{ form.privacy_policy }}
-                            {{ form.privacy_policy.label }}
-                            {{ form.save }}
+                            <div class="priv">
+                                {{ form.privacy_policy }}
+                                {{ form.privacy_policy.label }}
+                            </div>
+                            <div class="submit-button">
+                                {{ form.save }}
+                            </div>
                         </div>
                     </div>
                 </form>
-                <div class="pagination">
-                    <img id="prev" class="btn" src="/static/resources/img/left-arrow.svg" alt="flecha izquierda">
-                    <img id="next" class="btn" src="/static/resources/img/right-arrow.svg" alt="flecha derechapointer-events">
-                </div>
             </div>
         </div>
     </div>

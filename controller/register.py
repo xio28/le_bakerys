@@ -11,8 +11,7 @@ def validatePhone(form, field):
     # else:
     #     raise ValidationError('Field must be less than 50 characters')
 class RegistrationForm(Form):
-    text_class = 'input-text'
-    radio_class = 'input-radio'
+    text_class = 'input-gen'
     policy = 'check-policy'
 
     username = StringField('Nombre de usuario ', [
@@ -24,8 +23,10 @@ class RegistrationForm(Form):
     password = PasswordField('Contraseña ', [
                                         validators.Length(min=10, max=60),
                                         validators.EqualTo('password_confirm', message='Las contraseñas no coinciden')
-                                    ])
-    password_confirm = PasswordField('Repita la contraseña ')
+                                    ], 
+                                        render_kw={'class': text_class})
+    password_confirm = PasswordField('Repita la contraseña ', 
+                                        render_kw={'class': text_class})
     c_name = StringField('Nombre ', [
                                         validators.InputRequired()
                                     ], 
@@ -45,7 +46,8 @@ class RegistrationForm(Form):
     contact = StringField('Número de teléfono ', [
                                         validators.Length(min=9, max=9, message="Longitud incorrecta"), 
                                         validators.InputRequired()
-                                    ])
+                                    ], 
+                                        render_kw={'class': text_class})
     email = StringField('Segundo apellido ', 
                                         default='Escriba su segundo apellido...', 
                                         render_kw={'class': text_class})
@@ -54,17 +56,17 @@ class RegistrationForm(Form):
                                     ], 
                                         default='Escriba su calle/plaza/avenida...', 
                                         render_kw={'class': text_class})
-    s_num = IntegerField('Número ', [
+    s_num = StringField('Número ', [
                                         validators.InputRequired(f"Campo {label} vacío.")
                                     ], 
                                         default='Escriba el número de su calle/plaza/avenida...', 
                                         render_kw={'class': text_class})
-    s_story = IntegerField('Piso ', [
+    s_story = StringField('Piso ', [
                                         validators.InputRequired()
                                     ], 
                                         default='Escriba el número de su piso', 
                                         render_kw={'class': text_class})
-    postal_code = IntegerField('Código postal ', [
+    postal_code = StringField('Código postal ', [
                                         validators.InputRequired()
                                     ], 
                                         default='Escriba su código postal', 

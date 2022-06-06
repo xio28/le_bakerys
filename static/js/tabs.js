@@ -3,6 +3,33 @@ $(function() {
     /* Adding a link to the label of the checkbox. */
     $('label[for="privacy_policy"]').html('<a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">Acepto la política de privacidad.</a>')
 
+    $('.cart_button, .cart_module').hover(function() {
+        $('.cart_module').stop(true, true).delay(100).animate({top:'39px'}, 400);
+      },
+      function() {
+        $('.cart_module').stop(true, true).animate({top: -cartHeight}, 250);
+    });
+
+    var skills = {
+        ht: 90
+      };
+      
+      $.each(skills, function(key, value) {
+        var skillbar = $("." + key);
+      
+        skillbar.animate(
+          {
+            width: value + "%"
+          },
+          1000,
+          function() {
+            $(".speech-bubble").fadeIn();
+          }
+        );
+      }); 
+
+
+
 	var contentItems = $('.form-content').length;
     var contentPos = 1;
 

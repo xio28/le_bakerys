@@ -2,7 +2,6 @@ import os
 import sys
 sys.path.append('model') # add the models directory to the path
 sys.path.append('controller')
-# sys.path.append('view')
 
 import sqlite3
 from bottle import route, run, template, request, get, post, redirect, static_file, error, debug
@@ -58,6 +57,8 @@ def video(filepath):
 @get("/static/js/<filepath:re:.*\.js>")
 def js(filepath):
     return static_file(filepath, root="static/js")
+
+
 
 if __name__ == '__main__':
     run(host='localhost', port=8080, debug=True, reloader=True)
