@@ -9,6 +9,11 @@ $(function() {
     $('.form-content').css('display', 'none');
     $('.form-content:first').css('display', 'flex');
 
+    $('.btn').hover(function(){
+        $(this).css('transform', 'scale(1.2)');
+        $(this).css('transform', 'scale(1)');
+    });
+
 
     $('#next').on('click', function(){
 

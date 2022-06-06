@@ -53,10 +53,8 @@
                     </div>
                 </form>
                 <div class="pagination">
-                    <img id="prev" src="/static/resources/img/left-arrow.svg" alt="flecha izquierda">
-                    <img id="next" src="/static/resources/img/right-arrow.svg" alt="flecha derechapointer-events">
-                    <!-- <button id="prev" disabled>Anterior</button> -->
-                    <!-- <button id="next">Siguiente</button> -->
+                    <img id="prev" class="btn" src="/static/resources/img/left-arrow.svg" alt="flecha izquierda">
+                    <img id="next" class="btn" src="/static/resources/img/right-arrow.svg" alt="flecha derechapointer-events">
                 </div>
             </div>
         </div>
