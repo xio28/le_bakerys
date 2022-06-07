@@ -281,6 +281,7 @@ input[type="submit"]:hover{
 }
 
 .progress-value {
+    width: 0;
     height: 100%;
 	border-radius: .4rem;
 	-webkit-border-radius: .4rem;
@@ -291,15 +292,17 @@ input[type="submit"]:hover{
 }
 
 .bubble {
-    width: 4rem;
-    height: 4rem;
-    position: absolute;
-    border-radius: 100%;
-    background-color: var(--light-blue);
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
+    font-size: 0.75rem;
+	line-height: 2em;
+	position: absolute;
+	top: -0.60em;
+	text-align: center;
+	min-width: 3em;
+	border-radius: 0.3em;
+	color: white;
+	display: none;
+}
+
+.bubble-val {	
+	left: calc(88.5% - 1.5em);
 }

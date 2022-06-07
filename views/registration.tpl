@@ -14,10 +14,8 @@
                 <form action="#" method="POST">
                     <div class="list-tabs">
                         <div class="progress-bar-container">
-                            <div class="progress-value"></div>
-                            <span class="bubble t1"></span>
-                            <span class="bubble t2"></span>
-                            <span class="bubble t3"></span> 
+                            <div class="bubble bubble-val"></div>
+                            <div id="progress" class="progress-value percentage"></div>
                         </div>
                         <!-- <div class="timeline_line"></div>
                         <a class="t1 tab" href="#tab-1"></a>
