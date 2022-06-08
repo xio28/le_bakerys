@@ -11,17 +11,13 @@
                         <img id="next" class="btn" src="/static/resources/img/right-arrow.svg" alt="flecha derechapointer-events">
                     </div>
                 </div>
-                <form action="#" method="POST">
-                    <div class="list-tabs">
+                <form action="/registration" method="POST">
+                    <!-- <div class="list-tabs">
                         <div class="progress-bar-container">
                             <div class="bubble bubble-val"></div>
                             <div id="progress" class="progress-value percentage"></div>
                         </div>
-                        <!-- <div class="timeline_line"></div>
-                        <a class="t1 tab" href="#tab-1"></a>
-                        <a class="t2 tab" href="#tab-2"></a>
-                        <a class="t3 tab" href="#tab-3"></a> -->
-                    </div>
+                    </div> -->
                     <div class="content-container">
                         <div id="tab-1" class="form-content">
                             {{ form.username.label }}
@@ -32,8 +28,6 @@
                             {{ form.password_confirm }}
                             {{ form.email.label }}
                             {{ form.email }}
-                        </div>
-                        <div id="tab-2" class="form-content">
                             {{ form.c_name.label }}
                             {{ form.c_name }}
                             {{ form.surname1.label }}
@@ -44,8 +38,6 @@
                             {{ form.nid }}
                             {{ form.contact.label }}
                             {{ form.contact }}
-                        </div>
-                        <div id="tab-3" class="form-content">
                             {{ form.street.label }}
                             {{ form.street }}
                             {{ form.s_num.label }}
@@ -60,10 +52,10 @@
                                 {{ form.privacy_policy }}
                                 {{ form.privacy_policy.label }}
                             </div>
-                            <div class="submit-button">
-                                {{ form.save }}
-                            </div>
                         </div>
+                    </div>
+                    <div class="submit-button">
+                        {{ form.save }}
                     </div>
                 </form>
             </div>
