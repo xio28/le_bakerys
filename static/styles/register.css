@@ -83,6 +83,12 @@ html, body, div, form {
     overflow-y: auto;
 }
 
+.form-title{
+    text-transform: uppercase;
+    font-weight: 600;
+    height: 10%;
+}
+
 .form-item form {
     position: relative;
     width: 100%;
