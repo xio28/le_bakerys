@@ -266,6 +266,12 @@ input[type="submit"]:hover{
     -o-transition: all 300ms;
 }
 
+::placeholder {
+    color: var(--light-blue);
+    opacity: .6;
+    font-size: .8rem;
+}
+
 /*********** PROGRESS BAR *************/
 
 .progress-bar-container {
