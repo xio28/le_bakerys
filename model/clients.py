@@ -47,4 +47,4 @@ keys = tuple(form_data.keys())
 values = tuple(form_data.values())
 
 c = Clients()
-c.insert(values, keys)
+c.insert(values)
