@@ -45,8 +45,6 @@ function scrollToSection() {
 
 const switchSlide = () => {
     $(".slide1").click(() => {
-        console.log("BTN1");
-
         $(".slide1").addClass("slide1 slide-active");
         $(".slide2").removeClass("slide-active");
         $(".slide3").removeClass("slide-active");
@@ -55,8 +53,6 @@ const switchSlide = () => {
     });
 
     $(".slide2").click(() => {
-        console.log("BTN2");
-
         $(".slide1").removeClass("slide-active");
         $(".slide2").addClass("slide1 slide-active");
         $(".slide3").removeClass("slide-active");
@@ -65,8 +61,6 @@ const switchSlide = () => {
     });
 
     $(".slide3").click(() => {
-        console.log("BTN3");
-
         $(".slide1").removeClass("slide-active");
         $(".slide2").removeClass("slide-active");
         $(".slide3").addClass("slide1 slide-active");
