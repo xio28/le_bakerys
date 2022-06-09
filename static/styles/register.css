@@ -1,0 +1,222 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('/static/fonts/iconmoon/icomoon.eot?75a5nr');
+    src:  url('/static/fonts/iconmoon/icomoon.eot?75a5nr#iefix') format('embedded-opentype'),
+      url('/static/fonts/iconmoon/icomoon.ttf?75a5nr') format('truetype'),
+      url('/static/fonts/iconmoon/icomoon.woff?75a5nr') format('woff'),
+      url('/static/fonts/iconmoon/icomoon.svg?75a5nr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+* {
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: var(--body-font);
+}
+
+html, body, div, form {
+    margin-right: 0;
+}
+
+
+.item-background{
+    width: 100%;
+    height: 100vh;
+    background-image: url('/static/resources/img/cake.jpg');
+    background-position: -150% 50%;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    filter: blur(0.4rem);
+ }
+
+/*********** CONTAINER *************/
+
+.container-register {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.form-item {
+    position: relative;
+    width: 70%;
+    height: 70vh;
+    margin: 0 auto;
+    display: flex;
+    background-color: var(--white);
+    box-shadow: 6px 6px 12px grey;
+}
+
+.left-content {
+    width: 50%;
+    height: 100%;
+    background-image: url('/static/resources/img/cake.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.right-content {
+    width: 50%;
+    height: 100%;
+    padding: calc(20px + 1.4rem);
+    background-color: var(--white);
+    overflow-y: auto;
+}
+
+.form-item form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.list-tabs {
+    height: 15%;
+    width: 90%;
+    display: inline-flex;
+    justify-content: space-evenly;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.icon-checkmark:before {
+    content: "\ea10";
+    color: var(--turquoise);
+    font-size: 150%;
+}
+
+.timeline_line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    border: 4px double var(--light-blue);
+}
+
+.list-tabs .tab {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 100%;
+    background-color: var(--white);
+    border: 4px double var(--light-blue);
+}
+
+.t1 {
+    left: 0;
+}
+
+.t2 {
+    left: 47%;
+}
+
+.t3 {
+    left: 94.7%;
+}
+
+label {
+    font-size: 1.8rem;
+    font-weight: 500;
+    width: 80%;
+    height: 3rem;
+    margin-top: 3%;
+}
+
+input {
+    border-style: none;
+    background-color: var(--light-blue);
+    color:var(--turquoise);
+    border-radius: 0.4rem;
+    width: 80%;
+    height: 3rem;
+    margin: 2%;
+}
+
+input:hover{
+    outline: 3px solid var(--turquoise);
+    transition: all 100ms;
+    -webkit-transition: all 100ms;
+    -moz-transition: all 100ms;
+    -ms-transition: all 100ms;
+    -o-transition: all 100ms;
+}
+
+input:focus {
+    outline: 3px solid var(--turquoise);
+    caret-color: #e95420;
+    transition: all 300s;
+    -webkit-transition: all 300s;
+    -moz-transition: all 300s;
+    -ms-transition: all 300s;
+    -o-transition: all 300s;
+}
+
+.form-content {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+input[type="submit"],
+input[type="button"]{
+    width: 32%;
+    height: 4rem;
+    font-weight: 600;
+    position: relative;
+    top: 5rem;
+    border: 1px solid var(--turquoise);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 4px 0px 6px var(--light-blue);
+    background-color: var(--light-blue);
+    color: var(--turquoise);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    transform:scale(0.80);
+    -webkit-transform:scale(0.80);
+    -moz-transform:scale(0.80);
+    -ms-transform:scale(0.80);
+    -o-transform:scale(0.80);
+    transition: all 300ms;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+}

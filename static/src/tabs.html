@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/styles/styles.css">
+        <link rel="stylesheet" href="/static/styles/tabs.css">
+        <script src="/static/js/jquery-3.6.0.min.js"></script>
+        <script src="/static/js/tabs.js" type="text/javascript"></script>
+        <title>Pestañas con jquery</title>
+    </head>
+    <body>
+        <div class="container-t">
+            <form class="tabs" action="#" method="POST">
+                <div class="tabs-list">
+                    <a class="tab active" href="#tab-1">Datos Personales</a>
+                    <a class="tab" href="#tab-2">Dirección</a>
+                    <a class="tab" href="#tab-3">Observaciones</a>
+                </div>
+                <div id="tab-1" class="tab-content show">
+                    <label for="name">Nombre</label>
+                    <input type="text" placeholder="Escribe tu nombre...">
+                    <label for="surname">Apellidos</label>
+                    <input type="text" placeholder="Escribe sus apellidos...">
+                </div>
+                <div id="tab-2" class="tab-content">
+                    <label for="name">Hola</label>
+                    <input type="text" placeholder="Escribe tu nombre...">
+                    <label for="surname">Apellidos</label>
+                    <input type="text" placeholder="Escribe sus apellidos...">
+                </div>
+                <div id="tab-3" class="tab-content">
+                    <label for="name">Adios</label>
+                    <input type="text" placeholder="Escribe tu nombre...">
+                    <label for="surname">Apellidos</label>
+                    <input type="text" placeholder="Escribe sus apellidos...">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
