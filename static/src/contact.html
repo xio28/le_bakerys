@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/styles/styles.css">
+        <link rel="stylesheet" href="/static/styles/contact.css">
+        <script src="/static/js/jquery-3.6.0.min.js"></script>
+        <title>Contacto</title>
+    </head>
+    <body>
+        <div class="form-container">
+            <div class="top-panel">
+                <div class="top-panel-content">
+                    <h2>Contáctanos</h2>
+                    <p>Si tienes alguna duda sobre tu pedido o problemas con la web, no dudes en contactarnos.</p>
+                </div>
+            </div>
+            <div class="bottom-panel">
+                <form action="/contact" method="POST">
+                    <fieldset>
+                        <label class="g-row-1 g-col-2" for="contact-imp-name">Nombre</label>
+                        <input class="g-row-2 g-col-2" type="text" name="contact-imp-name">
+                        <label class="g-row-1 g-col-3" for="contact-imp-email">Email</label>
+                        <input class="g-row-2 g-col-3" type="email" name="contact-imp-email">
+                        <label class="g-row-4 g-col-1" for="contact-imp-message">Tu mensaje</label>
+                        <textarea class="g-row-5 g-col-1" name="contact-imp-message" rows="10"></textarea>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
