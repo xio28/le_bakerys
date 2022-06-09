@@ -12,6 +12,7 @@
     <body>
         <div class="form-container">
             <div class="top-panel">
+                <div class="top-panel-bg"></div>
                 <div class="top-panel-content">
                     <h2>Contáctanos</h2>
                     <p>Si tienes alguna duda sobre tu pedido o problemas con la web, no dudes en contactarnos.</p>
@@ -21,11 +22,16 @@
                 <form action="/contact" method="POST">
                     <fieldset>
                         <label class="g-row-1 g-col-2" for="contact-imp-name">Nombre</label>
-                        <input class="g-row-2 g-col-2" type="text" name="contact-imp-name">
+                        <input class="g-row-2 g-col-2" type="text" name="contact-imp-name" required>
                         <label class="g-row-1 g-col-3" for="contact-imp-email">Email</label>
-                        <input class="g-row-2 g-col-3" type="email" name="contact-imp-email">
+                        <input class="g-row-2 g-col-3" type="email" name="contact-imp-email" required>
                         <label class="g-row-4 g-col-1" for="contact-imp-message">Tu mensaje</label>
-                        <textarea class="g-row-5 g-col-1" name="contact-imp-message" rows="10"></textarea>
+                        <textarea class="g-row-5-10 g-col-1" name="contact-imp-message" required></textarea>
+                        <label class="g-row-11 g-col-1" for="terms">
+                            <input type="checkbox" id="terms" required>
+                            <a class="privacy" href="#" target="_blank">Aceptar política de privacidad.</a>
+                        </label>
+                        <input class="g-row-13 g-col-2" type="submit" value="Enviar">
                     </fieldset>
                 </form>
             </div>
