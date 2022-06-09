@@ -5,11 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="styles/styles.css">
-        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="/static/styles/styles.css">
+        <link rel="stylesheet" href="/static/styles/index.css">
+        <link rel="stylesheet" href="/static/styles/@media/index.css">
 </head>
 <body>
     <header>
+        <div class="bgr-menu"></div>
         <nav>
             <ul class="menu-items">
                 <li><a href='#' data-item='Productos'>Productos</a></li>
@@ -22,58 +24,85 @@
         <a class="account" href="#"><img class=".acc-icon" src="/static/resources/img/ICON-account.png" alt=""></a>
         <h1>Le Bakery's</h1>
         <div class="logo"></div>
-        <h2>Prow scuttle parrel provost Sail</h2>
+        <h2>Because not every day is sweet enough</h2>
         <a href="#" class="arrow-icon" onclick="scrollToSection()">
             <img src="/static/resources/img/in.svg" alt="">     
         </a>
         <!-- <h3>FASTEST NO FAST FOOD DELIVERY</h3> -->
     </header>
-    <section class="about-us">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-    </section>
-    <section id="main_section">
-        <div class="video__container">
-            <video autoplay loop muted src="resources/video/video-BG-Index_1-1.mp4">
-            </video>
+    <section class="about-us_section">
+        <div class="about-us_slider">
+            <div class="slider-item">
+                <div class="slider-bg"></div>
+                <div class="slider-info">
+                    <h3>Sobre Le Bakery's</h3>
+                    <p>Cat gets stuck in tree firefighters try to get cat down firefighters get stuck in tree cat eats firefighters' slippers cattt catt cattty cat being a cat. Sleep all day whilst slave is at work, play all night whilst slave is sleeping need to chase tail catching very fast laser pointer eat all the power cords.</p>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="slider-bg"></div>
+                <div class="slider-info">
+                    <h3>¿Qué ofrecemos?</h3>
+                    <p>Lick the plastic bag i will be pet i will be pet and then i will hiss. Stare out the window gnaw the corn cob stare at guinea pigs. Scamper trip owner up in kitchen i want food sit by the fire get scared by doggo also cucumerro.</p>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="slider-bg"></div>
+                <div class="slider-info">
+                    <h3>Título de relleno</h3>
+                    <p>Cat gets stuck in tree firefighters try to get cat down firefighters get stuck in tree cat eats firefighters' slippers cattt catt cattty cat being a cat. Sleep all day whilst slave is at work, play all night whilst slave is sleeping need to chase tail catching very fast laser pointer eat all the power cords.</p>
+                </div>
+            </div>
         </div>
+        <div class="sel-slide-btn__container">
+            <button class="slide1 slide-active"></button>
+            <button class="slide2"></button>
+            <button class="slide3"></button>
+        </div>
+    </section>
+    <section class="delivery_section">
+        <h2>Pide lo que quieras</h2>
+        <div class="bubbles__container">
+            <div class="bubble"><img src="/static/resources/img/icon-booking.png" alt=""></div>
+            <div class="bubble"><img src="/static/resources/img/icon-clock.png" alt=""></div>
+            <div class="bubble"><img src="/static/resources/img/icon-motorbike.png" alt=""></div>
+        </div>
+    </section>
+    <div class="video__container">
+        <video autoplay loop muted src="resources/video/video-BG-Index_1-1.mp4">
+        </video>
+    </div>
+    <section id="products_section">
         <h2 class="popular-products-h">Productos destacados</h2>
         <div class="popular-products">
-            <div class="pp-card">
-                <img src="/static/resources/img/RedVelvet.png" alt="">
+            <div data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" class="product-card">
                 <h4>Red Velvet</h4>
-                <p>Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non eveniet iure ducimus porro</p>
+                <img class="card-img" src="/static/resources/img/RedVelvet.png" alt="">
             </div>
-            <div class="pp-card">
-                <img src="/static/resources/img/RedVelvet.png" alt="">
+            <div data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" class="product-card">
                 <h4>Red Velvet</h4>
-                <p>Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non eveniet iure ducimus porro</p>
+                <img class="card-img" src="/static/resources/img/RedVelvet.png" alt="">
             </div>
-            <div class="pp-card">
-                <img src="/static/resources/img/RedVelvet.png" alt="">
+            <div data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" class="product-card">
                 <h4>Red Velvet</h4>
-                <p>Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non eveniet iure ducimus porro</p>
+                <img class="card-img" src="/static/resources/img/RedVelvet.png" alt="">
             </div>
-            <div class="pp-card">
-                <img src="/static/resources/img/RedVelvet.png" alt="">
+            <div data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" class="product-card">
                 <h4>Red Velvet</h4>
-                <p>Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non eveniet iure ducimus porro</p>
+                <img class="card-img" src="/static/resources/img/RedVelvet.png" alt="">
             </div>
         </div>
     </section>
     <div class="bakery-food">
-        <div class="bf-element1">
-            <h3>Ingredientes 100% naturales</h3>
-            <p>Cuidamos la calidad de los ingredientes, por ello usamos sólo los mejores</p>
-        </div>
+        <div class="bf-element1"></div>
         <div class="bf-element2"></div>
         <div class="bf-element3"></div>
         <div class="bf-element4"></div>
-        <div class="bf-element5">
-            <h3>Grandes sabores</h3>
-            <p>Disponemos de una gran variedad de platos para que puedas disfrutar de los mejores sabores</p>
-        </div>
+        <div class="bf-element5"></div>
     </div>
 
     <footer>
@@ -119,5 +148,6 @@
 
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/scripts.js"></script>
+    <script src="/static/js/vanilla-tilt.js"></script>
 </body>
 </html>
