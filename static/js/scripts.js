@@ -25,6 +25,12 @@ $(window).scroll(() => {
         $(".pp-card").css("opacity", "1");
     };
 
+    if($(this).scrollTop() >= 1100) {
+        $(".bubble:nth-child(3) img").addClass("moto-animation");
+        $(".bubble:nth-child(1) img").addClass("phone-animation");
+        $(".bubble:nth-child(2) img").addClass("clock-animation");
+    };
+
     console.log($(window).scrollTop());
 
 });
@@ -32,11 +38,40 @@ $(window).scroll(() => {
 
 function scrollToSection() {
     $("html, body").animate({
-        scrollTop: $('.about-us').position().top
+        scrollTop: $('.about-us_section').position().top
     }, 801)
 };
 
 
-$(".polygon-item").hover(() => {
+const switchSlide = () => {
+    $(".slide1").click(() => {
+        $(".slide1").addClass("slide1 slide-active");
+        $(".slide2").removeClass("slide-active");
+        $(".slide3").removeClass("slide-active");
+
+        $(".slider-item").css("right", "0");
+    });
+
+    $(".slide2").click(() => {
+        $(".slide1").removeClass("slide-active");
+        $(".slide2").addClass("slide1 slide-active");
+        $(".slide3").removeClass("slide-active");
+
+        $(".slider-item").css("right", "100vw");
+    });
+
+    $(".slide3").click(() => {
+        $(".slide1").removeClass("slide-active");
+        $(".slide2").removeClass("slide-active");
+        $(".slide3").addClass("slide1 slide-active");
+        $(".slider-item").css("right", "200vw");
+    });
+        
+};
+
+switchSlide();
+
+$(".bgr-menu").click(() => {
     console.log("HEEEY")
+    $(".bgr-menu").css("display", "block")
 });
