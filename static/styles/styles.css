@@ -12,7 +12,7 @@ body {
 }
 
 :root {
-    --title-font: vegetables;
+    --title-font: clicker;
     --subtitle-italic: zenloop-italic;
     --subtitle-regular: zenloop-regular;
     --body-font: quicksand;
@@ -26,21 +26,26 @@ body {
 }
 
 h1, h2 {
-    font-family: vegetables;
+    font-family: var(--title-font);
 }
 
 h3, h4 {
-    font-family: zenloop-regular;
+    font-family: var(--subtitle-regular);
 }
+
 p {
     font-family: var(--body-font);
 }
 
+a {
+    text-decoration: none;
+}
 
 
-/* *********************************************************************************************************************************** */
-/* ************************************************************** FONTS ************************************************************** */
-/* *********************************************************************************************************************************** */
+
+/* ******************************************************* */
+/* ************************ FONTS ************************ */
+/* ******************************************************* */
 
 @font-face {
     font-family: quicksand;
@@ -48,8 +53,8 @@ p {
 }
 
 @font-face {
-    font-family: vegetables;
-    src: url(/static/fonts/vegetables/vegetables.ttf);
+    font-family: clicker;
+    src: url(/static/fonts/clicker/ClickerScript-Regular.ttf);
 }
 
 @font-face {
