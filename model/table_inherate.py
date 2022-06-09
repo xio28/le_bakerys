@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/cfgs1/Documentos/repo/le_bakerys')
+
 import sqlite3
 from abc import ABC
 from config.config import DATABASE

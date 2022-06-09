@@ -1,8 +1,10 @@
-from cProfile import label
-from bottle_utils.html import link_other
 from email_validator import EmailNotValidError
-from wtforms import Form, BooleanField, StringField, IntegerField, PasswordField, SubmitField , validators, ValidationError
+from wtforms import Form, BooleanField, StringField, PasswordField, SubmitField , validators, ValidationError
 
+def checkUsername(form, field):
+    username_query = ""
+
+    # if field.data 
 
 def validatePhone(form, field):
     print(type(field.data))
@@ -16,15 +18,19 @@ class RegistrationForm(Form):
 
     username = StringField('Nombre de usuario ', [
                                         validators.Length(min=4, max=25, message="Longitud incorrecta"),
-                                        validatePhone
+                                        validatePhone,
+                                        validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
     password = PasswordField('Contraseña ', [
                                         validators.Length(min=10, max=60),
-                                        validators.EqualTo('password_confirm', message='Las contraseñas no coinciden')
+                                        validators.EqualTo('password_confirm', message='Las contraseñas no coinciden'),
+                                        validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    password_confirm = PasswordField('Repita la contraseña ', 
+    password_confirm = PasswordField('Repita la contraseña ', [
+                                        validators.InputRequired()
+                                    ],
                                         render_kw={'class': text_class})
     c_name = StringField('Nombre ', [
                                         validators.InputRequired()
@@ -36,21 +42,25 @@ class RegistrationForm(Form):
                                         render_kw={'class': text_class})
     surname2 = StringField('Segundo apellido ', 
                                         render_kw={'class': text_class})
-    nid = StringField('DNI ', 
+    nid = StringField('DNI ', [
+                                        validators.InputRequired()
+                                    ],
                                         render_kw={'class': text_class})
     contact = StringField('Número de teléfono ', [
                                         validators.Length(min=9, max=9, message="Longitud incorrecta"), 
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    email = StringField('Segundo apellido ', 
+    email = StringField('Email ', [
+                                        validators.InputRequired()
+                                    ],
                                         render_kw={'class': text_class})
     street = StringField('Calle/Plaza/Avenida ', [
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
     s_num = StringField('Número ', [
-                                        validators.InputRequired(f"Campo {label} vacío.")
+                                        validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
     s_story = StringField('Piso ', [

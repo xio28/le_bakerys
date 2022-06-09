@@ -215,7 +215,6 @@ label[for="privacy_policy"] {
 }
 
 .submit-button {
-    width: 80%;
     display: flex;
     justify-content: center;
     margin: 3%;
