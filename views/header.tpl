@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/static/styles/styles.css">
     <!-- <link rel="stylesheet" href="/static/styles/register.css"> -->
     <link rel="stylesheet" href="/static/styles/register_new.css">
+    <link rel="stylesheet" href="/static/styles/products.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
     %if title == "Contacto":
         <link rel="stylesheet" href="/static/styles/contact.css">
     %end
