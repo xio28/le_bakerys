@@ -22,5 +22,3 @@ if __name__ == '__main__':
 
     if not exists(DATABASE):
         create_connection(DATABASE)
-        CLIENT
-        
