@@ -216,7 +216,7 @@ label[for="privacy_policy"] {
 
 .submit-button {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 3%;
 }
 
@@ -234,12 +234,11 @@ label[for="privacy_policy"] {
 }
 
 input[type="submit"],
-input[type="button"]{
+input[type="button"] {
     width: 40%;
     height: 4rem;
     font-weight: 600;
     position: relative;
-    /* top: 5rem; */
     border: 1px solid var(--turquoise);
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -252,62 +251,42 @@ input[type="button"]{
     cursor: pointer;
 }
 
-input[type="submit"]:hover{
-    transform:scale(0.80);
-    -webkit-transform:scale(0.80);
-    -moz-transform:scale(0.80);
-    -ms-transform:scale(0.80);
-    -o-transform:scale(0.80);
-    transition: all 300ms;
-    -webkit-transition: all 300ms;
-    -moz-transition: all 300ms;
-    -ms-transition: all 300ms;
-    -o-transition: all 300ms;
-}
-
 ::placeholder {
     color: var(--light-blue);
     opacity: .6;
     font-size: .8rem;
 }
 
-/*********** PROGRESS BAR *************/
-
-.progress-bar-container {
-	width: 90%;
-	height: 20px;
+.btn-cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 4rem;
+    font-weight: 600;
+    position: relative;
+    border: 1px solid var(--turquoise);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 4px 0px 6px var(--light-blue);
     background-color: var(--light-blue);
-	overflow: hidden;
-	border-radius: .4rem;
-	-webkit-border-radius: .4rem;
-	-moz-border-radius: .4rem;
-	-ms-border-radius: .4rem;
-	-o-border-radius: .4rem;
+    color: var(--turquoise);
+    cursor: pointer;
 }
 
-.progress-value {
-    width: 0;
-    height: 100%;
-	border-radius: .4rem;
-	-webkit-border-radius: .4rem;
-	-moz-border-radius: .4rem;
-	-ms-border-radius: .4rem;
-	-o-border-radius: .4rem;
-    background-color: var(--tan);
-}
-
-.bubble {
-    font-size: 0.75rem;
-	line-height: 2em;
-	position: absolute;
-	top: -0.60em;
-	text-align: center;
-	min-width: 3em;
-	border-radius: 0.3em;
-	color: white;
-	display: none;
-}
-
-.bubble-val {	
-	left: calc(88.5% - 1.5em);
+input[type="submit"]:hover,
+.btn-cancel:hover {
+    transform: scale(.9);
+    transition: all 300ms;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    -webkit-transform: scale(.9);
+    -moz-transform: scale(.9);
+    -ms-transform: scale(.9);
+    -o-transform: scale(.9);
 }

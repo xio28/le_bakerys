@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/static/styles/register_new.css">
     <link rel="stylesheet" href="/static/styles/products.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
+    %if title == "Contacto":
+        <link rel="stylesheet" href="/static/styles/contact.css">
+    %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/tabs.js"></script>
     <title>{{title}}</title>

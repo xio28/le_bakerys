@@ -1,15 +1,30 @@
 import os
 import sys
+
 sys.path.append('model') # add the models directory to the path
 sys.path.append('controller')
 
 import sqlite3
-from bottle import route, run, template, request, get, post, redirect, static_file, error, debug
-from model.clients import Clients
+
+from bottle import (auth_basic, debug, error, get, post, redirect, request,
+                    route, run, static_file, template)
+
 from controller.register import RegistrationForm
+from model.clients import Clients
+from model.modules import *
 
 # Creating an instance of the Clients class.
 clients = Clients()
+
+@get('/')
+def index():
+    return template('index')
+
+
+@get('/admin')
+@auth_basic(Modules.auth_admin)
+def admin():
+    return template('index')
 
 @get('/registration')
 def register():
@@ -55,10 +70,6 @@ def clients():
 
 @get('/users/employee')
 def employee():
-    pass
-
-@get('/users/admin')
-def admin():
     pass
 
 @get('/products')
