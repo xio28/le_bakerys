@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/static/styles/styles.css">
     <!-- <link rel="stylesheet" href="/static/styles/register.css"> -->
     <link rel="stylesheet" href="/static/styles/register_new.css">
+    %if title == "Contacto":
+        <link rel="stylesheet" href="/static/styles/contact.css">
+    %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/tabs.js"></script>
     <title>{{title}}</title>

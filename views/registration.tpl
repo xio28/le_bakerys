@@ -55,6 +55,7 @@
                         </div>
                     </div>
                     <div class="submit-button">
+                        <a href="/" class="btn-cancel">Cancelar</a>
                         {{ form.save }}
                     </div>
                 </form>

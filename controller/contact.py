@@ -1,6 +1,5 @@
-from cProfile import label
 from email_validator import EmailNotValidError
-from wtforms import Form, BooleanField, StringField, IntegerField, TextAreaField , validators
+from wtforms import Form, BooleanField, StringField, SubmitField, TextAreaField , validators
 
 class RegistrationForm(Form):
     text_class = 'input-text'
@@ -21,3 +20,9 @@ class RegistrationForm(Form):
                                         ], 
                                         default='Cuéntenos su problema...', 
                                         render_kw={'class': textarea_class})
+    privacy_policy = BooleanField('Acepto la política de privacidad.', [
+                                        validators.InputRequired()
+                                    ],
+                                    render_kw={'class': policy})
+    save = SubmitField('Guardar')
+    cancel = SubmitField('Cancelar')
