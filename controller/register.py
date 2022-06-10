@@ -1,5 +1,5 @@
 from email_validator import EmailNotValidError
-from wtforms import Form, BooleanField, StringField, PasswordField, SubmitField , validators, ValidationError
+from wtforms import Form, BooleanField, StringField, PasswordField, SubmitField , validators, EmailField, ValidationError
 
 def checkUsername(form, field):
     username_query = ""
@@ -51,8 +51,9 @@ class RegistrationForm(Form):
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    email = StringField('Email ', [
-                                        validators.InputRequired()
+    email = EmailField('Email ', [
+                                        validators.InputRequired(),
+                                        validators.Email()
                                     ],
                                         render_kw={'class': text_class})
     street = StringField('Calle/Plaza/Avenida ', [
@@ -80,5 +81,4 @@ class RegistrationForm(Form):
                                     ],
                                     render_kw={'class': policy})
     save = SubmitField('Guardar')
-    cancel = SubmitField('Cancelar')
 

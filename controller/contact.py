@@ -1,28 +1,20 @@
 from email_validator import EmailNotValidError
-from wtforms import Form, BooleanField, StringField, SubmitField, TextAreaField , validators
+from wtforms import Form, BooleanField, StringField, SubmitField, TextAreaField, EmailField, validators
 
-class RegistrationForm(Form):
-    text_class = 'input-text'
-    radio_class = 'input-radio'
-    textarea_class = 'input-radio'
+class ContactForm(Form):
 
-    c_name = StringField('Nombre ', [
-                                        validators.InputRequired()
-                                    ], 
-                                        default='Escriba su nombre...', 
-                                        render_kw={'class': text_class})
-    email = StringField('Segundo apellido ', 
-                                        default='Escriba su segundo apellido...', 
-                                        render_kw={'class': text_class})
-    comment = TextAreaField('Mensaje ', [
-                                        validators.InputRequired(), 
-                                        validators.Length(min=10, max=1000)
-                                        ], 
-                                        default='Cuéntenos su problema...', 
-                                        render_kw={'class': textarea_class})
-    privacy_policy = BooleanField('Acepto la política de privacidad.', [
-                                        validators.InputRequired()
-                                    ],
-                                    render_kw={'class': policy})
+    c_name = StringField('Nombre', [
+                                        validators.InputRequired(message="Campo vacío.")
+                                    ])
+    email = EmailField('Email', [
+                                        validators.InputRequired(message="Campo vacío."),
+                                        validators.Email(message="Email incorrecto.")
+                                    ])
+    comment = TextAreaField('Mensaje', [
+                                        validators.InputRequired(message="Campo vacío."), 
+                                        validators.Length(min=10, max=1000, message="La longitud debe estar entre 10 y 1000 caracteres.")
+                                        ])
+    privacy_policy = BooleanField([
+                                        validators.InputRequired(message="Campo vacío.")
+                                    ])
     save = SubmitField('Guardar')
-    cancel = SubmitField('Cancelar')

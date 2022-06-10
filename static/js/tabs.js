@@ -2,8 +2,13 @@ $(function() {
 
     /* Adding a link to the label of the checkbox. */
     $('label[for="privacy_policy"]').html('<a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">Acepto la política de privacidad.</a>')
-    $('label[for="privacy_policy"]').html('<a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">Acepto la política de privacidad.</a>')
+    // $'label[for]'
 
+    const placeholder = ['Usuario', 'Contraseña', 'Correo electrónico', 'Nombre', 'Apellidos', 'DNI', 'Teléfono', 'Calle', 'CP', 'Localidad']
+
+    $.each(placeholder, function(index, value) {
+        $('input').attr('placeholder', value);
+    });
 
     var contentItems = $('.form-content').length;
     var contentPos = 1;

@@ -10,6 +10,7 @@ from bottle import (auth_basic, debug, error, get, post, redirect, request,
                     route, run, static_file, template)
 
 from controller.register import RegistrationForm
+from controller.contact import ContactForm
 from model.clients import Clients
 from model.modules import *
 
@@ -30,6 +31,11 @@ def admin():
 def register():
     form = RegistrationForm(request.POST)
     return template('registration', form=form)
+
+@get('/contact')
+def register():
+    form = ContactForm(request.POST)
+    return template('contact', form=form)
 
 @post('/registration')
 def post_registration():
