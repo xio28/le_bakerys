@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/styles/styles.css">
-    <!-- <link rel="stylesheet" href="/static/styles/register.css"> -->
-    <link rel="stylesheet" href="/static/styles/register_new.css">
+    %if title == "Registro de usuario":
+    <link rel="stylesheet" href="/static/styles/register.css">
+    %end
     <link rel="stylesheet" href="/static/styles/products.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/nav-menu.css">
     %if title == "Contacto":
         <link rel="stylesheet" href="/static/styles/contact.css">
     %end

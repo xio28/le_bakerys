@@ -230,7 +230,6 @@ label[for="privacy_policy"] {
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    display: none;
 }
 
 input[type="submit"],

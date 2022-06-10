@@ -1,9 +1,13 @@
 $(function() {
 
-    /* Adding a link to the label of the checkbox. */
-    $('label[for="privacy_policy"]').html('<a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">Acepto la política de privacidad.</a>')
+    const label_classes =  ["g-row-1 g-col-2", "g-row-1 g-col-3", "g-row-4 g-col-1"]
+    let num = 0
 
-    const label_classes =  ["g-row-1 g-col-2"]
-    $.each()
+    $('label').each(function(){
+        if (num < label_classes.length) {
+            $(this).addClass(label_classes[num]);
+            num++;
+        }
+    });
 
 });

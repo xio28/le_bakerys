@@ -99,7 +99,7 @@
     font-weight: bold;
 }
 
-.bottom-panel label[for*="-imp-"]::after {
+.bottom-panel label::after {
     content: '*';
     color: red;
     position: relative;

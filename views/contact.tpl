@@ -30,7 +30,7 @@
                     {{ form.comment }}
                     <div class="g-row-11 g-col-1">
                         {{ form.privacy_policy }}
-                        {{ form.privacy_policy.label }}
+                        <a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">Acepto la política de privacidad.</a>
                     </div>
                     {{ form.save }}
                 </fieldset>

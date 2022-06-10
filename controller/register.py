@@ -16,67 +16,57 @@ class RegistrationForm(Form):
     text_class = 'input-gen'
     policy = 'check-policy'
 
-    username = StringField('Nombre de usuario ', [
+    username = StringField([
                                         validators.Length(min=4, max=25, message="Longitud incorrecta"),
                                         validatePhone,
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    password = PasswordField('Contraseña ', [
+    password = PasswordField([
                                         validators.Length(min=10, max=60),
                                         validators.EqualTo('password_confirm', message='Las contraseñas no coinciden'),
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    password_confirm = PasswordField('Repita la contraseña ', [
+    password_confirm = PasswordField([
                                         validators.InputRequired()
                                     ],
                                         render_kw={'class': text_class})
-    c_name = StringField('Nombre ', [
+    c_name = StringField([
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    surname1 = StringField('Primer apellido ', [
+    surnames = StringField([
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    surname2 = StringField('Segundo apellido ', 
-                                        render_kw={'class': text_class})
-    nid = StringField('DNI ', [
+    nid = StringField([
                                         validators.InputRequired()
                                     ],
                                         render_kw={'class': text_class})
-    contact = StringField('Número de teléfono ', [
+    contact = StringField([
                                         validators.Length(min=9, max=9, message="Longitud incorrecta"), 
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    email = EmailField('Email ', [
+    email = EmailField([
                                         validators.InputRequired(),
                                         validators.Email()
                                     ],
                                         render_kw={'class': text_class})
-    street = StringField('Calle/Plaza/Avenida ', [
+    address = StringField([
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    s_num = StringField('Número ', [
+    postal_code = StringField([
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    s_story = StringField('Piso ', [
+    city = StringField([
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'class': text_class})
-    postal_code = StringField('Código postal ', [
-                                        validators.InputRequired()
-                                    ], 
-                                        render_kw={'class': text_class})
-    city = StringField('Localidad ', [
-                                        validators.InputRequired()
-                                    ], 
-                                        render_kw={'class': text_class})
-    privacy_policy = BooleanField('Acepto la política de privacidad.', [
+    privacy_policy = BooleanField([
                                         validators.InputRequired()
                                     ],
                                     render_kw={'class': policy})

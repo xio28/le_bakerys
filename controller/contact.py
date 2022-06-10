@@ -21,4 +21,5 @@ class ContactForm(Form):
                                         validators.InputRequired(message="Campo vacío.")
                                     ],
                                     render_kw={'class': '', 'placeholder': 'Nombre'})
-    save = SubmitField('Guardar')
+    save = SubmitField('Guardar', 
+                                    render_kw={'class': 'g-row-13 g-col-2'})
