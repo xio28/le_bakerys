@@ -47,7 +47,7 @@ def post_registration():
 
 @get('/')
 def index():
-    return template('index')
+    return static_file("index.html", root = "static")
 
 @get('/users/clients')
 def clients():
@@ -63,7 +63,7 @@ def admin():
 
 @get('/products')
 def products():
-    pass
+    return template("products")
 
 @get('/order')
 def order():
