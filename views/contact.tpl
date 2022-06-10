@@ -28,9 +28,10 @@
                     {{ form.email }}
                     {{ form.comment.label }}
                     {{ form.comment }}
-                    {{ form.privacy_policy.label }}
-                    {{ form.privacy_policy }}
-                    {{ form.privacy_policy.label }}
+                    <div class="g-row-11 g-col-1">
+                        {{ form.privacy_policy }}
+                        {{ form.privacy_policy.label }}
+                    </div>
                     {{ form.save }}
                 </fieldset>
             </form>

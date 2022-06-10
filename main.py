@@ -86,7 +86,6 @@ def products():
 def order():
     pass
 
-
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
 def css(filepath):
