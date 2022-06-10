@@ -60,6 +60,9 @@ def post_registration():
     print(form.errors)
     return template('registration', form=form)
 
+@get('/')
+def index():
+    return static_file("index.html", root = "static")
 
 @get('/users/clients')
 def clients():
@@ -71,7 +74,7 @@ def employee():
 
 @get('/products')
 def products():
-    pass
+    return template("products")
 
 @get('/order')
 def order():
@@ -87,7 +90,7 @@ def css(filepath):
 def font(filepath):
     return static_file(filepath, root="static/fonts")
 
-@get("/static/resources/img/<filepath:re:.*\.(jpg|png|gif|ico|svg|webp)>")
+@get("/static/resources/img/<filepath:re:.*\.(jpg|png|gif|ico|svg|jpeg|webp)>")
 def img(filepath):
     return static_file(filepath, root="static/resources/img")
 
