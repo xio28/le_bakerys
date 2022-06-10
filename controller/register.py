@@ -1,74 +1,65 @@
-from email_validator import EmailNotValidError
 from wtforms import Form, BooleanField, StringField, PasswordField, SubmitField , validators, EmailField, ValidationError
 
 def checkUsername(form, field):
     username_query = ""
 
-    # if field.data 
+    # if field.data
 
-def validatePhone(form, field):
-    print(type(field.data))
-    # if len(field.data) == 9:
-    #     pass
-    # else:
-    #     raise ValidationError('Field must be less than 50 characters')
 class RegistrationForm(Form):
     text_class = 'input-gen'
     policy = 'check-policy'
 
     username = StringField([
                                         validators.Length(min=4, max=25, message="Longitud incorrecta"),
-                                        validatePhone,
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': '&#xf007; Usuario'})
+                                        render_kw={'class': 'fa i-user', 'placeholder': ' Usuario'})
     password = PasswordField([
                                         validators.Length(min=10, max=60),
                                         validators.EqualTo('password_confirm', message='Las contraseñas no coinciden'),
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': '&#xf023; Contraseña'})
+                                        render_kw={'placeholder': ' Contraseña'})
     password_confirm = PasswordField([
                                         validators.InputRequired()
                                     ],
-                                        render_kw={'placeholder': '&#xf023; Confirmar contraseña'})
+                                        render_kw={'placeholder': ' Confirmar contraseña'})
     email = EmailField([
                                         validators.InputRequired(),
                                         validators.Email()
                                     ],
-                                        render_kw={'placeholder': '&#xf0e0; Correo'})
+                                        render_kw={'placeholder': ' Correo'})
     c_name = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': '&#xf044; Nombre'})
+                                        render_kw={'placeholder': ' Nombre'})
     surnames = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': '&#xf044; Apellidos'})
+                                        render_kw={'placeholder': ' Apellidos'})
     nid = StringField([
                                         validators.InputRequired()
                                     ],
-                                        render_kw={'placeholder': '&#xf044; DNI'})
+                                        render_kw={'placeholder': ' DNI'})
     contact = StringField([
                                         validators.Length(min=9, max=9, message="Longitud incorrecta"), 
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': '&#xf095; Telefono'})
+                                        render_kw={'placeholder': ' Telefono'})
     address = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': '&#xf05b; Dirección'})
+                                        render_kw={'placeholder': ' Dirección'})
     postal_code = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': '&#xf041; CP'})
+                                        render_kw={'placeholder': ' CP'})
     city = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': '&#xf041; Localidad'})
+                                        render_kw={'placeholder': ' Localidad'})
     privacy_policy = BooleanField([
                                         validators.InputRequired()
-                                    ],
-                                    render_kw={'class': policy})
+                                    ])
     save = SubmitField('Guardar')
 

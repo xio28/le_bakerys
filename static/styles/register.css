@@ -133,28 +133,47 @@ legend{
 
 
 input{
-    width: 60%;
-    height: 4rem;
-    margin-bottom: 6%;
-    border-radius: 1.8rem;
+    width: 100%;
+    height: 100%;
     border-style: none;
     box-shadow: 0px 1px 8px var(--tan);
     padding: 0 1.5rem;
     outline: none;
+    border-radius: 1.8rem;
     -webkit-border-radius: 1.8rem;
     -moz-border-radius: 1.8rem;
     -ms-border-radius: 1.8rem;
     -o-border-radius: 1.8rem;
 }
 
-input::placeholder{
+::placeholder{
     font-family: 'FontAwesome', var(--body-font);
     font-size: 1.5rem;
     color: #222;
+    padding-left: 10px;
 }
 
-.icon-bell:before {
-    content: "\e951";
+i {
+    height: 4rem;
+    min-width: 3rem;
+    font-size: 2.5rem !important;
+    position: absolute;
+    right: 1rem;
+    z-index: 1;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-color {
+    color: var(--dark-golden) !important;
+}
+
+.input-cont {
+    width: 70%;
+    height: 4rem;
+    position: relative;
+    margin-bottom: 6%;
 }
 
 .form-content{
@@ -190,7 +209,6 @@ input::placeholder{
     box-shadow: 2px 2px 4px var(--light-blue);
 }
 
-
 input[type="submit"]:hover,
 .btn-cancel:hover {
     transform: scale(.95);
@@ -203,6 +221,29 @@ input[type="submit"]:hover,
     -moz-transform: scale(.95);
     -ms-transform: scale(.95);
     -o-transform: scale(.95);
+}
+
+.check-item{
+    width: 100%;
+    margin: 2rem;
+}
+
+.check-item a{
+    font-size: 2rem;
+    font-family: var(--body-font);
+    color: var(--turquoise);
+    position: relative;
+    padding-left: 1rem;
+}
+
+.check-item a:checked{
+    color: #222;
+}
+
+.check-item input[type="checkbox"]{
+    height: 20px;
+    width: 20px;
+    box-shadow: 1px 1px 1px var(--turquoise);
 }
 
 .buttons-item input[type="checkbox"]{
