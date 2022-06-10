@@ -43,6 +43,7 @@ form_data = {
     'city' : "Las Palmas",
     'privacy_policy' : 1
 }
+
 keys = tuple(form_data.keys())
 values = tuple(form_data.values())
 
