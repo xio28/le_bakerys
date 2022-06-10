@@ -87,7 +87,7 @@ def css(filepath):
 def font(filepath):
     return static_file(filepath, root="static/fonts")
 
-@get("/static/resources/img/<filepath:re:.*\.(jpg|png|gif|ico|svg)>")
+@get("/static/resources/img/<filepath:re:.*\.(jpg|png|gif|ico|svg|webp)>")
 def img(filepath):
     return static_file(filepath, root="static/resources/img")
 
