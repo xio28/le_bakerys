@@ -13,51 +13,51 @@ class RegistrationForm(Form):
                                         validators.Length(min=4, max=25, message="Longitud incorrecta"),
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'class': 'fa i-user', 'placeholder': ' Usuario'})
+                                        render_kw={'class': 'fa i-user', 'placeholder': 'Usuario'})
     password = PasswordField([
                                         validators.Length(min=10, max=60),
                                         validators.EqualTo('password_confirm', message='Las contraseñas no coinciden'),
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': ' Contraseña'})
+                                        render_kw={'placeholder': 'Contraseña'})
     password_confirm = PasswordField([
                                         validators.InputRequired()
                                     ],
-                                        render_kw={'placeholder': ' Confirmar contraseña'})
+                                        render_kw={'placeholder': 'Confirmar contraseña'})
     email = EmailField([
                                         validators.InputRequired(),
                                         validators.Email()
                                     ],
-                                        render_kw={'placeholder': ' Correo'})
+                                        render_kw={'placeholder': 'Correo'})
     c_name = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': ' Nombre'})
+                                        render_kw={'placeholder': 'Nombre'})
     surnames = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': ' Apellidos'})
+                                        render_kw={'placeholder': 'Apellidos'})
     nid = StringField([
                                         validators.InputRequired()
                                     ],
-                                        render_kw={'placeholder': ' DNI'})
+                                        render_kw={'placeholder': 'DNI'})
     contact = StringField([
                                         validators.Length(min=9, max=9, message="Longitud incorrecta"), 
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': ' Telefono'})
+                                        render_kw={'placeholder': 'Telefono'})
     address = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': ' Dirección'})
+                                        render_kw={'placeholder': 'Dirección'})
     postal_code = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': ' CP'})
+                                        render_kw={'placeholder': 'CP'})
     city = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': ' Localidad'})
+                                        render_kw={'placeholder': 'Localidad'})
     privacy_policy = BooleanField([
                                         validators.InputRequired()
                                     ])
