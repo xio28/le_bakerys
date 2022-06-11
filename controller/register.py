@@ -56,4 +56,3 @@ class RegistrationForm(Form):
                                         validators.InputRequired()
                                     ])
     save = SubmitField('Guardar')
-
