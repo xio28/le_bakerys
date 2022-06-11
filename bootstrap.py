@@ -1,5 +1,5 @@
 import sqlite3
-from model.clients import Clients
+from model.users import Users
 from config.config import DATABASE
 from os.path import exists
 
@@ -18,7 +18,7 @@ def create_connection(db):
 
 if __name__ == '__main__':
 
-    CLIENT = Clients()
+    user = Users()
 
     if not exists(DATABASE):
         create_connection(DATABASE)

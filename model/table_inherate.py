@@ -1,9 +1,8 @@
-import sys
-sys.path.append('/home/cfgs1/Documentos/repo/le_bakerys')
-
 import sqlite3
 from abc import ABC
-from config.config import DATABASE
+#from config.config import DATABASE
+
+DATABASE = 'le_bakerys.db'
 
 class TableInherate(ABC):
 
