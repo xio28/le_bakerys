@@ -21,7 +21,7 @@ class RegistrationForm(Form):
     user_image = FileField([            
                                         validators.InputRequired()
                                     ],
-                                        render_kw={'placeholder': 'Confirmar contraseña'})
+                                        render_kw={'id': 'file-reg', 'data-multiple-caption': '{count} files selected'})
     c_name = StringField([
                                         validators.InputRequired()
                                     ], 

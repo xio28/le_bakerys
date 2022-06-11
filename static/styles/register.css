@@ -131,6 +131,9 @@ legend{
     font-weight: bold;
 }
 
+label, input {
+    font-family: var(--body-font);
+}
 
 input{
     width: 100%;
@@ -191,6 +194,65 @@ i {
     margin-top: 4%;
 }
 
+.file-icon {    
+    height: 4rem;
+    min-width: 3rem;
+    font-size: 2.1rem !important;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    display: inline-flex !important;
+    justify-content: flex-start;
+    align-items: center;
+    fill: currentColor !important;
+    color: var(--white) !important;
+    padding-left: .5rem;
+}
+
+input[type="file"] {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+    box-shadow: none !important;
+}
+
+input[type="file"] + label {
+    position: absolute;
+    min-width: 18rem;
+    max-width: 21rem;
+    height: 100%;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    color: var(--white);
+    background-color: var(--dark-golden);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+input[type="file"] + label > span {
+    max-width: 100%;
+    padding: 0 1rem 0 3rem;
+}
+
+input[type="file"]:focus + label,
+input[type="file"] + label:hover {
+    background-color: var(--turquoise);
+}
+
 .buttons-item input[type="button"],
 .btn-cancel,
 .buttons-item input[type="submit"]{
@@ -199,7 +261,6 @@ i {
     box-shadow: none;
     cursor: pointer;
     background-color: var(--light-blue);
-    font-family: var(--body-font);
     color: var(--white);
     font-size: 2rem;
     text-transform: uppercase;

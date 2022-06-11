@@ -20,7 +20,8 @@
                                         <i class="fa-color fa fa-solid fa-lock"></i>{{ form.password_confirm }}
                                     </div>
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-lock"></i><input type="file">
+                                        {{ form.user_image }}
+                                        <label for="file-reg"><i class="file-icon fa-color fa fa-solid fa-upload"></i><span>Subir imagen</span></label>
                                     </div>
                                 </div>
                             </fieldset>
