@@ -1,10 +1,11 @@
 import sqlite3
-from model.clients import Clients
-from config.config import DATABASE
 from os.path import exists
 
+from model.modules import Modules
+from model.users import Users
+
+
 def create_connection(db):
-    conn = None
     try:
         conn = sqlite3.connect(db)
 
@@ -18,9 +19,9 @@ def create_connection(db):
 
 if __name__ == '__main__':
 
-    CLIENT = Clients()
+    DATABASE = Modules.load_config().get('database')
+
+    Users.create(Modules.load_config().get('users_db'))
 
     if not exists(DATABASE):
         create_connection(DATABASE)
-        CLIENT
-        

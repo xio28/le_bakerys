@@ -1,64 +1,80 @@
 %include('header.tpl', title='Registro de usuario')
-    <div class="item-background"></div>
-    <div class="container-register">
-        <div class="form-item">
-            <div class="left-content"></div>
-            <div class="right-content">
-                <div class="header-reg-content">
-                    <div class="form-title">Crear cuenta nueva</div>
-                    <div class="pagination">
-                        <img id="prev" class="btn" src="/static/resources/img/left-arrow.svg" alt="flecha izquierda">
-                        <img id="next" class="btn" src="/static/resources/img/right-arrow.svg" alt="flecha derechapointer-events">
-                    </div>
+    <div class="item-background">
+        <div class="container-register">
+            <div class="form-title"><h2>Crear cuenta nueva</h2></div>
+            <div class="form-item">
+                <div class="left-content"></div>
+                <div class="right-content">
+                    <form action="/registration" method="POST">
+                        <div class="fieldset-item">
+                            <fieldset>
+                                <legend>Datos de usuario:</legend>
+                                <div class="form-content">
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-user"></i>{{ form.username }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-lock"></i>{{ form.password }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-lock"></i>{{ form.password_confirm }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-envelope"></i>{{ form.email }}
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fieldset-item">
+                            <fieldset>
+                                <legend>Datos personales:</legend>
+                                <div class="form-content">
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-circle-user"></i>{{ form.c_name }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-circle-user"></i>{{ form.surnames }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-address-card"></i>{{ form.nid }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-square-phone"></i>{{ form.contact }}
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="fieldset-item">
+                            <fieldset>
+                                <legend>Dirección:</legend>
+                                <div class="form-content">
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-location-crosshairs"></i>{{ form.address }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-location-pin"></i>{{ form.postal_code }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-building"></i>{{ form.city }}
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        
+                        <div class="check-item">
+                            {{ form.privacy_policy }}
+                            <a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">He leído los términos.</a>
+                        </div>
+                        <div class="buttons-item">
+                            <a href="/" class="btn-cancel">Volver</a>
+                            {{ form.save }}
+                        </div>
+                        <div class="return-login">
+                            ¿Tienes cuenta?<a href="#" class="btn-login">Entrar</a>
+                        </div>
+                    </form>
                 </div>
-                <form action="/registration" method="POST">
-                    <!-- <div class="list-tabs">
-                        <div class="progress-bar-container">
-                            <div class="bubble bubble-val"></div>
-                            <div id="progress" class="progress-value percentage"></div>
-                        </div>
-                    </div> -->
-                    <div class="content-container">
-                        <div id="tab-1" class="form-content">
-                            {{ form.username.label }}
-                            {{ form.username }}
-                            {{ form.password.label }}
-                            {{ form.password }}
-                            {{ form.password_confirm.label }}
-                            {{ form.password_confirm }}
-                            {{ form.email.label }}
-                            {{ form.email }}
-                            {{ form.c_name.label }}
-                            {{ form.c_name }}
-                            {{ form.surname1.label }}
-                            {{ form.surname1 }}
-                            {{ form.surname2.label }}
-                            {{ form.surname2 }}
-                            {{ form.nid.label }}
-                            {{ form.nid }}
-                            {{ form.contact.label }}
-                            {{ form.contact }}
-                            {{ form.street.label }}
-                            {{ form.street }}
-                            {{ form.s_num.label }}
-                            {{ form.s_num }}
-                            {{ form.s_story.label }}
-                            {{ form.s_story }}
-                            {{ form.postal_code.label }}
-                            {{ form.postal_code }}
-                            {{ form.city.label }}
-                            {{ form.city }}
-                            <div class="priv">
-                                {{ form.privacy_policy }}
-                                {{ form.privacy_policy.label }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="submit-button">
-                        {{ form.save }}
-                    </div>
-                </form>
             </div>
-        </div>
+        </div> 
     </div>
 %include('footer.tpl')

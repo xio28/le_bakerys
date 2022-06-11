@@ -74,7 +74,6 @@
     display: flex;
     justify-content: center;
     padding: 5rem;
-    background-color: var(--white);
 }
 
 .bottom-panel fieldset {
@@ -94,12 +93,12 @@
 
 .bottom-panel label {
     color: #333;
-    font-size: 2rem;
-    font-family: var(--body-font);
+    font-size: 3rem;
+    font-family: var(--subtitle-regular);
     font-weight: bold;
 }
 
-.bottom-panel label[for*="-imp-"]::after {
+.bottom-panel label::after {
     content: '*';
     color: red;
     position: relative;
@@ -169,8 +168,9 @@ input[type="submit"]:hover {
 }
 
 .privacy {
-    font-size: 2rem;
-    font-family: var(--body-font);
+    font-size: 3rem;
+    font-family: var(--subtitle-regular);
+    font-weight: bold;
     color: var(--turquoise);
     position: relative;
     padding: 0;

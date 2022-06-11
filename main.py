@@ -1,20 +1,30 @@
-import os
-import sys
-sys.path.append('model') # add the models directory to the path
-sys.path.append('controller')
+from bottle import (auth_basic, debug, error, get, post, redirect, request,
+                    route, run, static_file, template)
 
-import sqlite3
-from bottle import route, run, template, request, get, post, redirect, static_file, error, debug
-from model.clients import Clients
 from controller.register import RegistrationForm
+from controller.contact import ContactForm
+from model.users import Users
+from model.modules import *
 
-# Creating an instance of the Clients class.
-clients = Clients()
+@get('/')
+def index():
+    return template('index')
+
+
+@get('/admin')
+@auth_basic(Modules.auth_admin)
+def admin():
+    return template('index')
 
 @get('/registration')
 def register():
     form = RegistrationForm(request.POST)
     return template('registration', form=form)
+
+@get('/contact')
+def register():
+    form = ContactForm(request.POST)
+    return template('contact', form=form)
 
 @post('/registration')
 def post_registration():
@@ -29,9 +39,7 @@ def post_registration():
             'surname2' : form.surname2.data,
             'nid' : form.nid.data,
             'contact' : form.contact.data,
-            'street' : form.street.data,
-            's_num' : form.s_num.data,
-            's_story' : form.s_story.data,
+            'address' : form.address.data,
             'postal_code' : form.postal_code.data,
             'city' : form.city.data,
             'privacy_policy' : form.privacy_policy.data
@@ -46,6 +54,7 @@ def post_registration():
     return template('registration', form=form)
 
 @get('/')
+@get('/index')
 def index():
     return static_file("index.html", root = "static")
 
@@ -57,10 +66,6 @@ def clients():
 def employee():
     pass
 
-@get('/users/admin')
-def admin():
-    pass
-
 @get('/products')
 def products():
     return template("products")
@@ -69,7 +74,10 @@ def products():
 def order():
     pass
 
-
+@error(404)
+def error404(error):
+    return static_file('404.html', root='static/src')
+    
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
 def css(filepath):
