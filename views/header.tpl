@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %elif title == "Carrito de compra":
         <link rel="stylesheet" href="/static/styles/cart.css">
+    %elif title == "Log In":
+        <link rel="stylesheet" href="/static/styles/login.css">
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/tabs.js"></script>

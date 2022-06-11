@@ -33,10 +33,11 @@ class RegistrationForm(Form):
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'placeholder': 'Nombre'})
-    surnames = StringField([
+    surname1 = StringField([
                                         validators.InputRequired()
                                     ], 
-                                        render_kw={'placeholder': 'Apellidos'})
+                                        render_kw={'placeholder': 'Primer apellido'})
+    surname2 = StringField(             render_kw={'placeholder': 'Segundo apellido'})
     nid = StringField([
                                         validators.InputRequired()
                                     ],
