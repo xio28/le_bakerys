@@ -11,7 +11,7 @@ from bottle import (auth_basic, debug, error, get, post, redirect, request,
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
-from model.clients import Clients
+from model.users import Clients
 from model.modules import *
 
 # Creating an instance of the Clients class.
@@ -67,6 +67,7 @@ def post_registration():
     return template('registration', form=form)
 
 @get('/')
+@get('/index')
 def index():
     return static_file("index.html", root = "static")
 
@@ -85,6 +86,10 @@ def products():
 @get('/order')
 def order():
     pass
+
+@error(404)
+def error404(error):
+    return static_file('404.html', root='static/src')
 
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
