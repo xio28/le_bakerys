@@ -66,11 +66,12 @@ class Tables(ABC):
 
         atributes = ','.join([key for key in data.keys()])
         values = ','.join([val for val in data.values()])
+        subs = ','.join(['?'] * len(data))
 
         try:
             conn = cls._connect()
             c = conn.cursor()
-            c.execute(f'INSERT INTO {cls._get_name} ({atributes}) VALUES ({values})')
+            c.execute(f'INSERT INTO {cls._get_name} ({atributes}) VALUES ({subs})', (values))
             conn.commit()
             c.close()
 
@@ -97,6 +98,7 @@ class Tables(ABC):
             if conn:
                 conn.close()
 
+    # Puede contener errores!!!!
     @classmethod
     def update(cls, data: dict, where: str):
 
