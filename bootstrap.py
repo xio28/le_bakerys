@@ -18,7 +18,5 @@ def create_connection(db):
 
 if __name__ == '__main__':
 
-    user = Users()
-
     if not exists(DATABASE):
         create_connection(DATABASE)

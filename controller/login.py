@@ -11,11 +11,6 @@ class ContactForm(Form):
                                         validators.Email(message="Email incorrecto.")
                                     ],
                                     render_kw={'class': 'g-row-2 g-col-3'})
-    comment = TextAreaField('Mensaje', [
-                                        validators.InputRequired(message="Campo vacío."), 
-                                        validators.Length(min=10, max=1000, message="La longitud debe estar entre 10 y 1000 caracteres.")
-                                        ],
-                                    render_kw={'class': 'g-row-5-10 g-col-1'})
     privacy_policy = BooleanField([
                                         validators.InputRequired(message="Campo vacío.")
                                     ],

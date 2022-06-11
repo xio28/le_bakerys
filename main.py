@@ -1,10 +1,4 @@
 import os
-import sys
-
-sys.path.append('model') # add the models directory to the path
-sys.path.append('controller')
-
-import sqlite3
 
 from bottle import (auth_basic, debug, error, get, post, redirect, request,
                     route, run, static_file, template)
@@ -13,9 +7,6 @@ from controller.register import RegistrationForm
 from controller.contact import ContactForm
 from model.users import Clients
 from model.modules import *
-
-# Creating an instance of the Clients class.
-clients = Clients()
 
 @get('/')
 def index():

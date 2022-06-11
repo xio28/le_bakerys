@@ -1,38 +1,31 @@
-#from model.table_inherate import TableInherate
-from table_inherate import TableInherate
+from model.tables import Tables
 
-class Users(TableInherate):
+class Users(Tables):
     
     table_def = '''
-    username VARCHAR(50) PRIMARY KEY,
-    password VARCHAR(50) NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    apellido1 VARCHAR(50) NOT NULL,
-    apellido2 VARCHAR(50) DEFAULT NULL
+
     '''
 
     def __init__(self):
         super().__init__()
         self.create(self.table_def)
 
-class Clients():
-    pass
+class Clients(Users):
 
-class Employees():
-    pass
+    table_def = '''
 
-apellido = ""
+    '''
 
-usuario = {
-    'username' : "xPaco",
-    "password" : "LaMariLoli",
-    'nombre' : 'Paco',
-    'apellido1' : 'Smith',
-    'apellido2' : apellido if apellido != "" else "Null" 
-}
+    def __init__(self):
+        super().__init__()
+        self.create(self.table_def)
 
-keys = tuple(usuario.keys())
-values = tuple(usuario.values())
+class Employees(Users):
+    
+    table_def = '''
 
-c = Users()
-c.insert(values)
+    '''
+
+    def __init__(self):
+        super().__init__()
+        self.create(self.table_def)
