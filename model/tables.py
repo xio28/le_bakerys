@@ -3,7 +3,6 @@ from abc import ABC
 
 from model.modules import Modules
 
-
 class Tables(ABC):
 
     DATABASE = Modules.load_config().get('database')

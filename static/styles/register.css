@@ -262,7 +262,6 @@ input[type="file"] + label:hover {
     box-shadow: none;
     cursor: pointer;
     background-color: var(--light-blue);
-    font-family: var(--body-font);
     color: var(--white);
     font-size: 2rem;
     text-transform: uppercase;

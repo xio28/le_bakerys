@@ -1,6 +1,5 @@
 from model.tables import Tables
 
-
 class Users(Tables):
     pass
 
