@@ -1,17 +1,16 @@
 import sqlite3
 from abc import ABC
 
-from config.config import DATABASE
+from model.modules import Modules
 
 
 class Tables(ABC):
 
-    def __init__(self):
-        self.database = DATABASE
+    DATABASE = Modules.load_config().get('database')
 
     @classmethod
     def _connect(cls):
-        return sqlite3.connect(cls.database)
+        return sqlite3.connect(cls.DATABASE)
     
     @classmethod
     def _get_name(cls):
