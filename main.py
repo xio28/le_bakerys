@@ -1,11 +1,9 @@
-import os
-
 from bottle import (auth_basic, debug, error, get, post, redirect, request,
                     route, run, static_file, template)
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
-from model.users import Clients
+from model.users import Users
 from model.modules import *
 
 @get('/')
