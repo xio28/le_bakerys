@@ -1,3 +1,4 @@
+from fileinput import filename
 from bottle import (auth_basic, debug, error, get, post, redirect, request,
                     route, run, static_file, template)
 
@@ -5,6 +6,8 @@ from controller.register import RegistrationForm
 from controller.contact import ContactForm
 from model.users import Users
 from model.modules import *
+from PIL import Image
+import os
 
 @get('/')
 def index():
@@ -29,28 +32,13 @@ def register():
 @post('/registration')
 def post_registration():
     form = RegistrationForm(request.POST) 
+    dir_path = '/static/resources/users'
     if form.save.data:
-        form_data = {
-            'username' : form.username.data,
-            'password' : form.password.data,
-            'email' : form.email.data,
-            'c_name' : form.c_name.data,
-            'surname1' : form.surname1.data,
-            'surname2' : form.surname2.data,
-            'nid' : form.nid.data,
-            'contact' : form.contact.data,
-            'address' : form.address.data,
-            'postal_code' : form.postal_code.data,
-            'city' : form.city.data,
-            'privacy_policy' : form.privacy_policy.data
-        }
-        keys = tuple(form_data.keys())
-        values = tuple(form_data.values())
-        clients.insert(values, keys)
-
-        print(form_data)
-        redirect('/')
-    print(form.errors)
+        f = request.files['user_image']
+        f_path = f'/static/resources/users/{f.filename}'
+        f.save(f_path)
+        # redirect('/')
+    # print(form.errors)
     return template('registration', form=form)
 
 @get('/')

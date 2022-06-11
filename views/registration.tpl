@@ -5,7 +5,7 @@
             <div class="form-item">
                 <div class="left-content"></div>
                 <div class="right-content">
-                    <form action="/registration" method="POST">
+                    <form action="/registration" method="POST" enctype="multipart/form-data">
                         <div class="fieldset-item">
                             <fieldset>
                                 <legend>Datos de usuario:</legend>
