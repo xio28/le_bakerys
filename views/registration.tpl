@@ -6,12 +6,12 @@
                 <div class="left-content"></div>
                 <div class="right-content">
                     <form action="/registration" method="POST">
-                        <div class="fieldset-item">
+                         <div class="fieldset-item">
                             <fieldset>
                                 <legend>Datos de usuario:</legend>
                                 <div class="form-content">
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-user"></i>{{ form.username }}
+                                        <i class="fa-color fa fa-solid fa-envelope"></i>{{ form.email }}
                                     </div>
                                     <div class="input-cont">
                                         <i class="fa-color fa fa-solid fa-lock"></i>{{ form.password }}
@@ -20,7 +20,8 @@
                                         <i class="fa-color fa fa-solid fa-lock"></i>{{ form.password_confirm }}
                                     </div>
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-envelope"></i>{{ form.email }}
+                                        {{ form.user_image }}
+                                        <label for="file-reg"><i class="file-icon fa-color fa fa-solid fa-upload"></i><span>Subir imagen</span></label>
                                     </div>
                                 </div>
                             </fieldset>
@@ -30,16 +31,19 @@
                                 <legend>Datos personales:</legend>
                                 <div class="form-content">
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-circle-user"></i>{{ form.c_name }}
+                                        <i class="fa-color fa fa-solid fa-user"></i>{{ form.c_name }}
                                     </div>
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-circle-user"></i>{{ form.surnames }}
+                                        <i class="fa-color fa fa-solid fa-user"></i>{{ form.surname1 }}
+                                    </div>
+                                    <div class="input-cont">
+                                        <i class="fa-color fa fa-solid fa-user"></i>{{ form.surname2 }}
                                     </div>
                                     <div class="input-cont">
                                         <i class="fa-color fa fa-solid fa-address-card"></i>{{ form.nid }}
                                     </div>
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-square-phone"></i>{{ form.contact }}
+                                        <i class="fa-color fa fa-solid fa-phone"></i>{{ form.contact }}
                                     </div>
                                 </div>
                             </fieldset>
@@ -49,10 +53,10 @@
                                 <legend>Dirección:</legend>
                                 <div class="form-content">
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-location-crosshairs"></i>{{ form.address }}
+                                        <i class="fa-color fa fa-solid fa-address-book"></i>{{ form.address }}
                                     </div>
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-location-pin"></i>{{ form.postal_code }}
+                                        <i class="fa-color fa fa-solid fa-address-book"></i>{{ form.postal_code }}
                                     </div>
                                     <div class="input-cont">
                                         <i class="fa-color fa fa-solid fa-building"></i>{{ form.city }}
