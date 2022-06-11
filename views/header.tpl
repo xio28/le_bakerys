@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/static/styles/styles.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
     <link rel="stylesheet" href="/static/styles/nav-menu.css">    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     %if title == "Registro de usuario":
         <link rel="stylesheet" href="/static/styles/register.css">
     %elif title == "Contacto":
@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %elif title == "Carrito de compra":
         <link rel="stylesheet" href="/static/styles/cart.css">
+    %elif title == "Log In":
+        <link rel="stylesheet" href="/static/styles/login.css">
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/tabs.js"></script>

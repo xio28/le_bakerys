@@ -14,7 +14,7 @@ venv/
 *workspace*
 
 #DB files
-*.db
+# *.db
 
 #Other files
 git_commands.txt

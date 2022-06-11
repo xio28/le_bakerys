@@ -39,9 +39,7 @@ def post_registration():
             'surname2' : form.surname2.data,
             'nid' : form.nid.data,
             'contact' : form.contact.data,
-            'street' : form.street.data,
-            's_num' : form.s_num.data,
-            's_story' : form.s_story.data,
+            'address' : form.address.data,
             'postal_code' : form.postal_code.data,
             'city' : form.city.data,
             'privacy_policy' : form.privacy_policy.data
@@ -79,7 +77,7 @@ def order():
 @error(404)
 def error404(error):
     return static_file('404.html', root='static/src')
-
+    
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
 def css(filepath):
