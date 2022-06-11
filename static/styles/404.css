@@ -1,0 +1,253 @@
+:root {
+    --player-size: 45px;
+    --obstacle-size: 25px;
+    --bottom-pad: 5px;
+
+    --bubble-bg: rgb(0, 170, 204);
+    --degragado: linear-gradient(rgb(26,50,120), rgb(18,158,193));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font) !important;
+    background-image: url('./../resources/img/404_bg.jpeg');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.main__container {
+    position: relative;
+    min-width: 375px;
+    height: 550px;
+}
+
+.bubble-one {
+    width: 200px;
+    height: 70px;
+    background-color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    padding: 2rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #1a3278;
+    background: -webkit-linear-gradient(116deg, #1a3278 0%, #129ec1 100%);
+    background: linear-gradient(116deg, #1a3278 0%, #129ec1 100%);
+}
+
+
+.bubble-one::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    left: 184px;
+    border-radius: 50px;
+    background: #129ec1;
+    background: -webkit-linear-gradient(137deg, #129ec1 0%, #1a3278 100%);
+    background: linear-gradient(137deg, #129ec1 0%, #1a3278 100%);
+}
+
+/*
+#1a3278
+#129ec1
+*/
+
+.bubble-one::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 75px;
+    left: 200px;
+    border-radius: 50px;
+    background: #129ec1;
+    background: -webkit-linear-gradient(200deg, #129ec1 0%, #1a3278 100%);
+    background: linear-gradient(200deg, #129ec1 0%, #1a3278 100%);
+}
+
+
+.bubble-two {
+    width: 200px;
+    height: 70px;
+    background-color: #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 40px;
+    right: 15px;
+    padding: 2rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #129ec1;
+    background: -webkit-linear-gradient(156deg, #129ec1 0%, #1a3278 100%);
+    background: linear-gradient(156deg, #129ec1 0%, #1a3278 100%);
+}
+
+.bubble-two::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    left: -4px;
+    border-radius: 50px;
+    background: #129ec1;
+    background: -webkit-linear-gradient(218deg, #129ec1 0%, #1a3278 100%);
+    background: linear-gradient(218deg, #129ec1 0%, #1a3278 100%);
+}
+
+.bubble-two::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 75px;
+    left: -20px;
+    border-radius: 50px;
+    background: -webkit-linear-gradient(200deg, #129ec1 0%, #1a3278 100%);
+    background: linear-gradient(200deg, #129ec1 0%, #1a3278 100%);
+}
+
+.bubble-two a {
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 1px solid white;
+}
+
+.letter {
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+    z-index: 200;
+    color: #fff;
+    font-size: 20rem;
+    font-weight: bold;
+    text-shadow: 
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+}
+
+.game__container {
+    width: 350px;
+    height: 150px;
+    overflow: hidden;
+    background-color: rgba(131, 188, 228, 0.528);
+    backdrop-filter: blur(3px);
+    color: #fff;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.floor {
+    height: 5px;
+    width: 350px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: lightgray;
+}
+
+#player {
+    width: var(--player-size);
+    height: var(--player-size);
+    position: absolute;
+    bottom: var(--bottom-pad);
+    left: 10px;
+    background-image: url('./../resources/img/game_spartan.png');
+    background-size: cover;
+}
+
+.player-active {
+    animation: animatePlayer .5s linear infinite;
+}
+
+#obstacle {
+    width: var(--obstacle-size);
+    height: var(--obstacle-size);
+    position: absolute;
+    bottom: var(--bottom-pad);
+    right: -30px;
+    background-image: url('./../resources/img/game_donut.png');
+    background-size: cover;
+}
+
+.obstacle-active {
+    animation: animateObstacle 1.5s linear infinite;
+}
+
+#score {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    font-size: 1.4rem;
+}
+
+#score span {
+    font-weight: bold;
+}
+
+#game-over {
+    display: none;
+    font-size: 3rem;
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom: 2px solid #fff;
+}
+
+@keyframes animatePlayer {
+    0%, 100% {bottom: 10px;}
+    45%, 55% {bottom: 50px;}
+}
+
+@keyframes animateObstacle {
+    0% {
+        right: -100px;
+        transform: rotate(360deg);
+    }
+    100% {
+        right: 100%;
+        transform: rotate(0deg);
+    }
+}
