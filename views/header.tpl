@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="/static/styles/login.css">
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
-    <script src="/static/js/tabs.js"></script>
+    <script src="/static/js/forms.js"></script>
     <title>{{title}}</title>
 </head>
 <body>

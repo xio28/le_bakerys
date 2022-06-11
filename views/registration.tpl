@@ -20,7 +20,8 @@
                                         <i class="fa-color fa fa-solid fa-lock"></i>{{ form.password_confirm }}
                                     </div>
                                     <div class="input-cont">
-                                        <input type="file">
+                                        {{ form.user_image }}
+                                        <label for="file-reg"><i class="file-icon fa-color fa fa-solid fa-upload"></i><span>Subir imagen</span></label>
                                     </div>
                                 </div>
                             </fieldset>
@@ -66,9 +67,7 @@
                         
                         <div class="check-item">
                             {{ form.privacy_policy }}
-                            <a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">
-                                <span>He leído los términos</span>
-                            </a>
+                            <a target="_blank" href="https://www.boe.es/buscar/doc.php?id=BOE-A-2018-16673">He leído los términos.</a>
                         </div>
                         <div class="buttons-item">
                             <a href="/" class="btn-cancel">Volver</a>
