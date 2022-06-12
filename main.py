@@ -4,10 +4,9 @@ from bottle import (auth_basic, debug, error, get, post, redirect, request,
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
-from model.users import Users
+from model.products import Productos
+from model.users import Usuarios
 from model.modules import *
-from PIL import Image
-import os
 
 @get('/')
 def index():
@@ -32,13 +31,10 @@ def register():
 @post('/registration')
 def post_registration():
     form = RegistrationForm(request.POST) 
-    dir_path = '/static/resources/users'
     if form.save.data:
         f = request.files['user_image']
         f_path = f'/static/resources/users/{f.filename}'
         f.save(f_path)
-        # redirect('/')
-    # print(form.errors)
     return template('registration', form=form)
 
 @get('/')
@@ -56,7 +52,33 @@ def employee():
 
 @get('/products')
 def products():
-    return template("products")
+    products_list = Productos.select()
+
+    return template("products", products_list = products_list)
+
+@get('/products/tartas')
+def filter_tartas():
+    products_list = Productos.get(['*'], {'categoria' : 'Tartas'})
+
+    return template("products", products_list = products_list)
+
+@get('/products/helados')
+def filter_helados():
+    products_list = Productos.get(['*'], {'categoria' : 'Helados'})
+
+    return template("products", products_list = products_list)
+
+@get('/products/dulces')
+def filter_helados():
+    products_list = Productos.get(['*'], {'categoria' : 'dulces'})
+
+    return template("products", products_list = products_list)
+
+@get('/products/salados')
+def filter_helados():
+    products_list = Productos.get(['*'], {'categoria' : 'salados'})
+
+    return template("products", products_list = products_list)
 
 @get('/order')
 def order():
@@ -90,4 +112,4 @@ def js(filepath):
 
 
 if __name__ == '__main__':
-    run(host='localhost', port=8082, debug=True, reloader=True)
+    run(host='localhost', port=8080, debug=True, reloader=True)

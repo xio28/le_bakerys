@@ -12,7 +12,7 @@ let scoreCounter = () => {
     playerScore ++;
     score.innerHTML = `Score: <span>${playerScore}</span>`;
 };
-
+º
 // Start Game
 window.addEventListener("keydown", (start) => {
     if (start.code == "Space") {

@@ -1,4 +1,4 @@
-from model.tables import Tables
+from model.tables import Tablas
 
-class Products(Tables):
+class Productos(Tablas):
     pass

@@ -11,7 +11,7 @@
                                 <legend>Datos de usuario:</legend>
                                 <div class="form-content">
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-envelope"></i>{{ form.email }}
+                                        <i class="fa-color fa fa-solid fa-envelope"></i>{{ form.email.label }}
                                     </div>
                                     <div class="input-cont">
                                         <i class="fa-color fa fa-solid fa-lock"></i>{{ form.password }}

@@ -3,7 +3,7 @@ from abc import ABC
 
 from model.modules import Modules
 
-class Tables(ABC):
+class Tablas(ABC):
 
     DATABASE = Modules.load_config().get('database')
 
@@ -43,13 +43,17 @@ class Tables(ABC):
             return data
 
     @classmethod
-    def get(cls, *fields: str, where: str):
-        data = ""
+    def get_select(cls, fields: list, where: str):
+        where_clause = '{} LIKE ?'.format(list(where)[0])
+        value = list(where.values())[0]
+        query = 'SELECT {} FROM {} WHERE {}'.format(','.join(fields), cls._get_name(), where_clause)
+
         try:
             conn = cls._connect()
             c = conn.cursor()
-            c.execute('SELECT {} FROM {} WHERE {}'.format(','.join(fields), cls._get_name(), where))
-            data = c.fetchone()
+            c.execute(query, (value,))
+            data = c.fetchall()
+
             c.close()
         
         except sqlite3.Error as error:
@@ -82,11 +86,15 @@ class Tables(ABC):
                 conn.close()
 
     @classmethod
-    def delete(cls, where: str):
+    def delete(cls, where: dict):
+        where_clause = '{} LIKE ?'.format(list(where)[0])
+        value = list(where.values())[0]
+        query = f'DELETE FROM {cls._get_name()} WHERE {where_clause}'
+
         try:
             conn = cls._connect()
             c = conn.cursor()
-            c.execute(f'DELETE FROM {cls._get_name()} WHERE {where}')
+            c.execute(query, (value,))
             conn.commit()
             c.close()
 
@@ -97,16 +105,20 @@ class Tables(ABC):
             if conn:
                 conn.close()
 
-    # Puede contener errores!!!!
     @classmethod
-    def update(cls, data: dict, where: str):
+    def update(cls, data: dict, where: dict):
+        where_clause = '{} LIKE ?'.format(list(where)[0])
+        new_values = ','.join([f'{key} = ?' for key in data.keys()])
+        values = [val for val in data.values()]
+        query = f'UPDATE {cls._get_name()} SET {new_values} WHERE {where_clause}'
 
-        new_values = ','.join([f'{key}={val}' for key, val in data.items()])
+
+        values.append(list(where.values())[0])
 
         try:
             conn = cls._connect()
             c = conn.cursor()
-            c.execute(f'UPDATE {cls._get_name()} SET {new_values} WHERE {where}')
+            c.execute(query, (values))
             conn.commit()
             c.close()
 

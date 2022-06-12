@@ -1,6 +1,5 @@
 {
     "database" : "le_bakerys.db",
 
-    "users_db" : "",
-    "products_db" :""
+    "products_db" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, NOMBRE VARCHAR(80) NOT NULL, PrecioDeCoste DEC(4,2), Categoria VARCHAR(50), Stock INTEGER, Imagen TEXT"
 }

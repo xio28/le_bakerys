@@ -1,0 +1,342 @@
+.apanel-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+/***********************************/
+/*********** NAV PANEL *************/
+/***********************************/
+
+.nav-panel {
+    width: 420px;
+    height: 100%;
+    position: fixed;
+    background-color: #333;
+    overflow: hidden;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+.nav-panel.active {
+    width: 90px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h2, span {
+    color: var(--white);
+    font-family: var(--body-font);
+}
+
+.nav-panel ul {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-panel ul li {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+.nav-panel ul li:first-child {
+    margin-bottom: 5rem;
+}
+
+.nav-panel ul li:last-child {
+    margin-top: auto;
+}
+
+.nav-panel ul li:hover {
+    background-color: #4d4d4d;
+}
+
+.nav-panel ul li:nth-child(1):hover {
+    background-color: #4d4d4d;
+}
+
+.nav-panel ul li a {
+    width: 100%;
+    display: block;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 3rem 2rem 3rem 0;
+}
+
+.nav-panel .title {
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.nav-panel span {
+    font-size: 2.5rem;
+}
+
+.nav-panel .icon-title {
+    min-width: 3.8rem !important;
+    height: 3.8rem !important;
+}
+
+.nav-panel .icon {
+    display: inline-block;
+    min-width: 3rem;
+    height: 3rem;
+    line-height: 60px;
+    padding-right: 1rem;
+    background-position: center;
+    background-size: cover;
+    margin: 0 3rem;
+}
+
+.i-cake {
+    background-image: url('/static/resources/img/l-cake.png');
+}
+
+.i-pass {
+    background-image: url('/static/resources/img/lock.png');
+}
+
+.i-customers {
+    background-image: url('/static/resources/img/user.png');
+}
+
+.i-employees {
+    background-image: url('/static/resources/img/employees.png');
+}
+
+.i-products {
+    background-image: url('/static/resources/img/products.png');
+}
+
+.i-see {
+    background-image: url('/static/resources/img/see.png');
+}
+
+.i-orders {
+    background-image: url('/static/resources/img/orders.png');
+}
+
+.i-logout {
+    background-image: url('/static/resources/img/logout.png');
+}
+
+.nav-panel h2{
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+/************************************/
+/*********** MAIN PANEL *************/
+/************************************/
+
+.content-panel {
+    position: absolute;
+    width: calc(100% - 420px);
+    left: 420px;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+.content-panel.active {
+    width: calc(100% - 90px);
+    left: 90px;
+}
+
+.content-panel .topbar {
+    width: 100%;
+    height: 70px;
+    background-color: var(--turquoise);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.toggle::before {
+    content: '\f0c9';
+    font-family: 'FontAwesome';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 5rem;
+    text-align: center;
+    color: #333;
+}
+
+.user {
+    position: relative;
+    min-width: 6rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/************************************/
+/************ MAIN BOX **************/
+/************************************/
+
+.main-box {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.main-box .manage-orders {
+    overflow-x: auto;
+}
+
+.boxes {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.manage-orders table {
+    min-width: 1600px;
+    font-family: var(--body-font);
+    font-size: 2rem;
+}
+
+.manage-orders table .euro {
+    color: #333;
+}
+
+.manage-orders table th:last-child {
+    background-color: transparent;
+}
+
+.manage-orders table tr:first-child {
+    background-color: #333;
+    height: 5rem;
+    color: var(--white);
+}
+
+.manage-orders table tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+.manage-orders table td {
+    min-width: 20%;
+    text-align: center;
+}
+
+.manage-orders table td:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.manage-orders table .status-td {
+    background-color: #cc1100;
+    color: var(--white);
+}
+
+.manage-orders table .prepared {
+    background-color: #06c058 !important;
+}
+
+.manage-orders table a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    min-width: 5rem;
+    width: 4rem;
+    margin: 0 10px;
+}
+
+.manage-orders table i {
+    width: 100%;
+    font-size: 3rem;
+    color: var(--white);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: .8rem;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.manage a:nth-child(1) i {
+    background-color: var(--dark-golden);
+}
+
+.manage a:nth-child(2) i {
+    background-color: #333;
+}
+
+.manage a:nth-child(3) i {
+    background-color: #06c058;
+}
+
+/*****************************************/
+/************ MEDIA QUERIES **************/
+/*****************************************/
+
+@media (max-width: 1024px) {
+
+    .nav-panel {
+        left: -420px;
+    }
+
+    .nav-panel.active {
+        left: 0;
+    }
+
+    .content-panel {
+        width: 100%;
+        left: 0;
+    }
+
+    .content-panel.active {
+        width: calc(100% - 90px);
+        left: 90px;
+    }
+
+}
+
