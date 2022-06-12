@@ -4,14 +4,15 @@ from bottle import (auth_basic, debug, error, get, post, redirect, request,
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
-from model.products import Productos
-from model.users import Usuarios
+from model.productos import *
+from model.usuarios import *
 from model.modules import *
 
-@get('/')
-def index():
-    return template('index')
 
+@get('')
+@get('/index')
+def index():
+    return static_file("index.html", root ="static")
 
 @get('/admin')
 @auth_basic(Modules.auth_admin)
@@ -37,10 +38,6 @@ def post_registration():
         f.save(f_path)
     return template('registration', form=form)
 
-@get('/')
-@get('/index')
-def index():
-    return static_file("index.html", root = "static")
 
 @get('/users/clients')
 def clients():
@@ -50,35 +47,39 @@ def clients():
 def employee():
     pass
 
+@get("/social")
+def social():
+    return template("socialmedia")
+
 @get('/products')
 def products():
     products_list = Productos.select()
-
     return template("products", products_list = products_list)
 
-@get('/products/tartas')
-def filter_tartas():
-    products_list = Productos.get(['*'], {'categoria' : 'Tartas'})
+@post('/products')
+def filter():
+    if request.POST.get('todos'):
+        return redirect('/products')
 
-    return template("products", products_list = products_list)
+    else:
+        if request.POST.get('tartas'):
+            category = 'Tartas'
 
-@get('/products/helados')
-def filter_helados():
-    products_list = Productos.get(['*'], {'categoria' : 'Helados'})
+        if request.POST.get('helados'):
+            category = 'Helados'
 
-    return template("products", products_list = products_list)
+        if request.POST.get('dulces'):
+            category = 'Dulces'
 
-@get('/products/dulces')
-def filter_helados():
-    products_list = Productos.get(['*'], {'categoria' : 'dulces'})
+        if request.POST.get('salados'):
+                category = 'Salados'
 
-    return template("products", products_list = products_list)
+        products_list = Productos.get_select(['*'], {'Categoria' : category})
+        return template("products", products_list = products_list)
 
-@get('/products/salados')
-def filter_helados():
-    products_list = Productos.get(['*'], {'categoria' : 'salados'})
-
-    return template("products", products_list = products_list)
+@get('/carrito')
+def carrito():
+    pass
 
 @get('/order')
 def order():
@@ -112,4 +113,4 @@ def js(filepath):
 
 
 if __name__ == '__main__':
-    run(host='localhost', port=8080, debug=True, reloader=True)
+    run(host='localhost', port=8084, debug=True, reloader=True)
