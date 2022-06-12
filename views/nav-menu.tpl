@@ -8,7 +8,7 @@
         <li class="nav-item"><a href='/' data-item='Inicio'>Inicio</a></li>
         <li class="nav-item"><a href='/products' data-item='Productos'>Productos</a></li>
         <li class="nav-item"><a href='#' data-item='Conócenos'>Conócenos</a></li>
-        <li class="nav-item"><a href='#' data-item='Redes'>Redes</a></li>
+        <li class="nav-item"><a href='/social' data-item='Redes'>Redes</a></li>
         <li class="nav-item"><a href='#' data-item='Blog'>Blog</a></li>
         <li class="nav-item"><a href='#' data-item='Contacto'>Contacto</a></li>
       </ul>

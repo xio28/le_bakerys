@@ -21,10 +21,10 @@ class Upload:
         return ext
 
     @staticmethod
-    def save_img(root, file, username):
+    def save_img(root, file, name):
         file.save(root, overwrite=True)
         old = os.path.join(root, file.filename)
-        new = os.path.join(root, f'{username}{Upload.get_ext(file)}'.lower())
-        os.renaem(old, new)
+        new = os.path.join(root, f'{name}{Upload.get_ext(file)}'.lower())
+        os.rename(old, new)
 
         return new
