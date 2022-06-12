@@ -1,0 +1,88 @@
+.apanel-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.nav-panel {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    background-color: #333;
+}
+
+h2, span {
+    color: var(--white);
+    font-family: var(--body-font);
+}
+
+
+.nav-panel ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    padding: 1.8rem;
+}
+
+.nav-panel .title {
+    padding-left: 1.8rem;
+}
+
+.nav-panel span {
+    font-size: 2.5rem;
+}
+
+.nav-panel .icon-title {
+    width: 3.8rem !important;
+    height: 3.8rem !important;
+}
+
+.nav-panel .icon {
+    min-width: 3rem;
+    height: 3rem;
+    padding-right: 1rem;
+    background-position: center;
+    background-size: cover;
+}
+
+.i-cake {
+    background-image: url('/static/resources/img/l-cake.png');
+}
+
+.i-pass {
+    background-image: url('/static/resources/img/lock.png');
+}
+
+.i-customers {
+    background-image: url('/static/resources/img/user.png');
+}
+
+.i-employees {
+    background-image: url('/static/resources/img/employees.png');
+}
+
+.i-products {
+    background-image: url('/static/resources/img/products.png');
+}
+
+.i-s-products {
+    background-image: url('/static/resources/img/s-products.png');
+}
+
+.i-orders {
+    background-image: url('/static/resources/img/orders.png');
+}
+
+.i-logout {
+    background-image: url('/static/resources/img/logout.png');
+}
+
+.nav-panel h2{
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.content-panel {
+    width: 80%;
+    overflow-y: auto;
+}
