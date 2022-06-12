@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
         <script src="/static/js/jquery-3.6.0.min.js"></script>
+        <script src="https://kit.fontawesome.com/553787d9a7.js" crossorigin="anonymous"></script>
         <title>Panel de administrador</title>
     </head>
     <body>
@@ -94,16 +95,61 @@
             </div>
             <div class="content-panel">
                 <div class="topbar">
+                    <div class="toggle" onclick="toggleMenu();"></div>
                     <div class="search">
                         <label for="">
-                            <input type="text" placeholder="search here">
+                            <input type="text" placeholder="Search here">
+                            <i class="fa fa-solid fa-search"></i>
                         </label>
                     </div>
-                    <div class="user">
-                        <img src="/static/resources/img/user.jpg" alt="user">
+                        <div class="user">
+                            <img src="/static/resources/img/user.jpg" alt="user">
+                        </div>
+                </div>
+                <div class="main-box">
+                    <div class="orders">
+                        <table>
+                            <tr>
+                                <th>ID pedido</th>
+                                <th>Unidades productos</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="manage">
+                                    <a href="#">
+                                        <i class="fa fa-solid fa-eye"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-solid fa-trash-can"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-solid fa-thumbs-up"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            function toggleMenu(){
+                let nav = $('.nav-panel');
+                let span = $('.title');
+                let content = $('.content-panel');
+                nav.toggleClass('active');
+                span.toggleClass('hidden')
+                content.toggleClass('active');
+            }
+        </script>
     </body>
 </html>

@@ -29,6 +29,7 @@
     <title>{{title}}</title>
 </head>
 <body>
+    %if title != "Panel de administrador" and title != "Panel de usuario" and title != "Productos":
     <button class="menu-btn" onclick="btn()">
         <div></div>
         <div></div>
@@ -44,3 +45,4 @@
             <li class="nav-item"><a href='#' data-item='Contacto'>Contacto</a></li>
           </ul>
     </nav>
+    %end
