@@ -1,4 +1,3 @@
-from email_validator import EmailNotValidError
 from wtforms import Form, BooleanField, StringField, SubmitField, TextAreaField, EmailField, validators
 
 class ContactForm(Form):

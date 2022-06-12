@@ -3,8 +3,7 @@ from abc import ABC
 
 from model.modules import Modules
 
-
-class Tables(ABC):
+class Tablas(ABC):
 
     DATABASE = Modules.load_config().get('database')
 
@@ -44,8 +43,7 @@ class Tables(ABC):
             return data
 
     @classmethod
-    def get(cls, fields: list, where: str):
-        data = ""
+    def get_select(cls, fields: list, where: str):
         where_clause = '{} LIKE ?'.format(list(where)[0])
         value = list(where.values())[0]
         query = 'SELECT {} FROM {} WHERE {}'.format(','.join(fields), cls._get_name(), where_clause)
@@ -55,6 +53,7 @@ class Tables(ABC):
             c = conn.cursor()
             c.execute(query, (value,))
             data = c.fetchall()
+
             c.close()
         
         except sqlite3.Error as error:
@@ -108,11 +107,11 @@ class Tables(ABC):
 
     @classmethod
     def update(cls, data: dict, where: dict):
-
         where_clause = '{} LIKE ?'.format(list(where)[0])
         new_values = ','.join([f'{key} = ?' for key in data.keys()])
         values = [val for val in data.values()]
         query = f'UPDATE {cls._get_name()} SET {new_values} WHERE {where_clause}'
+
 
         values.append(list(where.values())[0])
 

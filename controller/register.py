@@ -1,19 +1,13 @@
-from wtforms import Form, BooleanField, StringField, PasswordField, SubmitField , validators, EmailField, ValidationError
-
-def checkUsername(form, field):
-    username_query = ""
-
-    # if field.data
+from wtforms import Form, BooleanField, StringField, PasswordField, SubmitField , validators, EmailField, FileField, ValidationError
 
 class RegistrationForm(Form):
-    text_class = 'input-gen'
     policy = 'check-policy'
 
-    username = StringField([
-                                        validators.Length(min=4, max=25, message="Longitud incorrecta"),
-                                        validators.InputRequired()
-                                    ], 
-                                        render_kw={'class': 'fa i-user', 'placeholder': 'Usuario'})
+    email = EmailField([
+                                        validators.InputRequired(),
+                                        validators.Email()
+                                    ],
+                                        render_kw={'placeholder': 'Correo'})
     password = PasswordField([
                                         validators.Length(min=10, max=60),
                                         validators.EqualTo('password_confirm', message='Las contraseñas no coinciden'),
@@ -24,11 +18,10 @@ class RegistrationForm(Form):
                                         validators.InputRequired()
                                     ],
                                         render_kw={'placeholder': 'Confirmar contraseña'})
-    email = EmailField([
-                                        validators.InputRequired(),
-                                        validators.Email()
+    user_image = FileField([            
+                                        validators.InputRequired()
                                     ],
-                                        render_kw={'placeholder': 'Correo'})
+                                        render_kw={'id': 'file-reg', 'data-multiple-caption': '{count} files selected'})
     c_name = StringField([
                                         validators.InputRequired()
                                     ], 
@@ -63,4 +56,3 @@ class RegistrationForm(Form):
                                         validators.InputRequired()
                                     ])
     save = SubmitField('Guardar')
-
