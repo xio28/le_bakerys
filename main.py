@@ -4,10 +4,8 @@ from bottle import (auth_basic, debug, error, get, post, redirect, request,
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
-from model.users import Users
+from model.users import Usuarios
 from model.modules import *
-from PIL import Image
-import os
 
 @get('/')
 def index():
@@ -32,13 +30,10 @@ def register():
 @post('/registration')
 def post_registration():
     form = RegistrationForm(request.POST) 
-    dir_path = '/static/resources/users'
     if form.save.data:
         f = request.files['user_image']
         f_path = f'/static/resources/users/{f.filename}'
         f.save(f_path)
-        # redirect('/')
-    # print(form.errors)
     return template('registration', form=form)
 
 @get('/')
@@ -90,4 +85,4 @@ def js(filepath):
 
 
 if __name__ == '__main__':
-    run(host='localhost', port=8082, debug=True, reloader=True)
+    run(host='localhost', port=8080, debug=True, reloader=True)

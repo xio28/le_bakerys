@@ -3,7 +3,7 @@ from abc import ABC
 
 from model.modules import Modules
 
-class Tables(ABC):
+class Tablas(ABC):
 
     DATABASE = Modules.load_config().get('database')
 
@@ -43,8 +43,7 @@ class Tables(ABC):
             return data
 
     @classmethod
-    def get(cls, fields: list, where: str):
-        data = ""
+    def get_select(cls, fields: list, where: str):
         where_clause = '{} LIKE ?'.format(list(where)[0])
         value = list(where.values())[0]
         query = 'SELECT {} FROM {} WHERE {}'.format(','.join(fields), cls._get_name(), where_clause)
