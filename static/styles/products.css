@@ -9,31 +9,172 @@ body {
 }
 
 
+.products-nav ul {
+    background: #fcfcfc;
+    background: linear-gradient(-90deg, #fcfcfc 0%, #ebebeb 100%);
+    background: -webkit-linear-gradient(-90deg, #fcfcfc 0%, #ebebeb 100%);
+    text-align: center;
+    width: 77vw;
+    height: 5rem;
+    margin: 5rem auto 3rem;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-shadow: 1px 3px 8px rgba(100, 100, 100, 0.247);
+}
+.products-nav ul li {
+    font-family: var(--body-font);
+    font-size: 1.8rem;
+    width: 20%;
+    border-right: 1px solid var(--turquoise);
+}
+.products-nav ul li:first-of-type {
+    color: var(--tan);
+    font-family: var(--subtitle-italic);
+    font-size: 4.6rem;
+    font-weight: 700;
+    position: absolute;
+    top: 13.3rem;
+    left: 7.8rem;
+    border: none;
+}
+.products-nav ul li:last-of-type {
+    border: none;
+}
+.products-nav ul li label {
+    cursor: pointer;
+}
+.products-nav ul li input {
+    display: none;
+}
+
+
 .main__container {
     background-image: radial-gradient(#2ec4b6 1.5px, transparent 1.5px);
     background-size: 32px 32px;
     background-color: var(--white);
     width: 100vw;
     margin-bottom: -12rem;
+    padding: 2rem 0 5rem;
     min-height: 60vh;
     height: fit-content;
 }
 .products__container {
-    width: 100vw;
-    height: 100vh;
+    width: 80vw;
+    height: fit-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(26rem, 100%), 1fr));
 }
 .product_card {
-    background: #e5f2fa54;
-    background: -webkit-linear-gradient(173deg, #e5f2fa54 0%, #47b7f654 100%);
-    background: linear-gradient(173deg, #e5f2fa54 0%, #47b7f654 100%);
+    background: #e5f2fa3f;
+    background: linear-gradient(173deg, #bac8ce3a 0%, #587c8f3a 100%);
+    background: -webkit-linear-gradient(173deg, #bac8ce3a 0%, #587c8f3a 100%);
+    text-align: center;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     width: 24rem;
     height: 35rem;
+    margin: 3rem auto;
     border: 1px solid rgba(53, 125, 207, 0.137);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
+}
+.product_card button {
+    background: var(--tan);
+    color: var(--white);
+    font-size: 3.1rem;
+    width: 5rem;
+    height: 5rem;
+    display: none;
+    position: absolute;
+    top: 11rem;
+    left: 16.6rem;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 1px 1px 3px rgba(92, 92, 92, 0.301);
+    z-index: 5;
+}
+.product_card:hover button {
+    display: block;
+}
+.product_card::before {
+    content: '';
+    background: var(--turquoise);
+    width: 24rem;
+    height: 14rem;
+    position: absolute;
+    top: -0.3%;
+    border-radius: 7px 7px 0 0;
+    -webkit-border-radius: 7px 7px 0 0;
+    -moz-border-radius: 7px 7px 0 0;
+    -ms-border-radius: 7px 7px 0 0;
+    -o-border-radius: 7px 7px 0 0;
+    box-shadow: 0px 2px 8px rgba(68, 68, 68, 0.39);
+}
+.product_card img {
+    width: 17rem;
+    border: 5px solid var(--turquoise);
+    position: relative;
+    top: -15.9rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.product_card h3 {
+    color: var(--dark-golden);
+    font-size: 3.7rem;
+    width: 23rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 19.7rem;
+}
+.product_card p {
+    font-size: 2.6rem;
+    color: var(--turquoise);
+    font-weight: 300;
+    position: relative;
+    top: -1.6rem;
+    right: -6rem;
+}
+.shop-btn {
+    background: var(--turquoise);
+    color: #fcfcfc;
+    text-align: center;
+    position: fixed;
+    width: 5rem;
+    height: 5rem;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 3;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 1px 3px 5px rgba(59, 59, 59, 0.322);
+    border: 1px solid var(--white);
+    outline: none;
+}
+.shop-btn img {
+    width: 3.6rem;
 }

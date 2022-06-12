@@ -2,7 +2,8 @@ import sqlite3
 from os.path import exists
 
 from model.modules import Modules
-from model.users import Users
+from model.users import Usuarios
+from model.products import Productos
 
 
 def create_connection(db):
@@ -21,7 +22,7 @@ if __name__ == '__main__':
 
     DATABASE = Modules.load_config().get('database')
 
-    Users.create(Modules.load_config().get('users_db'))
+    Productos.create(Modules.load_config().get("products_db"))
 
     if not exists(DATABASE):
         create_connection(DATABASE)

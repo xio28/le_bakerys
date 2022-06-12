@@ -1,11 +1,11 @@
 from model.tables import Tables
 
 
-class Users(Tables):
+class Usuarios(Tables):
     pass
 
-class Clients(Users):
+class Clientes(Usuarios):
     pass
 
-class Employees(Users):
+class Empleados(Usuarios):
     pass
