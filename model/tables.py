@@ -44,12 +44,16 @@ class Tables(ABC):
             return data
 
     @classmethod
-    def get(cls, *fields: str, where: str):
+    def get(cls, fields: list, where: str):
         data = ""
+        where_clause = '{} LIKE ?'.format(list(where)[0])
+        value = list(where.values())[0]
+        query = 'SELECT {} FROM {} WHERE {}'.format(','.join(fields), cls._get_name(), where_clause)
+
         try:
             conn = cls._connect()
             c = conn.cursor()
-            c.execute('SELECT {} FROM {} WHERE {}'.format(','.join(fields), cls._get_name(), where))
+            c.execute(query, (value,))
             data = c.fetchone()
             c.close()
         
@@ -100,14 +104,19 @@ class Tables(ABC):
 
     # Puede contener errores!!!!
     @classmethod
-    def update(cls, data: dict, where: str):
+    def update(cls, data: dict, where: dict):
 
-        new_values = ','.join([f'{key}={val}' for key, val in data.items()])
+        where_clause = '{} LIKE ?'.format(list(where)[0])
+        new_values = ','.join([f'{key} = ?' for key in data.keys()])
+        values = [val for val in data.values()]
+        query = f'UPDATE {cls._get_name()} SET {new_values} WHERE {where_clause}'
+
+        values.append(list(where.values())[0])
 
         try:
             conn = cls._connect()
             c = conn.cursor()
-            c.execute(f'UPDATE {cls._get_name()} SET {new_values} WHERE {where}')
+            c.execute(query, (values))
             conn.commit()
             c.close()
 

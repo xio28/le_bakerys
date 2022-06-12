@@ -12,6 +12,7 @@ venv/
 
 #VsCode
 *workspace*
+.vscode/
 
 #DB files
 *.db
