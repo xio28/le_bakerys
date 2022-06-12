@@ -4,6 +4,7 @@ from bottle import (auth_basic, debug, error, get, post, redirect, request,
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
+from model.products import Productos
 from model.users import Usuarios
 from model.modules import *
 
@@ -51,7 +52,33 @@ def employee():
 
 @get('/products')
 def products():
-    return template("products")
+    products_list = Productos.select()
+
+    return template("products", products_list = products_list)
+
+@get('/products/tartas')
+def filter_tartas():
+    products_list = Productos.get(['*'], {'categoria' : 'Tartas'})
+
+    return template("products", products_list = products_list)
+
+@get('/products/helados')
+def filter_helados():
+    products_list = Productos.get(['*'], {'categoria' : 'Helados'})
+
+    return template("products", products_list = products_list)
+
+@get('/products/dulces')
+def filter_helados():
+    products_list = Productos.get(['*'], {'categoria' : 'dulces'})
+
+    return template("products", products_list = products_list)
+
+@get('/products/salados')
+def filter_helados():
+    products_list = Productos.get(['*'], {'categoria' : 'salados'})
+
+    return template("products", products_list = products_list)
 
 @get('/order')
 def order():

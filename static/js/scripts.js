@@ -66,9 +66,4 @@ $(() => {
     };
     
     switchSlide();
-    
-    $(".bgr-menu").click(() => {
-        console.log("HEEEY")
-        $(".bgr-menu").css("display", "block")
-    });
 });

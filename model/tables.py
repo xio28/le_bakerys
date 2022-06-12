@@ -52,7 +52,8 @@ class Tablas(ABC):
             conn = cls._connect()
             c = conn.cursor()
             c.execute(query, (value,))
-            data = c.fetchone()
+            data = c.fetchall()
+
             c.close()
         
         except sqlite3.Error as error:
@@ -85,11 +86,15 @@ class Tablas(ABC):
                 conn.close()
 
     @classmethod
-    def delete(cls, where: str):
+    def delete(cls, where: dict):
+        where_clause = '{} LIKE ?'.format(list(where)[0])
+        value = list(where.values())[0]
+        query = f'DELETE FROM {cls._get_name()} WHERE {where_clause}'
+
         try:
             conn = cls._connect()
             c = conn.cursor()
-            c.execute(f'DELETE FROM {cls._get_name()} WHERE {where}')
+            c.execute(query, (value,))
             conn.commit()
             c.close()
 
@@ -100,14 +105,13 @@ class Tablas(ABC):
             if conn:
                 conn.close()
 
-    # Puede contener errores!!!!
     @classmethod
     def update(cls, data: dict, where: dict):
-
         where_clause = '{} LIKE ?'.format(list(where)[0])
         new_values = ','.join([f'{key} = ?' for key in data.keys()])
         values = [val for val in data.values()]
         query = f'UPDATE {cls._get_name()} SET {new_values} WHERE {where_clause}'
+
 
         values.append(list(where.values())[0])
 

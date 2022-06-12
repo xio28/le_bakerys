@@ -25,6 +25,7 @@
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/forms.js"></script>
+    <script src="/static/js/vanilla-tilt.js"></script>
     <title>{{title}}</title>
 </head>
 <body>

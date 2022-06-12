@@ -65,7 +65,7 @@
 }
 
 
-nav .menu-items {
+.menu-items {
     background: #16bce6b2;
     backdrop-filter: blur(5px);
     display: none;
@@ -81,13 +81,13 @@ nav .menu-items {
     -ms-transition: 1.5s;
     -o-transition: 1.5s;
 }
-nav .menu-items li {
+.menu-items li {
     list-style: none;
     animation: fade-in 1.5s 1.2s forwards;
     -webkit-animation: fade-in 1.5s 1.2s forwards;
     opacity: 0;
 }
-nav .menu-items li a {
+.menu-items li a {
     color: var(--white);
     font-family: var(--body-font);
     font-weight: 900;
@@ -96,7 +96,7 @@ nav .menu-items li a {
     width: fit-content;
     position: relative;
 }
-nav .menu-items li a::before {
+.menu-items li a::before {
     content: attr(data-item);
     color: var(--dark-golden);
     left: 0;
@@ -109,10 +109,10 @@ nav .menu-items li a::before {
     -ms-transition: 0.25s;
     -o-transition: 0.25s;
 }
-nav .menu-items li a:hover {
+.menu-items li a:hover {
     text-shadow: none;  
 }
-nav .menu-items li a:hover::before {
+.menu-items li a:hover::before {
     width: 100%;
     transition: all 0.5s ease-in-out;
 }
