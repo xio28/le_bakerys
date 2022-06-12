@@ -122,8 +122,8 @@ h2, span {
     background-image: url('/static/resources/img/products.png');
 }
 
-.i-s-products {
-    background-image: url('/static/resources/img/s-products.png');
+.i-see {
+    background-image: url('/static/resources/img/see.png');
 }
 
 .i-orders {
@@ -188,44 +188,6 @@ h2, span {
     color: #333;
 }
 
-.search {
-    position: relative;
-    width: 400px;
-    margin: 0 10px;
-}
-
-.search label {
-    position: relative;
-    width: 100%;
-}
-
-.search label input {
-    width: 100%;
-    height: 40px;
-    border-radius: 40px;
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    -ms-border-radius: 40px;
-    -o-border-radius: 40px;
-    padding: 5px 20px 5px 45px;
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, .2);
-    font-family: var(--body-font);
-    font-size: 1.6rem;
-}
-
-.search label .fa {
-    font-size: 2.1rem;
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-}
-
 .user {
     position: relative;
     min-width: 6rem;
@@ -259,15 +221,63 @@ h2, span {
     padding: 20px;
 }
 
-.main-box .orders {
-    width: 100%;
+.main-box .manage-orders {
+    overflow-x: auto;
 }
 
-.orders table {
-    width: 100%;
+.boxes {
+    display: none;
 }
 
-.orders table a {
+.show {
+    display: block;
+}
+
+.manage-orders table {
+    min-width: 1600px;
+    font-family: var(--body-font);
+    font-size: 2rem;
+}
+
+.manage-orders table .euro {
+    color: #333;
+}
+
+.manage-orders table th:last-child {
+    background-color: transparent;
+}
+
+.manage-orders table tr:first-child {
+    background-color: #333;
+    height: 5rem;
+    color: var(--white);
+}
+
+.manage-orders table tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+.manage-orders table td {
+    min-width: 20%;
+    text-align: center;
+}
+
+.manage-orders table td:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.manage-orders table .status-td {
+    background-color: #cc1100;
+    color: var(--white);
+}
+
+.manage-orders table .prepared {
+    background-color: #06c058 !important;
+}
+
+.manage-orders table a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -275,9 +285,10 @@ h2, span {
     height: 100%;
     min-width: 5rem;
     width: 4rem;
+    margin: 0 10px;
 }
 
-.orders table i {
+.manage-orders table i {
     width: 100%;
     font-size: 3rem;
     color: var(--white);
@@ -287,7 +298,8 @@ h2, span {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     padding: .8rem;
-    display: 
+    display: inline-flex;
+    justify-content: center;
 }
 
 .manage a:nth-child(1) i {
@@ -299,9 +311,32 @@ h2, span {
 }
 
 .manage a:nth-child(3) i {
-    background-color: #cc1100;
-}
-
-.manage a:nth-child(4) i {
     background-color: #06c058;
 }
+
+/*****************************************/
+/************ MEDIA QUERIES **************/
+/*****************************************/
+
+@media (max-width: 1024px) {
+
+    .nav-panel {
+        left: -420px;
+    }
+
+    .nav-panel.active {
+        left: 0;
+    }
+
+    .content-panel {
+        width: 100%;
+        left: 0;
+    }
+
+    .content-panel.active {
+        width: calc(100% - 90px);
+        left: 90px;
+    }
+
+}
+
