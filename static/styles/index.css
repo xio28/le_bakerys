@@ -2,8 +2,8 @@ body {
     background-color: #CBF3F0;
     background-size: 14px 14px;
     background-image:  repeating-linear-gradient(to right, #2EC4B6, #2EC4B6 0.7000000000000001px, #CBF3F0 0.7000000000000001px, #CBF3F0);
+    max-width: 100vw;
 }
-
 
 header {
     background:  linear-gradient(to bottom, rgba(156, 122, 90, 0.466) 0%, rgba(123, 141, 143, 0.459) 100%);
@@ -36,7 +36,7 @@ header::before {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     top: 1rem;
-    right: 3rem;
+    right: 1.7rem;
     z-index: 5;
 }
 .account img {
@@ -81,7 +81,13 @@ header nav {
     width: 88vw;
     margin: 0 auto;
 }
-nav .menu-items {
+.menu-btn {
+    display: none !important;
+}
+header button {
+    display: none;
+}
+nav .menu-items-desk {
     background: #ffbe69c7;
     text-align: center;
     width: 100%;
@@ -95,10 +101,10 @@ nav .menu-items {
     -ms-border-radius: 0 0 5px 5px;
     -o-border-radius: 0 0 5px 5px;
 }
-nav .menu-items li {
+nav .menu-items-desk li {
     margin: 0 auto;
 }
-nav .menu-items li a {
+nav .menu-items-desk li a {
     color: var(--white);
     font-family: var(--body-font);
     font-size: 2rem;
@@ -116,7 +122,7 @@ nav .menu-items li a {
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
 }
-nav .menu-items li a::before {
+nav .menu-items-desk li a::before {
     content: attr(data-item);
     color: #2EC4B6;
     bottom: 25%;
@@ -131,10 +137,10 @@ nav .menu-items li a::before {
     -ms-transition: 0.25s;
     -o-transition: 0.25s;
 }
-nav .menu-items li a:hover {
+nav .menu-items-desk li a:hover {
     text-shadow: none;  
 }
-nav .menu-items li a:hover::before {
+nav .menu-items-desk li a:hover::before {
     width: 100%;
     transition: all 0.5s ease-in-out;
 }
@@ -343,7 +349,7 @@ nav .menu-items li a:hover::before {
 }
 .delivery_section h2 {
     color: var(--turquoise);
-    font-size: 5rem;
+    font-size: 6rem;
     text-align: center;
     padding: 3rem 0;
     text-shadow: 1px 1px 0 var(--white), 1px -1px 0 var(--white), -1px 1px 0 var(--white), -1px -1px 0 var(--white), 1px 0px 0 var(--white), 0px 1px 0 var(--white), -1px 0px 0 var(--white), 0px -1px 0 var(--white);
@@ -356,7 +362,7 @@ nav .menu-items li a:hover::before {
     align-items: center;
 }
 .bubble img {
-    width: 9vw;
+    width: 80%;
     position: relative;
     z-index: 2;
     top: 50%;
@@ -374,11 +380,11 @@ nav .menu-items li a:hover::before {
     animation-fill-mode: forwards;
 }
 .bubble:nth-child(3) img {
-    transform: translate(-85vw, -50%);
-    -webkit-transform: translate(-85vw, -50%);
-    -moz-transform: translate(-85vw, -50%);
-    -ms-transform: translate(-85vw, -50%);
-    -o-transform: translate(-85vw, -50%);
+    transform: translate(-95vw, -50%);
+    -webkit-transform: translate(-95vw, -50%);
+    -moz-transform: translate(-95vw, -50%);
+    -ms-transform: translate(-95vw, -50%);
+    -o-transform: translate(-95vw, -50%);
     animation-fill-mode: forwards;
 }
 .bubble {
@@ -728,12 +734,12 @@ video {
 }
 @keyframes slide-from-left {
     0% {
-        transform: translate(-80vw, -50%);
-        -webkit-transform: translate(-80vw, -50%);
-        -moz-transform: translate(-80vw, -50%);
-        -ms-transform: translate(-80vw, -50%);
-        -o-transform: translate(-80vw, -50%);
-    }
+        transform: translate(-90vw, -50%);
+        -webkit-transform: translate(-90vw, -50%);
+        -moz-transform: translate(-90vw, -50%);
+        -ms-transform: translate(-90vw, -50%);
+        -o-transform: translate(-90vw, -50%);
+}
     50% {
         transform: translate(-50vw, -50%);
         -webkit-transform: translate(-50vw, -50%);
