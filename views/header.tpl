@@ -22,8 +22,13 @@
         <link rel="stylesheet" href="/static/styles/cart.css">
     %elif title == "Log In":
         <link rel="stylesheet" href="/static/styles/login.css">
+    %elif title == "Panel de cliente" or title == "Panel de administrador":
+        <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
+    %if title == "Panel de cliente" or title == "Panel de administrador":
+        <script src="/static/js/panel.js"></script>
+    %end
     <script src="/static/js/forms.js"></script>
     <script src="/static/js/vanilla-tilt.js"></script>
     <title>{{title}}</title>

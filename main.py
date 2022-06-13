@@ -1,34 +1,31 @@
 from fileinput import filename
-from bottle import (auth_basic, debug, error, get, post, redirect, request,
+from bottle import (auth_basic, debug, error, route, get, post, redirect, request,
                     route, run, static_file, template)
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
-from model.products import Productos
-from model.users import Usuarios
+from model.productos import *
+from model.usuarios import *
 from model.modules import *
+from model.carrito import *
 
-@get('/')
+
+@route('/')
+@route('/index')
 def index():
-    return template('index')
-
+    return static_file("index.html", root ="static")
 
 @get('/admin')
 @auth_basic(Modules.auth_admin)
 def admin():
     return template('index')
 
-@get('/registration')
+@get('/registro')
 def register():
     form = RegistrationForm(request.POST)
     return template('registration', form=form)
 
-@get('/contact')
-def register():
-    form = ContactForm(request.POST)
-    return template('contact', form=form)
-
-@post('/registration')
+@post('/registro')
 def post_registration():
     form = RegistrationForm(request.POST) 
     if form.save.data:
@@ -37,50 +34,66 @@ def post_registration():
         f.save(f_path)
     return template('registration', form=form)
 
-@get('/')
-@get('/index')
-def index():
-    return static_file("index.html", root = "static")
+@get('/contacto')
+def register():
+    form = ContactForm(request.POST)
+    return template('contact', form=form)
 
-@get('/users/clients')
+@get('/clientes')
 def clients():
     pass
 
-@get('/users/employee')
+@get('/empleados')
 def employee():
     pass
 
-@get('/products')
+@get("/social")
+def social():
+    return template("socialmedia")
+
+@get('/productos')
 def products():
     products_list = Productos.select()
-
     return template("products", products_list = products_list)
 
-@get('/products/tartas')
-def filter_tartas():
-    products_list = Productos.get(['*'], {'categoria' : 'Tartas'})
+@post('/productos')
+def filter():
+    if request.POST.get('todos'):
+        return redirect('/productos')
 
-    return template("products", products_list = products_list)
+    else:
+        if request.POST.get('tartas'):
+            category = 'Tartas'
 
-@get('/products/helados')
-def filter_helados():
-    products_list = Productos.get(['*'], {'categoria' : 'Helados'})
+        if request.POST.get('helados'):
+            category = 'Helados'
 
-    return template("products", products_list = products_list)
+        if request.POST.get('dulces'):
+            category = 'Dulces'
 
-@get('/products/dulces')
-def filter_helados():
-    products_list = Productos.get(['*'], {'categoria' : 'dulces'})
+        if request.POST.get('salados'):
+                category = 'Salados'
 
-    return template("products", products_list = products_list)
+        products_list = Productos.get_select(['*'], {'Categoria' : category})
+        return template("products", products_list = products_list)
 
-@get('/products/salados')
-def filter_helados():
-    products_list = Productos.get(['*'], {'categoria' : 'salados'})
+@get('/carrito')
+def carrito():
+    return f'Clicked'
 
-    return template("products", products_list = products_list)
+@post('/carrito/<id>')
+def mi_carrito(id):
 
-@get('/order')
+    if request.POST.get('add-to-cart'):
+        data = {
+            'IdProducto' : id,
+            'IdCliente' : Modules.load_config().get('client_id')
+        }
+
+        Carrito.insert(data)
+        return f'Insertado {data}'
+
+@get('/pedido')
 def order():
     pass
 
@@ -108,7 +121,6 @@ def video(filepath):
 @get("/static/js/<filepath:re:.*\.js>")
 def js(filepath):
     return static_file(filepath, root="static/js")
-
 
 
 if __name__ == '__main__':

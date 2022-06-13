@@ -1,7 +1,6 @@
-from wtforms import Form, BooleanField, StringField, PasswordField, SubmitField , validators, EmailField, FileField, ValidationError
+from wtforms import Form, BooleanField, StringField, PasswordField, SubmitField, validators, EmailField, FileField
 
 class RegistrationForm(Form):
-    policy = 'check-policy'
 
     email = EmailField([
                                         validators.InputRequired(),
