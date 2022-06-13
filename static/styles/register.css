@@ -1,6 +1,6 @@
 html, body{
     scrollbar-color: var(--turquoise), var(--light-blue);
-    scrollbar-width: thin;
+    scrollbar-width: thin !important;
 }
 
 a{
