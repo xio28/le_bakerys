@@ -221,7 +221,7 @@ h2, span {
     padding: 20px;
 }
 
-.main-box .manage-orders {
+.main-box .manage-table {
     overflow-x: auto;
 }
 
@@ -229,55 +229,70 @@ h2, span {
     display: none;
 }
 
+.boxes h2 {
+    color: #333;
+    font-size: 5rem;
+    border-bottom: 5px double #333;
+    margin: 2rem 0 3rem;
+}
+
 .show {
     display: block;
 }
 
-.manage-orders table {
+.manage-table table {
     min-width: 1600px;
     font-family: var(--body-font);
     font-size: 2rem;
 }
 
-.manage-orders table .euro {
+.manage-table table .euro {
     color: #333;
 }
 
-.manage-orders table th:last-child {
+.manage-table table th:last-child {
     background-color: transparent;
 }
-
-.manage-orders table tr:first-child {
-    background-color: #333;
+.manage-table table tr {
     height: 5rem;
+}
+
+.manage-table table tr:first-child {
+    background-color: #333;
+    height: 7rem;
     color: var(--white);
 }
 
-.manage-orders table tr:nth-child(even) {
+.manage-table table tr:nth-child(even) {
     background-color: #ddd;
 }
 
-.manage-orders table td {
+.manage-table table td {
     min-width: 20%;
     text-align: center;
 }
 
-.manage-orders table td:last-child {
+#add-employees table td {
+    min-width: 20%;
+    text-align: center;
+}
+
+.manage-table table td:last-child {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.manage-orders table .status-td {
+.manage-table table .status-td, .status-see-orders {
     background-color: #cc1100;
     color: var(--white);
 }
 
-.manage-orders table .prepared {
+.manage-table table .prepared {
     background-color: #06c058 !important;
 }
 
-.manage-orders table a {
+.manage-table table a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -288,7 +303,7 @@ h2, span {
     margin: 0 10px;
 }
 
-.manage-orders table i {
+.manage-table table i {
     width: 100%;
     font-size: 3rem;
     color: var(--white);
@@ -302,16 +317,172 @@ h2, span {
     justify-content: center;
 }
 
-.manage a:nth-child(1) i {
+.manage .eye-color i {
     background-color: var(--dark-golden);
 }
 
-.manage a:nth-child(2) i {
-    background-color: #333;
+.manage .trash-color i {
+    background-color: #cc1100;
 }
 
-.manage a:nth-child(3) i {
+.manage .thumb-color i {
     background-color: #06c058;
+}
+
+.thumb-red {
+    background-color: #cc1100 !important;
+}
+
+/*************************************/
+/************ FORM PASS **************/
+/*************************************/
+
+.form {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.form form {
+    min-width: 60%;
+    width: 60%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    margin-bottom: 5rem;
+}
+
+.form label, input {
+    width: 60%;
+    font-family: var(--body-font);
+}
+
+.form label {
+    font-size: 3.4rem;
+    font-weight: bold;
+    font-family: var(--subtitle-regular);
+    padding: 1.8rem 0;
+}
+
+.form input {
+    border: 1px;
+    font-size: 1.8rem;
+    color: #333;
+    outline: none;
+    height: 50px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: .8rem;
+    border-collapse: collapse;
+    font-family: var(--body-font);
+}
+
+.form input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+    background-color: rgba(255, 191, 105, .5);
+    resize: none;
+}
+
+.form input[type="submit"] {
+    background-color: var(--tan);
+    width: 20rem;
+    height: 50px;
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+    color: var(--white);
+}
+
+.form input:focus {
+    outline: none !important;
+    border: 2px solid var(--dark-golden);
+    box-shadow: 0 0 10px #999;
+}
+
+/******************************************/
+/************ FORM EMPLOYEES **************/
+/******************************************/
+
+.form-add .input-cont {
+    width: 60%;
+    height: 7rem;
+    position: relative;
+    margin: 3rem 0;
+}
+
+.form-add .file-icon {
+    height: 4rem;
+    min-width: 3rem;
+    font-size: 2.1rem !important;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    display: inline-flex !important;
+    justify-content: flex-start;
+    align-items: center;
+    fill: currentColor !important;
+    color: var(--white) !important;
+    padding-left: .5rem;
+}
+
+.form-add input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    box-shadow: none !important;
+}
+
+.form-add input[type="file"] + label {
+    position: absolute;
+    min-width: 15rem;
+    width: 18rem;
+    max-width: 100%;
+    height: 60px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    color: var(--white);
+    background-color: var(--dark-golden);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.form-add input[type="file"] + label > span {
+    max-width: 100%;
+    padding: 0 1rem 0 3rem;
+}
+
+.form-add input[type="file"]:focus + label,
+input[type="file"] + label:hover {
+    background-color: var(--turquoise);
 }
 
 /*****************************************/
@@ -319,7 +490,7 @@ h2, span {
 /*****************************************/
 
 @media (max-width: 1024px) {
-
+    
     .nav-panel {
         left: -420px;
     }
@@ -338,5 +509,9 @@ h2, span {
         left: 90px;
     }
 
-}
+    .form form {
+        min-width: 60%;
+        width: 100%;
+    }
 
+}

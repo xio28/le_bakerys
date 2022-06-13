@@ -14,14 +14,14 @@
         <link rel="stylesheet" href="/static/styles/contact.css">
     %elif title == "Productos":
         <link rel="stylesheet" href="/static/styles/products.css">
-    %elif title == "Panel de cliente":
-        <link rel="stylesheet" href="/static/styles/client_panel.css">
     %elif title == "Panel de admin":
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %elif title == "Carrito de compra":
         <link rel="stylesheet" href="/static/styles/cart.css">
     %elif title == "Log In":
         <link rel="stylesheet" href="/static/styles/login.css">
+    %elif title == "Panel de cliente" or title == "Panel de administrador":
+        <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/forms.js"></script>
@@ -29,7 +29,7 @@
     <title>{{title}}</title>
 </head>
 <body>
-    %if title != "Panel de administrador" and title != "Panel de usuario" and title != "Productos":
+    %if title != "Panel de administrador" and title != "Panel de cliente" and title != "Productos":
     <button class="menu-btn" onclick="btn()">
         <div></div>
         <div></div>

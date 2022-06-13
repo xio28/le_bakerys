@@ -5,13 +5,13 @@
             <div class="form-item">
                 <div class="left-content"></div>
                 <div class="right-content">
-                    <form action="/registration" method="POST" enctype="multipart/form-data">
+                    <form action="/registration" method="POST" enctype="multipart/form-data"  autocomplete="off">
                         <div class="fieldset-item">
                             <fieldset>
                                 <legend>Datos de usuario:</legend>
                                 <div class="form-content">
                                     <div class="input-cont">
-                                        <i class="fa-color fa fa-solid fa-envelope"></i>{{ form.email.label }}
+                                        <i class="fa-color fa fa-solid fa-envelope"></i>{{ form.email }}
                                     </div>
                                     <div class="input-cont">
                                         <i class="fa-color fa fa-solid fa-lock"></i>{{ form.password }}

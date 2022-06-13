@@ -122,7 +122,7 @@
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
     padding: .8rem;
-    resize: none; /* Añadido después de entregar la web */
+    resize: none;
 }
 
 .bottom-panel textarea {
