@@ -4,6 +4,9 @@ from bottle import (auth_basic, debug, error, route, get, post, redirect, reques
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
+from controller.chang_pass import ChangePassForm
+from controller.add_employees import AddEmpForm
+from controller.add_products import AddProdForm
 from model.productos import *
 from model.usuarios import *
 from model.modules import *
@@ -14,6 +17,21 @@ from model.carrito import *
 @route('/index')
 def index():
     return static_file("index.html", root ="static")
+
+@get('/panel/admin')
+def panel():
+    formEmp = AddEmpForm(request.POST)
+    formPro = AddProdForm(request.POST)
+    return template('admin_panel', formEmp = formEmp, formPro = formPro)
+
+@post('/panel/admin')
+def post_admin_panel():
+    pass
+
+@get('/panel/client')
+def panel():
+    form = ChangePassForm(request.POST)
+    return template('client_panel', form=form)
 
 @get('/admin')
 @auth_basic(Modules.auth_admin)
@@ -92,6 +110,7 @@ def mi_carrito(id):
 
         Carrito.insert(data)
         return f'Insertado {data}'
+
 
 @get('/pedido')
 def order():

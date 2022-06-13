@@ -43,7 +43,7 @@ class Tablas(ABC):
             return data
 
     @classmethod
-    def get_select(cls, fields: list, where: list):
+    def get_select(cls, fields: list, where: dict):
         data = ""
         where_clause = '{} LIKE ?'.format(list(where)[0])
         value = list(where.values())[0]

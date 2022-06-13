@@ -26,9 +26,6 @@
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
-    %if title == "Panel de cliente" or title == "Panel de administrador":
-        <script src="/static/js/panel.js"></script>
-    %end
     <script src="/static/js/forms.js"></script>
     <script src="/static/js/vanilla-tilt.js"></script>
     <title>{{title}}</title>

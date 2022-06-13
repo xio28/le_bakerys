@@ -253,10 +253,13 @@ h2, span {
 .manage-table table th:last-child {
     background-color: transparent;
 }
+.manage-table table tr {
+    height: 5rem;
+}
 
 .manage-table table tr:first-child {
     background-color: #333;
-    height: 5rem;
+    height: 7rem;
     color: var(--white);
 }
 
@@ -380,7 +383,7 @@ h2, span {
     font-family: var(--body-font);
 }
 
-.form input[type="text"] {
+.form input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
     background-color: rgba(255, 191, 105, .5);
     resize: none;
 }

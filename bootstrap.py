@@ -1,10 +1,9 @@
 import sqlite3
 from os.path import exists
 
-from model.modules import Modules
-from model.users import Usuarios
-from model.products import Productos
-
+from model.usuarios import *
+from model.productos import *
+from model.carrito import *
 
 def create_connection(db):
     try:
@@ -22,7 +21,11 @@ if __name__ == '__main__':
 
     DATABASE = Modules.load_config().get('database')
 
-    Productos.create(Modules.load_config().get("products_db"))
+    Usuarios.create(Modules.load_config().get('usuarios'))
+    Clientes.create(Modules.load_config().get('clientes'))
+    Empleados.create(Modules.load_config().get('empleados'))
+    Productos.create(Modules.load_config().get('productos'))
+    Carrito.create(Modules.load_config().get('carrito'))
 
     if not exists(DATABASE):
         create_connection(DATABASE)
