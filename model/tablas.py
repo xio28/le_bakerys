@@ -44,6 +44,7 @@ class Tablas(ABC):
 
     @classmethod
     def get_select(cls, fields: list, where: str):
+        data = ""
         where_clause = '{} LIKE ?'.format(list(where)[0])
         value = list(where.values())[0]
         query = 'SELECT {} FROM {} WHERE {}'.format(','.join(fields), cls._get_name(), where_clause)
@@ -67,14 +68,16 @@ class Tablas(ABC):
     @classmethod
     def insert(cls, data: dict):
 
-        atributes = ','.join([key for key in data.keys()])
-        values = ','.join([val for val in data.values()])
-        subs = ','.join(['?'] * len(data))
+        atributes = ', '.join([key for key in data.keys()])
+        values = [val for val in data.values()]
+        subs = ', '.join(['?'] * len(values))
+
+        query = f'INSERT INTO {cls._get_name()} ({atributes}) VALUES ({subs})'
 
         try:
             conn = cls._connect()
             c = conn.cursor()
-            c.execute(f'INSERT INTO {cls._get_name} ({atributes}) VALUES ({subs})', (values))
+            c.execute(query, values)
             conn.commit()
             c.close()
 
