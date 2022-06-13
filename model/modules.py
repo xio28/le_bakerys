@@ -2,7 +2,7 @@ import json
 import os
 
 CONF_PATH  = "./config/config.json"
-SESSION_PATH = "./config/session.json"
+SESSION_PATH = "./config/session2.json"
 
 class Modules:
 

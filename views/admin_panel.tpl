@@ -84,7 +84,7 @@
                     </div>
                     <div id="add-employees" class="boxes form form-add manage-table">
                         <h2>Añadir empleados</h2>
-                        <form action="/addemp" method="POST"  autocomplete="off">
+                        <form action="/panel/admin" method="POST"  autocomplete="off">
                             <label for="pass">Email</label>
                             {{ formEmp.email }}
                             <label for="pass">Contraseña</label>

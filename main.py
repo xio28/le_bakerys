@@ -1,9 +1,11 @@
+from distutils.log import Log
 from fileinput import filename
 from bottle import (auth_basic, debug, error, route, get, post, redirect, request,
                     route, run, static_file, template)
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
+from controller.login import LogInForm
 from controller.chang_pass import ChangePassForm
 from controller.add_employees import AddEmpForm
 from controller.add_products import AddProdForm
@@ -18,17 +20,31 @@ from model.carrito import *
 def index():
     return static_file("index.html", root ="static")
 
+@get('/login')
+def login():
+    form = LogInForm(request.POST)
+    return template('login', form=form)
+    
+@post('/login')
+def post_login():
+    form = LogInForm(request.POST) 
+    if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
+        return redirect('/')
+    else:
+        print("Email o contraseña incorrectos.")
+        return redirect('/login')
+
 @get('/panel/admin')
-def panel():
+def admin_panel():
     formEmp = AddEmpForm(request.POST)
     formPro = AddProdForm(request.POST)
-    return template('admin_panel', formEmp = formEmp, formPro = formPro)
+    return template('admin_panel', formEmp=formEmp, formPro=formPro)
 
-@post('/panel/admin')
-def post_admin_panel():
-    pass
+# @post('/panel/admin')
+# def post_admin_panel():
+#     if request.POST
 
-@get('/panel/client')
+@get('/panel/cliente')
 def panel():
     form = ChangePassForm(request.POST)
     return template('client_panel', form=form)

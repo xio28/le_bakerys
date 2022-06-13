@@ -44,7 +44,7 @@
                         </div>
                 </div>
                 <div class="main-box">
-                    <div id="see-orders" class="boxes manage-table">
+                    <div id="see-orders" class="boxes manage-table show">
                         <table>
                             <tr>
                                 <th>ID pedido</th>

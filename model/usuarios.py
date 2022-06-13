@@ -19,13 +19,15 @@ class Usuarios(Tablas):
     def get_username(cls, email):
         return email.split('@')[0].replace('.', '_')
 
-class Clientes(Usuarios):
-    
     @classmethod
-    def client_log(cls, email):
+    def user_log(cls, email):
+        type = cls._get_name()
         query = (cls.get_select(['ID', 'Email'], {'Email':email}))[0]
-        log = {'user_email' : query[1], 'client_id' : query[0]}
+        log = {'user_email' : query[1], 'user_id' : query[0], 'user_type' : type}
         Modules.write_session(log)
+
+class Clientes(Usuarios):
+    pass
 
 class Empleados(Usuarios):
     pass

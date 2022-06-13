@@ -14,8 +14,6 @@
         <link rel="stylesheet" href="/static/styles/contact.css">
     %elif title == "Productos":
         <link rel="stylesheet" href="/static/styles/products.css">
-    %elif title == "Panel de cliente":
-        <link rel="stylesheet" href="/static/styles/client_panel.css">
     %elif title == "Panel de admin":
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %elif title == "Carrito de compra":
@@ -31,7 +29,7 @@
     <title>{{title}}</title>
 </head>
 <body>
-    %if title != "Panel de administrador" and title != "Panel de usuario" and title != "Productos":
+    %if title != "Panel de administrador" and title != "Panel de cliente" and title != "Productos":
     <button class="menu-btn" onclick="btn()">
         <div></div>
         <div></div>
