@@ -7,6 +7,6 @@
     "empleados" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, Email VARCHAR(100), FOREIGN KEY (EMAIL) REFERENCES Usuarios(Email) ON UPDATE CASCADE ON DELETE CASCADE",
 
     "productos" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, Producto VARCHAR(80), Precio DEC(4,2), Categoria VARCHAR(50), Stock INTEGER, Imagen TEXT",
-    "carrito" : "IdProducto INTEGER, IdCliente, Unidades INT DEFAULT 1",
+    "carrito" : "IdProducto INTEGER, IdCliente, Unidades INT DEFAULT 1, PRIMARY KEY (IdProducto, IdCliente)",
     "pedidos" : ""
 }

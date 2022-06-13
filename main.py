@@ -54,7 +54,8 @@ def social():
 @get('/productos')
 def products():
     products_list = Productos.select()
-    return template("products", products_list = products_list)
+    count_products = 0
+    return template("products", products_list=products_list, count_products=count_products)
 
 @post('/productos')
 def filter():
@@ -81,17 +82,28 @@ def filter():
 def carrito():
     return f'Clicked'
 
-@post('/carrito/<id>')
-def mi_carrito(id):
+@post('/add_carrito/<id_product>')
+def add_carrito(id_product):
 
-    if request.POST.get('add-to-cart'):
+    client_id = Modules.load_session().get('user_id')
+
+    if not Carrito.shoplist_check(id_product, client_id):
         data = {
-            'IdProducto' : id,
-            'IdCliente' : Modules.load_config().get('client_id')
+            'IdProducto' : id_product,
+            'IdCliente' : client_id
         }
 
         Carrito.insert(data)
-        return f'Insertado {data}'
+
+        return f'{Carrito.select()}'
+    return f'{Carrito.select()}'
+
+
+@post('/login')
+def login():
+
+    if "usuario registrado todo ok":
+        Clientes.client_log('email')
 
 @get('/pedido')
 def order():

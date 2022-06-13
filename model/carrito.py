@@ -8,13 +8,15 @@ class Carrito(Tablas):
         return info
     
     @classmethod
-    def shoplist_check(cls, ref: str):
-        datas = cls.get_select(['', ''], {'':''})
+    def shoplist_check(cls, id_product, id_client):
+        datas = cls.get_select_and(['Unidades'], {'IdProducto' : id_product, 'IdCliente' : id_client})
 
-        if datas != None:
-            cls.update({'':''}, {'':''})
-        
-        return True if datas != None else False
+        if len(datas) != 0:
+            ref = datas[0][-1]
+            cls.update_and({'Unidades': ref +1}, {'IdProducto' : id_product, 'IdCliente' : id_client})    
+            return True
+
+        return False
 
     @classmethod
     def remove_one(cls, ref: str):

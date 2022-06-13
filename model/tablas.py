@@ -43,7 +43,7 @@ class Tablas(ABC):
             return data
 
     @classmethod
-    def get_select(cls, fields: list, where: list):
+    def get_select(cls, fields: list, where: dict):
         data = ""
         where_clause = '{} LIKE ?'.format(list(where)[0])
         value = list(where.values())[0]
@@ -54,7 +54,7 @@ class Tablas(ABC):
             c = conn.cursor()
             c.execute(query, (value,))
             data = c.fetchall()
-
+            conn.commit()
             c.close()
         
         except sqlite3.Error as error:
@@ -66,7 +66,7 @@ class Tablas(ABC):
             return data
 
     @classmethod
-    def get_select_and(cls, fields: list, where:list):
+    def get_select_and(cls, fields: list, where:dict):
         data = ""
         keys = [key for key in where.keys()]
         values = [val for val in where.values()]
@@ -78,11 +78,11 @@ class Tablas(ABC):
             c = conn.cursor()
             c.execute(query, values)
             data = c.fetchall()
-
+            conn.commit()
             c.close()
         
         except sqlite3.Error as error:
-            print('Error while executing sqlite script', error)
+            print('Error while executing sqlite script aqui papu', error)
 
         finally:
             if conn:
@@ -146,6 +146,28 @@ class Tablas(ABC):
             conn = cls._connect()
             c = conn.cursor()
             c.execute(query, (values))
+            conn.commit()
+            c.close()
+
+        except sqlite3.Error as error:
+            print('Error while executing sqlite script', error)
+
+        finally:
+            if conn:
+                conn.close()
+
+    @classmethod
+    def update_and(cls, data: dict, where: dict):
+        keys = [key for key in where.keys()]
+        new_values = ','.join([f'{key} = {val}' for key, val in data.items()])
+        where_values = [val for val in where.values()]
+        where_clause = f'{keys[0]} LIKE ? AND {keys[-1]} LIKE ?'
+        query = f'UPDATE {cls._get_name()} SET {new_values} WHERE {where_clause}'
+
+        try:
+            conn = cls._connect()
+            c = conn.cursor()
+            c.execute(query, where_values)
             conn.commit()
             c.close()
 
