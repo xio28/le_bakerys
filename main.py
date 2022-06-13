@@ -7,6 +7,7 @@ from controller.contact import ContactForm
 from model.productos import *
 from model.usuarios import *
 from model.modules import *
+from model.carrito import *
 
 
 @route('/')
@@ -82,7 +83,15 @@ def carrito():
 
 @post('/carrito/<id>')
 def mi_carrito(id):
-    return f'Producto: {id}'
+
+    if request.POST.get('add-to-cart'):
+        data = {
+            'IdProducto' : id,
+            'IdCliente' : Modules.load_config().get('client_id')
+        }
+
+        Carrito.insert(data)
+        return f'Insertado {data}'
 
 @get('/pedido')
 def order():

@@ -1,8 +1,6 @@
 {
     "database" : "le_bakerys.db",
 
-    "session" : "Email VARCHAR(100)",
-
     "usuarios" : "Email VARCHAR(100) PRIMARY KEY, Password VARCHAR(50), Nombre VARCHAR(100), Apellido1 VARCHAR(100), Apellido2 VARCHAR(100), Imagen Text",
 
     "clientes" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, Email VARCHAR(100), NIF VARCHAR(9), Contacto VARCHAR(12), Calle VARCHAR(100), Portal INTEGER, Piso INTEGER, Codigo_Postal VARCHAR(5), Ciudad VARCHAR(50), FOREIGN KEY (Email) REFERENCES Usuarios(Email) ON UPDATE CASCADE ON DELETE CASCADE",

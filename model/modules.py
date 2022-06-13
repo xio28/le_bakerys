@@ -2,6 +2,7 @@ import json
 import os
 
 CONF_PATH  = "./config/config.json"
+SESSION_PATH = "./config/session.json"
 
 class Modules:
 
@@ -9,6 +10,25 @@ class Modules:
     def load_config():
         with open(CONF_PATH) as f:
             return json.load(f)
+
+    @staticmethod
+    def load_session():
+        with open(SESSION_PATH) as f:
+            return json.load(f)
+
+    @staticmethod
+    def write_session(datas: dict):
+        with open(SESSION_PATH, 'r+') as f:
+            session = json.load(f)
+            
+            for session_key in session.keys():
+                for datas_key, datas_value in datas.items():
+                    if session_key == datas_key:
+                        session[session_key] = datas_value
+
+            f.seek(0)
+            json.dump(session, f, indent=4)
+            f.truncate()
 
     @staticmethod
     def auth_admin(user, password):
