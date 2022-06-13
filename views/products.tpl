@@ -6,31 +6,31 @@
                 <ul>
                     <li>Filtrar por:</li>
                     <li>
-                        <form action="/products" method="POST">
+                        <form action="/productos" method="POST">
                             <label for="tartas">Tartas</label>
                             <input type="submit" name="tartas" id="tartas">
                         </form>
                     </li>
                     <li>
-                        <form action="/products" method="POST">
+                        <form action="/productos" method="POST">
                             <label for="helados">Helados</label>
                             <input type="submit" name="helados" id="helados">
                         </form>
                     </li>
                     <li>
-                        <form action="/products" method="POST">
+                        <form action="/productos" method="POST">
                             <label for="dulces">Dulces</label>
                             <input type="submit" name="dulces" id="dulces">
                         </form>
                     </li>
                     <li>
-                        <form action="/products" method="POST">
+                        <form action="/productos" method="POST">
                             <label for="salados">Salados</label>
                             <input type="submit" name="salados" id="salados">
                         </form>
                     </li>
                     <li>
-                        <form action="/products" method="POST">
+                        <form action="/productos" method="POST">
                             <label for="todos">Todos</label>
                             <input type="submit" name="todos" id="todos">
                         </form>
@@ -40,7 +40,7 @@
         <div class="products__container">
             %for product in products_list:
             <div class="product_card" data-tilt data-tilt-reverse="true">
-                <form action="" method="POST">
+                <form action="/carrito/{{product[0]}}" method="POST">
                     <button type="submit" name="add-to-cart">
                         <i class="fa fa-solid fa-cart-plus"></i>
                     </button>
@@ -75,3 +75,6 @@
             };
         });
     </script>
+
+</body>
+</html>

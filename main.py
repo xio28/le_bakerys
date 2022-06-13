@@ -1,5 +1,5 @@
 from fileinput import filename
-from bottle import (auth_basic, debug, error, get, post, redirect, request,
+from bottle import (auth_basic, debug, error, route, get, post, redirect, request,
                     route, run, static_file, template)
 
 from controller.register import RegistrationForm
@@ -9,8 +9,8 @@ from model.usuarios import *
 from model.modules import *
 
 
-@get('')
-@get('/index')
+@route('/')
+@route('/index')
 def index():
     return static_file("index.html", root ="static")
 
@@ -19,17 +19,12 @@ def index():
 def admin():
     return template('index')
 
-@get('/registration')
+@get('/registro')
 def register():
     form = RegistrationForm(request.POST)
     return template('registration', form=form)
 
-@get('/contact')
-def register():
-    form = ContactForm(request.POST)
-    return template('contact', form=form)
-
-@post('/registration')
+@post('/registro')
 def post_registration():
     form = RegistrationForm(request.POST) 
     if form.save.data:
@@ -38,12 +33,16 @@ def post_registration():
         f.save(f_path)
     return template('registration', form=form)
 
+@get('/contacto')
+def register():
+    form = ContactForm(request.POST)
+    return template('contact', form=form)
 
-@get('/users/clients')
+@get('/clientes')
 def clients():
     pass
 
-@get('/users/employee')
+@get('/empleados')
 def employee():
     pass
 
@@ -51,15 +50,15 @@ def employee():
 def social():
     return template("socialmedia")
 
-@get('/products')
+@get('/productos')
 def products():
     products_list = Productos.select()
     return template("products", products_list = products_list)
 
-@post('/products')
+@post('/productos')
 def filter():
     if request.POST.get('todos'):
-        return redirect('/products')
+        return redirect('/productos')
 
     else:
         if request.POST.get('tartas'):
@@ -79,9 +78,13 @@ def filter():
 
 @get('/carrito')
 def carrito():
-    pass
+    return f'Clicked'
 
-@get('/order')
+@post('/carrito/<id>')
+def mi_carrito(id):
+    return f'Producto: {id}'
+
+@get('/pedido')
 def order():
     pass
 
@@ -111,6 +114,5 @@ def js(filepath):
     return static_file(filepath, root="static/js")
 
 
-
 if __name__ == '__main__':
-    run(host='localhost', port=8084, debug=True, reloader=True)
+    run(host='localhost', port=8081, debug=True, reloader=True)
