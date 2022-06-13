@@ -1,14 +1,9 @@
-from distutils.log import Log
 from fileinput import filename
 from bottle import (auth_basic, debug, error, route, get, post, redirect, request,
                     route, run, static_file, template)
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
-from controller.login import LogInForm
-from controller.chang_pass import ChangePassForm
-from controller.add_employees import AddEmpForm
-from controller.add_products import AddProdForm
 from model.productos import *
 from model.usuarios import *
 from model.modules import *
@@ -19,35 +14,6 @@ from model.carrito import *
 @route('/index')
 def index():
     return static_file("index.html", root ="static")
-
-@get('/login')
-def login():
-    form = LogInForm(request.POST)
-    return template('login', form=form)
-    
-@post('/login')
-def post_login():
-    form = LogInForm(request.POST) 
-    if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
-        return redirect('/')
-    else:
-        print("Email o contraseña incorrectos.")
-        return redirect('/login')
-
-@get('/panel/admin')
-def admin_panel():
-    formEmp = AddEmpForm(request.POST)
-    formPro = AddProdForm(request.POST)
-    return template('admin_panel', formEmp=formEmp, formPro=formPro)
-
-# @post('/panel/admin')
-# def post_admin_panel():
-#     if request.POST
-
-@get('/panel/cliente')
-def panel():
-    form = ChangePassForm(request.POST)
-    return template('client_panel', form=form)
 
 @get('/admin')
 @auth_basic(Modules.auth_admin)
@@ -88,7 +54,8 @@ def social():
 @get('/productos')
 def products():
     products_list = Productos.select()
-    return template("products", products_list = products_list)
+    count_products = 0
+    return template("products", products_list=products_list, count_products=count_products)
 
 @post('/productos')
 def filter():
@@ -115,18 +82,28 @@ def filter():
 def carrito():
     return f'Clicked'
 
-@post('/carrito/<id>')
-def mi_carrito(id):
+@post('/add_carrito/<id_product>')
+def add_carrito(id_product):
 
-    if request.POST.get('add-to-cart'):
+    client_id = Modules.load_session().get('user_id')
+
+    if not Carrito.shoplist_check(id_product, client_id):
         data = {
-            'IdProducto' : id,
-            'IdCliente' : Modules.load_config().get('client_id')
+            'IdProducto' : id_product,
+            'IdCliente' : client_id
         }
 
         Carrito.insert(data)
-        return f'Insertado {data}'
 
+        return f'{Carrito.select()}'
+    return f'{Carrito.select()}'
+
+
+@post('/login')
+def login():
+
+    if "usuario registrado todo ok":
+        Clientes.client_log('email')
 
 @get('/pedido')
 def order():
@@ -159,4 +136,4 @@ def js(filepath):
 
 
 if __name__ == '__main__':
-    run(host='localhost', port=8080, debug=True, reloader=True)
+    run(host='localhost', port=8081, debug=True, reloader=True)

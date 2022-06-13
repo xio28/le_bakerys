@@ -38,43 +38,33 @@
                 </ul>
         </div>
         <div class="products__container">
-            %for product in products_list:
+        %for product in products_list:
+            %if product[-2] > 0:
             <div class="product_card" data-tilt data-tilt-reverse="true">
-                <form action="/carrito/{{product[0]}}" method="POST">
-                    <button type="submit" name="add-to-cart">
+                <form action="/add_carrito/{{product[0]}}" method="POST">
+                    <button>
                         <i class="fa fa-solid fa-cart-plus"></i>
                     </button>
                 </form>
-                %for i in range(len(product)):
-                    %if i == 1:
-                    <h3>{{product[i]}}</h3>
-                    %elif i == 2:
-                    <p>{{product[i]}} €</p>
-                    %elif i == 5:
-                    <img src="{{product[i]}}" alt="product">
+                    %for i in range(len(product)):
+                        %if i == 1:
+                        <h3>{{product[i]}}</h3>
+                        %elif i == 2:
+                        <p>{{product[i]}} €</p>
+                        %elif i == 5:
+                        <img src="{{product[i]}}" alt="product">
+                        %end
                     %end
-                %end
             </div>
             %end
+        %end
         </div>
         <button class="shop-btn">
             <img src="/static/resources/img/shopping-basket.png" alt="">
         </button>
+        <div class="count-info">{{count_products}}</div>
     </div>
 %include("footer.tpl")
-
-    <script>
-        $(window).scroll(() => {
-            console.log($(window).scrollTop());
-
-            if($(this).scrollTop() > $(".products__container").scrollTop() + 100) {
-                $(".shop-btn").css("background", "#FF9F1C");
-
-            } else {
-                $(".shop-btn").css("background", "#2EC4B6");
-            };
-        });
-    </script>
 
 </body>
 </html>
