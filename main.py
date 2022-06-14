@@ -14,6 +14,8 @@ from model.productos import *
 from model.usuarios import *
 from model.modules import *
 from model.carrito import *
+from model.pedidos import *
+from model.compras import *
 
 
 @route('/')
@@ -44,16 +46,17 @@ def post_login():
         print(form.errors)
         # return redirect('/login')
 
-@get('/panel/admin')
+@get('/admin')
+@auth_basic(Modules.auth_admin)
 def admin_panel():
     formEmp = AddEmpForm(request.POST)
     formPro = AddProdForm(request.POST)
-    return template('admin_panel', formEmp=formEmp, formPro=formPro,  prows=Productos.select(), inrows=Empleados.inner_select())
+    return template('admin_panel', formEmp=formEmp, formPro=formPro,  prows=Productos.select(), inrows=Empleados.inner_empleado())
 
-# @post('/panel/admin')
-# def post_admin_panel():
-#     if request.POST
-
+@get('/panel/cliente')
+def panel():
+    form = ChangePassForm(request.POST)
+    return template('client_panel', form=form)
 
 @post('/delete/<no:int>')
 def delete_item(no):
@@ -78,15 +81,6 @@ def delete_item(no):
         Empleados.delete(where)
 
 
-@get('/panel/cliente')
-def panel():
-    form = ChangePassForm(request.POST)
-    return template('client_panel', form=form)
-
-@get('/admin')
-@auth_basic(Modules.auth_admin)
-def admin():
-    return template('index')
 
 @get('/login')
 def login():
@@ -125,14 +119,6 @@ def post_contact():
     form = ContactForm(request.POST)
     
     return redirect('/')
-
-@get('/clientes')
-def clients():
-    pass
-
-@get('/empleados')
-def employee():
-    pass
 
 @get("/social")
 def social():
@@ -183,7 +169,7 @@ def carrito_post(id_product):
             if not Carrito.shoplist_check(id_product, id_client):
                 data = {
                     'IdProducto' : id_product,
-                    'IdCliente' : id_client
+                    'IdCliente' : id_client,
                 }
 
                 Carrito.insert(data)
@@ -198,9 +184,13 @@ def carrito_post(id_product):
         return redirect('/carrito')
     return redirect('/login')
 
-@get('/pedido')
+@post('/pedido')
 def order():
-    pass
+    id_client = Modules.load_session().get('user_id')
+    if request.POST.get('submit-order'):
+        Pedidos.do_order(id_client)
+    
+    return redirect('/productos')
 
 @error(404)
 def error404(error):
@@ -208,8 +198,8 @@ def error404(error):
 
 @get('/test')
 def test():
-    #return f"{Carrito.inner_carrito(Modules.load_session().get('user_id'))}"
-    return static_file('carrito.html', root='static/src')
+    #return f'{Pedidos.select()}'
+    return f'{Pedidos.gen_order_id()}'
     
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
