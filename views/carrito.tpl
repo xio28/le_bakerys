@@ -49,3 +49,5 @@
 %include("footer.tpl")
 </body>
 </html>
+
+<input type="file" accept="image/png, image/jpg, image/jpeg" name="upload" value="upload">

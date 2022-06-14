@@ -162,6 +162,7 @@ def carrito():
 @post('/carrito/<id_product>')
 def carrito_post(id_product):
     id_client = Modules.load_session().get('user_id')
+    stock = Productos.get_select(['Stock'], {'ID':id_product})[0][0]
 
     if Clientes.user_logged():
         if request.POST.get('add_product'):
@@ -173,6 +174,7 @@ def carrito_post(id_product):
                 }
 
                 Carrito.insert(data)
+                Productos.update({'Stock': stock -1}, {'ID':id_product})
 
             return redirect('/productos')
 

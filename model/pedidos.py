@@ -13,8 +13,8 @@ class Pedidos(Tablas):
     @classmethod
     def do_order(cls, id_client):
         if len(Carrito.get_select(['*'], {'IdCliente':id_client})) != 0:
-            id_order = cls.get_order_id()
             Compras.insert({'Estado' : 0})
+            id_order = cls.get_order_id()
             values = Carrito.get_select(['*'], {'IdCliente':id_client})[0]
             query = f"INSERT INTO pedidos (IdProducto, IdCliente, Unidades) VALUES {values}"
 
@@ -25,8 +25,8 @@ class Pedidos(Tablas):
                 conn.commit()
                 c.close()
 
-                cls.update_and({'IdPedido' : id_order}, {'IdCliente' :id_client, "IdPedido":id_order})
-                cls.update_and({'Total' : Carrito.get_total(id_client)[0][0]}, {'IdCliente' :id_client, "IdPedido":id_order})
+                cls.update({'IdPedido' : id_order}, {'IdCliente' :id_client})
+                Compras.update_total(id_client)
                 Carrito.delete({'IdCliente':id_client})
             
             except sqlite3.Error as error:
