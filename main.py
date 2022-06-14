@@ -1,4 +1,5 @@
 from fileinput import filename
+from logging import root
 from bottle import (auth_basic, debug, error, route, get, post, redirect, request,
                     route, run, static_file, template)
 
@@ -47,7 +48,7 @@ def clients():
 def employee():
     pass
 
-@get("/social")
+@route("/social")
 def social():
     return template("socialmedia")
 
@@ -134,6 +135,10 @@ def video(filepath):
 def js(filepath):
     return static_file(filepath, root="static/js")
 
+@get("/static/src/<filepath:re:.*\.html>")
+def src(filepath):
+    return static_file(filepath, root="static/src")
+
 
 if __name__ == '__main__':
-    run(host='localhost', port=8081, debug=True, reloader=True)
+    run(host='localhost', port=8083, debug=True, reloader=True)

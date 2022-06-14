@@ -19,7 +19,7 @@ body {
 
 
 .main__container {
-    width: 90vw;
+    width: 80vw;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -28,7 +28,8 @@ body {
 }
 .articles__container {
     text-align: left;
-    width: 100rem;
+    width: 70%;
+    margin: 0 auto;
     padding: 2rem 0;
 }
 article {
@@ -81,7 +82,8 @@ article .article-data {
 
 /* SIDEBAR */
 #blog-sidebar {
-    width: 30%;
+    width: 37rem;
+    margin: 0  auto;
     position: relative;
     text-align: center;
     padding: 8vmin 0;
@@ -90,6 +92,7 @@ article .article-data {
 #blog-sidebar .sidebar-border {
     position: relative;
     width: 90%;
+    margin: 0 auto;
     border: 2px solid var(--dark-golden);
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -246,4 +249,14 @@ article .article-data {
 #blog-sidebar .newsletter-sidebar input[type="submit"]:hover {
     background-color: var(--turquoise);
     color: var(--white);
+}
+
+
+@media (max-width: 498px) {
+    .h2-title {
+        font-size: 4.3rem;
+    }
+    .h2-title .fa {
+        font-size: 3rem;
+    }
 }

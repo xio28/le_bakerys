@@ -629,9 +629,9 @@ video {
 }
 .bakery-food div::before {
     content: '';
-    background: #d48b3731;
-    width: 94%;
-    height: 94%;
+    background: rgb(247 247 247 / 27%);
+    width: 90%;
+    height: 90%;
     position: absolute;
     z-index: 1;
     border-radius: 3px;
