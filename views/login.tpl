@@ -18,7 +18,7 @@
             </form>
             <div class="register-i">
                 <p>¿No tienes cuenta?</p>
-                <a href="register.html">Créate una</a>
+                <a href="/registro">Créate una</a>
             </div>
         </div>
     </div>

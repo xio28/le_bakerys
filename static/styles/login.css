@@ -166,7 +166,7 @@ input[type="submit"]:hover{
 }
 
 
-.register-i{
+.register-i {
     grid-row: 3 / 4;
     width: 100%;
     display: flex;
