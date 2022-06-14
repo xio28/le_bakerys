@@ -34,4 +34,28 @@ class Clientes(Usuarios):
     pass
 
 class Empleados(Usuarios):
-    pass
+
+    @classmethod
+    def inner_empleado(cls):
+        data = ""
+        query = """
+            SELECT emp.ID, emp.Email, user.Nombre, user.Apellido1
+            FROM usuarios user
+            INNER JOIN empleados emp
+            ON emp.Email = user.Email
+        """
+        try:
+            conn = cls._connect()
+            c = conn.cursor()
+            c.execute(query)
+            data = c.fetchall()
+            conn.commit()
+            c.close()
+        
+        except sqlite3.Error as error:
+            print('Error while executing sqlite script', error)
+
+        finally:
+            if conn:
+                conn.close()
+            return data

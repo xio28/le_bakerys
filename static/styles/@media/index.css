@@ -38,6 +38,10 @@
         width: 85%;
         top: 5rem;
     }
+    .bubble {
+        width: 18rem;
+        height: 18rem;
+    }
 }
 
 @media (max-width: 1025px) {
@@ -53,14 +57,27 @@
     .menu-btn {
         display: flex !important;
         position: fixed !important;
-        top: 1.5rem;
-        left: 1.5rem;
     }
     .menu-items-desk li {
         display: none;
     }
     .sel-slide-btn__container {
         width: 25%;
+    }
+    .delivery_section {
+        height: 40vh;
+    }
+    .bubble {
+        width: 14rem;
+        height: 14rem;
+        margin-top: 2rem;
+    }
+    .delivery_section h2 {
+        font-size: 3rem !important;
+    }
+    #products_section h2 {
+        font-size: 5rem;
+        margin-bottom: -3.5rem;
     }
 }
 
@@ -69,10 +86,6 @@
         font-size: 12.5rem !important;
         position: relative;
         top: 3rem;
-    }
-    .menu-btn {
-        width: 6rem;
-        height: 6rem;
     }
     .menu-items li a {
         font-size: 5rem;
@@ -106,6 +119,53 @@
         margin-top: 0;
         top: 3rem;
     }
+    .delivery_section h2 {
+        font-size: 2.5rem !important;
+    }
+    .bubbles__container {
+        justify-content: space-between;
+    }
+    @keyframes slide-from-left {
+        0% {
+            transform: translate(-90vw, -50%);
+            -webkit-transform: translate(-90vw, -50%);
+            -moz-transform: translate(-90vw, -50%);
+            -ms-transform: translate(-90vw, -50%);
+            -o-transform: translate(-90vw, -50%);
+}
+        50% {
+            transform: translate(-65vw, -50%);
+            -webkit-transform: translate(-65vw, -50%);
+            -moz-transform: translate(-65vw, -50%);
+            -ms-transform: translate(-65vw, -50%);
+            -o-transform: translate(-65vw, -50%);
+}
+        75% {
+            transform: translate(-37vw, -50%);
+            -webkit-transform: translate(-37vw, -50%);
+            -moz-transform: translate(-37vw, -50%);
+            -ms-transform: translate(-37vw, -50%);
+            -o-transform: translate(-37vw, -50%);
+}
+        100% {
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+        }
+    }
+    .bakery-food {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+    }
+    .bakery-food div {
+        height: 20rem;
+    }
+    #products_section h2 {
+        font-size: 3.5rem;
+    }
 }
 
 @media (max-width: 481px) {
@@ -130,18 +190,27 @@
     .sel-slide-btn__container {
         width: 35%;
     }
+    .bubble {
+        width: 10rem;
+        height: 10rem;
+    }
+    .delivery_section {
+        min-height: 30vh !important;
+    }
 }
 
-@media (max-height: 900px) and (orientation: landscape) {
+@media (max-height: 700px) and (orientation: landscape) {
     h1 {
         font-size: 9rem !important;
         position: relative;
         top: -5rem;
     }
+    
     .menu-btn {
         display: flex !important;
         position: absolute !important;
     }
+
     .logo {
         width: 25rem;
         height: 25rem;

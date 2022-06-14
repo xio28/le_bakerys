@@ -172,3 +172,57 @@ body {
 .waves {
     top: -5rem;
 }
+
+
+@media screen and (max-width: 1024px){
+
+    .main__container{
+        width: 90vw;
+    }
+
+    .ingredients{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .h2-title{
+        font-size: 6rem;
+    }
+
+    .h-article h2{
+        font-size: 4.5rem;
+        margin-left: -0.5rem;
+    }
+
+    .h-article h4{
+        font-size: 2rem;
+        margin-left: 0rem;
+    }
+
+    .h-article p{
+        font-size: 1.2rem;
+        margin-left: 0rem;
+    }
+
+    .ingredients{
+        font-size: 1.3rem;
+    }
+
+    .keys{
+        font-size: 1.6rem;
+    }
+
+    .to-prepare{
+        margin-right:  1.6rem;
+    }
+
+    .prepare ol{
+        margin-right: 1.8rem;
+    }
+
+    .prepare ol li{
+        font-size: 1.6rem;
+    }
+
+}

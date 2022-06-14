@@ -33,9 +33,8 @@ def post_login():
     form = LogInForm(request.POST) 
     if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
         return redirect('/')
-    else:
-        print(form.errors)
-        # return redirect('/login')
+
+    return template('login', form=form)
 
 @post('/logout')
 def post_login():
@@ -43,8 +42,14 @@ def post_login():
     if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
         return redirect('/')
     else:
-        print(form.errors)
-        # return redirect('/login')
+        if not Usuarios.check_user(form.email.data):
+            print("error email")
+            error = "El email no existe."
+            return template('login', form=form, error=error)
+        elif Usuarios.get_password(form.email.data):
+            print("error pass")
+            error = "La contraseña es incorrecta."
+            return template('login', form=form, error=error)
 
 @get('/admin')
 @auth_basic(Modules.auth_admin)
@@ -69,8 +74,8 @@ def delete_item(no):
         Productos.delete(where)
 
     # return redirect('/')
-        
-@post('/add/<no:int>')
+
+@post('/add/products')
 def delete_item(no):
     
     if request.POST.save_pro:
@@ -80,17 +85,10 @@ def delete_item(no):
         where = {'ID': no}
         Empleados.delete(where)
 
-
-
-@get('/login')
-def login():
-    form = LogInForm(request.POST)
-    return template('login', form=form)
-
-
-@post('/login')
-def login_post():
-    return static_file('login', root='static/src')
+@get('/cliente')
+def client_panel():
+    form = ChangePassForm(request.POST)
+    return template('client_panel', form=form)
 
 @get('/registro')
 def register():
@@ -99,8 +97,11 @@ def register():
 
 @post('/registro')
 def post_registration():
-    form = RegistrationForm(request.POST) 
+    form = RegistrationForm(request.POST)
+    fil = form.user_image.data
+    print(fil)
     if form.save.data and form.validate():
+        print(type(form.user_image.data))
         form_data = {
             'Email': form.email.data
         }
@@ -178,15 +179,14 @@ def carrito_post(id_product):
 
             return redirect('/productos')
 
-        elif request.POST.get('remove_one'):
-            Carrito.edit_unity(id_product, id_client, "remove")
-        elif request.POST.get('add_one'):
-            Carrito.edit_unity(id_product, id_client, "add")
-
-        return redirect('/carrito')
-    return redirect('/login')
-
 @post('/pedido')
+def order():
+    id_client = Modules.load_session().get('user_id')
+    if request.POST.get('submit-order'):
+        Pedidos.do_order(id_client)
+
+    return redirect('/productos')
+    
 def order():
     id_client = Modules.load_session().get('user_id')
     if request.POST.get('submit-order'):
@@ -219,6 +219,14 @@ def video(filepath):
 def js(filepath):
     return static_file(filepath, root="static/js")
 
+@get("/static/src/<filepath:re:.*\.html>")
+def src(filepath):
+    return static_file(filepath, root="static/src")
+
+
+@get("/static/src/<filepath:re:.*.html>")
+def src(filepath):
+    return static_file(filepath, root="static/src")
 
 if __name__ == '__main__':
-    run(host='localhost', port=8081, debug=True, reloader=True)
+    run(host='localhost', port=8082, debug=True, reloader=True)

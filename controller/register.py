@@ -51,7 +51,7 @@ class RegistrationForm(Form):
                                         validators.InputRequired()
                                     ], 
                                         render_kw={'placeholder': 'Localidad'})
-    privacy_policy = BooleanField([
+    privacy_policy = BooleanField("Acepto las reglas", [
                                         validators.InputRequired()
                                     ])
     save = SubmitField('Guardar')
