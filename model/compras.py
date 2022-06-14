@@ -10,7 +10,7 @@ class Compras(Tablas):
         query = f"""
         UPDATE {cls._get_name()}
         SET TOTAL = ROUND({total},2)
-        WHERE Id = (
+        WHERE Id IN (
             SELECT IdPedido FROM pedidos
             WHERE IdCliente = {id_client}
         )

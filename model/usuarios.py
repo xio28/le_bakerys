@@ -29,6 +29,7 @@ class Usuarios(Tablas):
     @classmethod
     def user_logged(cls):
         return True if Modules.load_session().get('user_id') != 0 and cls._get_name() == 'clientes' else False
+        
 class Clientes(Usuarios):
     pass
 

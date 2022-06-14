@@ -197,11 +197,6 @@ def order():
 @error(404)
 def error404(error):
     return static_file('404.html', root='static/src')
-
-@get('/test')
-def test():
-    #return f'{Pedidos.select()}'
-    return f'{Pedidos.gen_order_id()}'
     
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
