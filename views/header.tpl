@@ -22,6 +22,8 @@
         <link rel="stylesheet" href="/static/styles/login.css">
     %elif title == "Panel de cliente" or title == "Panel de administrador":
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
+    %elif title == "Carrito":
+    <link rel="stylesheet" type="text/css" href="/static/styles/carrito.css"/>
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/forms.js"></script>

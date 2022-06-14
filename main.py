@@ -1,6 +1,8 @@
 from fileinput import filename
+import re
 from bottle import (auth_basic, debug, error, route, get, post, redirect, request,
                     route, run, static_file, template)
+from pkg_resources import require
 
 from controller.register import RegistrationForm
 from controller.contact import ContactForm
@@ -53,8 +55,8 @@ def social():
 
 @get('/productos')
 def products():
+    count_products = Carrito.get_select(['Count(IdProducto)'], {'IdCliente' : Modules.load_session().get('user_id')})
     products_list = Productos.select()
-    count_products = 0
     return template("products", products_list=products_list, count_products=count_products)
 
 @post('/productos')
@@ -66,37 +68,48 @@ def filter():
         if request.POST.get('tartas'):
             category = 'Tartas'
 
-        if request.POST.get('helados'):
+        elif request.POST.get('helados'):
             category = 'Helados'
 
-        if request.POST.get('dulces'):
+        elif request.POST.get('dulces'):
             category = 'Dulces'
 
-        if request.POST.get('salados'):
+        elif request.POST.get('salados'):
                 category = 'Salados'
 
         products_list = Productos.get_select(['*'], {'Categoria' : category})
-        return template("products", products_list = products_list)
+        count_products = Carrito.get_select(['Count(IdProducto)'], {'IdCliente' : Modules.load_session().get('user_id')})
+        return template("products", products_list = products_list, count_products=count_products)
 
 @get('/carrito')
 def carrito():
-    return f'Clicked'
+    id_client = Modules.load_session().get('user_id')
+    datas = Carrito.inner_carrito(Modules.load_session().get('user_id'))
+    total = Carrito.get_total(id_client)[0][0]
+    return template('carrito', datas = datas, total=total)
 
-@post('/add_carrito/<id_product>')
-def add_carrito(id_product):
+@post('/carrito/<id_product>')
+def carrito_post(id_product):
+    id_client = Modules.load_session().get('user_id')
+    
+    if request.POST.get('add_product'):
 
-    client_id = Modules.load_session().get('user_id')
+        if not Carrito.shoplist_check(id_product, id_client):
+            data = {
+                'IdProducto' : id_product,
+                'IdCliente' : id_client
+            }
 
-    if not Carrito.shoplist_check(id_product, client_id):
-        data = {
-            'IdProducto' : id_product,
-            'IdCliente' : client_id
-        }
+            Carrito.insert(data)
 
-        Carrito.insert(data)
+        return redirect('/productos')
 
-        return f'{Carrito.select()}'
-    return f'{Carrito.select()}'
+    elif request.POST.get('remove_one'):
+        Carrito.edit_unity(id_product, id_client, "remove")
+    elif request.POST.get('add_one'):
+        Carrito.edit_unity(id_product, id_client, "add")
+
+    return redirect('/carrito')
 
 
 @post('/login')
@@ -112,6 +125,10 @@ def order():
 @error(404)
 def error404(error):
     return static_file('404.html', root='static/src')
+
+@get('/test')
+def test():
+    return f"{Carrito.inner_carrito(Modules.load_session().get('user_id'))}"
     
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
