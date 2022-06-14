@@ -2,12 +2,13 @@
     "database" : "le_bakerys.db",
 
     "usuarios" : "Email VARCHAR(100) PRIMARY KEY, Password VARCHAR(50), Nombre VARCHAR(100), Apellido1 VARCHAR(100), Apellido2 VARCHAR(100), Imagen Text",
-
     "clientes" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, Email VARCHAR(100), NIF VARCHAR(9), Contacto VARCHAR(12), Calle VARCHAR(100), Portal INTEGER, Piso INTEGER, Codigo_Postal VARCHAR(5), Ciudad VARCHAR(50), FOREIGN KEY (Email) REFERENCES Usuarios(Email) ON UPDATE CASCADE ON DELETE CASCADE",
     "empleados" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, Email VARCHAR(100), FOREIGN KEY (EMAIL) REFERENCES Usuarios(Email) ON UPDATE CASCADE ON DELETE CASCADE",
 
     "productos" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, Producto VARCHAR(80), Precio DEC(4,2), Categoria VARCHAR(50), Stock INTEGER, Imagen TEXT",
-    "carrito" : "IdProducto INTEGER, IdCliente, Unidades INT DEFAULT 1, PRIMARY KEY (IdProducto, IdCliente)",
-    "pedidos" : "IdProducto INTEGER, IdCliente INTEGER, IdCompra INTEGER, Total DEFAULT 0",
-    "compras" : ""
+
+    "carrito" : "IdProducto INTEGER, IdCliente INTEGER, Unidades INTEGER DEFAULT 1, PRIMARY KEY(IdProducto, IdCliente), FOREIGN KEY(IdProducto) REFERENCES productos (ID), FOREIGN KEY(IdCliente) REFERENCES clientes (id)",
+    "pedido" : "IdProducto INTEGER, IdCliente INTEGER, IdPedido INTEGER, Unidades INTEGER DEFAULT 1, PRIMARY KEY(IdProducto, IdCliente, IdPedido), FOREIGN KEY(IdPedido) REFERENCES pedidos (ID)",
+    
+    "compra" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, IdEmpleado INTEGER DEFAULT 0, Estado INTEGER DEFAULT 0"
 }
