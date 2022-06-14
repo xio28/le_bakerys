@@ -59,13 +59,12 @@ def admin_panel():
 def post_admin_panel():
     formEmp = AddEmpForm(request.POST)
     formPro = AddProdForm(request.POST)
-    root = '/static/resources/img/upload/users' # si es para users si no pones products
 
-    if formPro.save.data and formPro.validate():
+    if formEmp.save.data and formEmp.validate():
         upload = request.POST.get('upload')
 
         if upload.filename != "empty":
-            img = Upload.save_img(root, upload, formPro.email.data) #=> Esta clase Upload esta en modules
+            img = Upload.save_img(root, upload, form.email.data) #=> Esta clase Upload esta en modules
         else:
             img = os.path.join(root, 'default.png')
 
@@ -83,7 +82,7 @@ def post_admin_panel():
             'Precio': form.nid.data,
             'Categoria': form.contact.data,
             'Stock': form.address.data,
-            'Imagen': img,
+            'Codigo_Postal': form.postal_code.data,
             'Ciudad': form.city.data
         }
 

@@ -37,7 +37,6 @@ class Carrito(Tablas):
                 Productos.update({'Stock': stock -1}, {'ID':id_product})
             elif operation == "remove":
                 cls.update({'Unidades': units -1}, {'IdProducto':id_product})
-                Productos.update({'Stock': stock +1}, {'ID':id_product})
                 cls.check_unity(id_product, id_client)
 
 

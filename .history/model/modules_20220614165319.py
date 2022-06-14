@@ -39,7 +39,6 @@ class Modules:
     def set_time():
         now = datetime.now()
         return now.strftime("%d%m%Y%H%M%S")
-        
 class Upload:
     @staticmethod
     def get_ext(file):

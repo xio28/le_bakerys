@@ -35,11 +35,6 @@ class Modules:
     def auth_admin(user, password):
         return True if user.lower() == 'admin' and password == "admin1234" else False
 
-    @staticmethod
-    def set_time():
-        now = datetime.now()
-        return now.strftime("%d%m%Y%H%M%S")
-        
 class Upload:
     @staticmethod
     def get_ext(file):

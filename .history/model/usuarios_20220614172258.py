@@ -23,7 +23,7 @@ class Usuarios(Tablas):
     def user_log(cls, email):
         type = cls._get_name()
         query = (cls.get_select(['ID', 'Email'], {'Email':email}))[0]
-        print(query)
+        print(query[1])
         log = {'user_email' : query[-1], 'user_id' : query[0], 'user_type' : type}
         Modules.write_session(log)
 

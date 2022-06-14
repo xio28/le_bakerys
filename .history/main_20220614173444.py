@@ -59,7 +59,6 @@ def admin_panel():
 def post_admin_panel():
     formEmp = AddEmpForm(request.POST)
     formPro = AddProdForm(request.POST)
-    root = '/static/resources/img/upload/users' # si es para users si no pones products
 
     if formPro.save.data and formPro.validate():
         upload = request.POST.get('upload')

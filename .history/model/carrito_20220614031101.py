@@ -28,16 +28,13 @@ class Carrito(Tablas):
     @classmethod
     def edit_unity(cls, id_product, id_client, operation):
         datas = cls.get_select_and(['Unidades'], {'IdProducto':id_product, 'IdCliente' : id_client})
-        stock = Productos.get_select(['Stock'], {'ID':id_product})[0][0]
         units = datas[0][0]
 
         if len(datas) != 0:
             if units < Productos.get_stock(id_product) and operation == 'add':
                 cls.update({'Unidades': units +1}, {'IdProducto':id_product})
-                Productos.update({'Stock': stock -1}, {'ID':id_product})
             elif operation == "remove":
                 cls.update({'Unidades': units -1}, {'IdProducto':id_product})
-                Productos.update({'Stock': stock +1}, {'ID':id_product})
                 cls.check_unity(id_product, id_client)
 
 

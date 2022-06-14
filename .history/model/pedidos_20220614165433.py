@@ -63,37 +63,37 @@ class Pedidos(Tablas):
                 conn.close()
             return data
 
-    @classmethod
-    def update_date(cls, id_client):
-        query = f"UPDATE {cls._get_name()} SET FECHA = {Modules.set_time()} WHERE IdCliente = {id_client} AND Fecha is NULL"
-        try:
-            conn = cls._connect()
-            c = conn.cursor()
-            c.execute(query)
-            conn.commit()
-            c.close()
+        @classmethod
+        def update_date(cls, id_client):
+            query = f"UPDATE {cls._get_name()} SET FECHA = {Modules.set_time()} WHERE IdCliente = {id_client} AND Fecha is NULL"
+            try:
+                conn = cls._connect()
+                c = conn.cursor()
+                c.execute(query)
+                conn.commit()
+                c.close()
 
-        except sqlite3.Error as error:
-            print('Error while executing sqlite script', error)
+            except sqlite3.Error as error:
+                print('Error while executing sqlite script', error)
 
-        finally:
-            if conn:
-                conn.close()
+            finally:
+                if conn:
+                    conn.close()
 
 
-    @classmethod
-    def set_order_id(cls, id_client, date):
-        query = f"UPDATE {cls._get_name()} SET IdPedido = {cls.get_order_id()} WHERE IdCliente = {id_client} AND Fecha = {date}"
-        try:
-            conn = cls._connect()
-            c = conn.cursor()
-            c.execute(query)
-            conn.commit()
-            c.close()
+        @classmethod
+        def set_order_id(cls, id_client, date):
+            query = f"UPDATE {cls._get_name()} SET IdPedido = {cls.get_order_id()} WHERE IdCliente = {id_client} AND Fecha = {date}"
+            try:
+                conn = cls._connect()
+                c = conn.cursor()
+                c.execute(query)
+                conn.commit()
+                c.close()
 
-        except sqlite3.Error as error:
-            print('Error while executing sqlite script', error)
+            except sqlite3.Error as error:
+                print('Error while executing sqlite script', error)
 
-        finally:
-            if conn:
-                conn.close()
+            finally:
+                if conn:
+                    conn.close()

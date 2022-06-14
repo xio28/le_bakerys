@@ -34,10 +34,8 @@ class Carrito(Tablas):
         if len(datas) != 0:
             if units < Productos.get_stock(id_product) and operation == 'add':
                 cls.update({'Unidades': units +1}, {'IdProducto':id_product})
-                Productos.update({'Stock': stock -1}, {'ID':id_product})
             elif operation == "remove":
                 cls.update({'Unidades': units -1}, {'IdProducto':id_product})
-                Productos.update({'Stock': stock +1}, {'ID':id_product})
                 cls.check_unity(id_product, id_client)
 
 

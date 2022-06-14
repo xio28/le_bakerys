@@ -62,8 +62,8 @@ class Pedidos(Tablas):
             if conn:
                 conn.close()
             return data
-
-    @classmethod
+            
+                @classmethod
     def update_date(cls, id_client):
         query = f"UPDATE {cls._get_name()} SET FECHA = {Modules.set_time()} WHERE IdCliente = {id_client} AND Fecha is NULL"
         try:

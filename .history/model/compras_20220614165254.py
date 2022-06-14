@@ -1,5 +1,4 @@
 from model.tablas import *
-from model.carrito import *
 
 class Compras(Tablas):
     

@@ -31,16 +31,11 @@ def login():
 @post('/login')
 def post_login():
     form = LogInForm(request.POST)
-    if Clientes.user_logged():
-        return redirect('/cliente')
-    else:
-        if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
-            Clientes.user_log(form.email.data)
-            return redirect('/')
-        
-        return redirect('/login')
+    if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
+        Usuarios.user_log(form.semave.data)
+        return redirect('/')
 
-        # return template('login', form=form)
+    return template('login', form=form)
 
 @post('/logout')
 def post_login():
@@ -59,13 +54,12 @@ def admin_panel():
 def post_admin_panel():
     formEmp = AddEmpForm(request.POST)
     formPro = AddProdForm(request.POST)
-    root = '/static/resources/img/upload/users' # si es para users si no pones products
 
-    if formPro.save.data and formPro.validate():
+    if formEmp.save.data and form.validate():
         upload = request.POST.get('upload')
 
         if upload.filename != "empty":
-            img = Upload.save_img(root, upload, formPro.email.data) #=> Esta clase Upload esta en modules
+            img = Upload.save_img(root, upload, form.email.data) #=> Esta clase Upload esta en modules
         else:
             img = os.path.join(root, 'default.png')
 
@@ -78,17 +72,17 @@ def post_admin_panel():
             'Imagen': img
         }
 
-        form_product = {
-            'Producto': form.pro_name.data,
-            'Precio': form.nid.data,
-            'Categoria': form.contact.data,
-            'Stock': form.address.data,
-            'Imagen': img,
+        form_client = {
+            'Email': form.email.data,
+            'NIF': form.nid.data,
+            'Contacto': form.contact.data,
+            'Calle': form.address.data,
+            'Codigo_Postal': form.postal_code.data,
             'Ciudad': form.city.data
         }
 
-        Empleados.insert(form_user)
-        Productos.insert(form_product)
+        Usuarios.insert(form_user)
+        Clientes.insert(form_client)
 
 @get('/cliente')
 def panel():
@@ -290,4 +284,4 @@ def src(filepath):
     return static_file(filepath, root="static/src")
 
 if __name__ == '__main__':
-    run(host='localhost', port=8083, debug=True, reloader=True)
+    run(host='localhost', port=8082, debug=True, reloader=True)

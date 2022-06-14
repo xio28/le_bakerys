@@ -38,6 +38,7 @@
                 <li><a href='/contacto' data-item='Contacto'>Contacto</a></li>
             </ul>
         </nav>
+        %if 
         <a class="account" href="/login"><img class=".acc-icon" src="/static/resources/img/ICON-account.png" alt=""></a>
         <h1>Le Bakery's</h1>
         <div class="logo"></div>
