@@ -14,6 +14,8 @@ from model.productos import *
 from model.usuarios import *
 from model.modules import *
 from model.carrito import *
+from model.pedidos import *
+from model.compras import *
 
 
 @route('/')
@@ -31,9 +33,8 @@ def post_login():
     form = LogInForm(request.POST) 
     if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
         return redirect('/')
-    else:
-        print(form.errors)
-        # return redirect('/login')
+
+    return template('login', form=form)
 
 @post('/logout')
 def post_login():
@@ -41,19 +42,26 @@ def post_login():
     if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
         return redirect('/')
     else:
-        print(form.errors)
-        # return redirect('/login')
+        if not Usuarios.check_user(form.email.data):
+            print("error email")
+            error = "El email no existe."
+            return template('login', form=form, error=error)
+        elif Usuarios.get_password(form.email.data):
+            print("error pass")
+            error = "La contraseña es incorrecta."
+            return template('login', form=form, error=error)
 
-@get('/panel/admin')
+@get('/admin')
+@auth_basic(Modules.auth_admin)
 def admin_panel():
     formEmp = AddEmpForm(request.POST)
     formPro = AddProdForm(request.POST)
-    return template('admin_panel', formEmp=formEmp, formPro=formPro,  prows=Productos.select(), inrows=Empleados.inner_select())
+    return template('admin_panel', formEmp=formEmp, formPro=formPro,  prows=Productos.select(), inrows=Empleados.inner_empleado())
 
-# @post('/panel/admin')
-# def post_admin_panel():
-#     if request.POST
-
+@get('/panel/cliente')
+def panel():
+    form = ChangePassForm(request.POST)
+    return template('client_panel', form=form)
 
 @post('/delete/<no:int>')
 def delete_item(no):
@@ -66,8 +74,8 @@ def delete_item(no):
         Productos.delete(where)
 
     # return redirect('/')
-        
-@post('/add/<no:int>')
+
+@post('/add/products')
 def delete_item(no):
     
     if request.POST.save_pro:
@@ -77,26 +85,10 @@ def delete_item(no):
         where = {'ID': no}
         Empleados.delete(where)
 
-
-@get('/panel/cliente')
-def panel():
+@get('/cliente')
+def client_panel():
     form = ChangePassForm(request.POST)
     return template('client_panel', form=form)
-
-@get('/admin')
-@auth_basic(Modules.auth_admin)
-def admin():
-    return template('index')
-
-@get('/login')
-def login():
-    form = LogInForm(request.POST)
-    return template('login', form=form)
-
-
-@post('/login')
-def login_post():
-    return static_file('login', root='static/src')
 
 @get('/registro')
 def register():
@@ -105,8 +97,11 @@ def register():
 
 @post('/registro')
 def post_registration():
-    form = RegistrationForm(request.POST) 
+    form = RegistrationForm(request.POST)
+    fil = form.user_image.data
+    print(fil)
     if form.save.data and form.validate():
+        print(type(form.user_image.data))
         form_data = {
             'Email': form.email.data
         }
@@ -125,14 +120,6 @@ def post_contact():
     form = ContactForm(request.POST)
     
     return redirect('/')
-
-@get('/clientes')
-def clients():
-    pass
-
-@get('/empleados')
-def employee():
-    pass
 
 @get("/social")
 def social():
@@ -183,24 +170,27 @@ def carrito_post(id_product):
             if not Carrito.shoplist_check(id_product, id_client):
                 data = {
                     'IdProducto' : id_product,
-                    'IdCliente' : id_client
+                    'IdCliente' : id_client,
                 }
 
                 Carrito.insert(data)
 
             return redirect('/productos')
 
-        elif request.POST.get('remove_one'):
-            Carrito.edit_unity(id_product, id_client, "remove")
-        elif request.POST.get('add_one'):
-            Carrito.edit_unity(id_product, id_client, "add")
-
-        return redirect('/carrito')
-    return redirect('/login')
-
-@get('/pedido')
+@post('/pedido')
 def order():
-    pass
+    id_client = Modules.load_session().get('user_id')
+    if request.POST.get('submit-order'):
+        Pedidos.do_order(id_client)
+
+    return redirect('/productos')
+    
+def order():
+    id_client = Modules.load_session().get('user_id')
+    if request.POST.get('submit-order'):
+        Pedidos.do_order(id_client)
+    
+    return redirect('/productos')
 
 @error(404)
 def error404(error):
@@ -208,8 +198,8 @@ def error404(error):
 
 @get('/test')
 def test():
-    #return f"{Carrito.inner_carrito(Modules.load_session().get('user_id'))}"
-    return static_file('carrito.html', root='static/src')
+    #return f'{Pedidos.select()}'
+    return f'{Pedidos.gen_order_id()}'
     
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
@@ -232,10 +222,14 @@ def video(filepath):
 def js(filepath):
     return static_file(filepath, root="static/js")
 
+@get("/static/src/<filepath:re:.*\.html>")
+def src(filepath):
+    return static_file(filepath, root="static/src")
+
 
 @get("/static/src/<filepath:re:.*.html>")
 def src(filepath):
     return static_file(filepath, root="static/src")
 
 if __name__ == '__main__':
-    run(host='localhost', port=8081, debug=True, reloader=True)
+    run(host='localhost', port=8082, debug=True, reloader=True)

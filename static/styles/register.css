@@ -140,6 +140,7 @@ label, input, .btn-cancel {
 input{
     width: 100%;
     height: 100%;
+    overflow: hidden;
     border-style: none;
     box-shadow: 0px 1px 8px var(--tan);
     padding: 0 1.5rem;
@@ -155,6 +156,8 @@ input::placeholder{
     font-family: 'FontAwesome', var(--body-font);
     font-size: 1.5rem;
     color: #222;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 i{
@@ -224,7 +227,7 @@ input[type="file"] {
 
 input[type="file"] + label {
     position: absolute;
-    min-width: 18rem;
+    min-width: auto;
     max-width: 100%;
     height: 100%;
     font-size: 1.6rem;
@@ -306,7 +309,8 @@ input[type="submit"]:hover,
 }
 
 .check-item input[type="checkbox"]{
-    width: 4%;
+    width: 20px;
+    height: 20px;
     box-shadow: 1px 1px 1px var(--turquoise);
 }
 
@@ -333,9 +337,14 @@ input[type="submit"]:hover,
 }
 
 
+<<<<<<< HEAD
+@media screen and (max-width: 1280px){
+
+=======
 /****************** MEDIA QUERIES ********************/
 
 @media screen and (max-width: 1280px){
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     .left-content{
         display:none;
     }
@@ -343,6 +352,10 @@ input[type="submit"]:hover,
     .right-content{
         width: 100%;
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     input{
         width: 100%;
     }
@@ -359,6 +372,25 @@ input[type="submit"]:hover,
         width: 60%;
         height: 6rem;
     }
+<<<<<<< HEAD
+
+    .btn-cancel{
+        line-height: 6rem;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+
+    .left-content{
+        display: none;
+    }
+
+    .right-content{
+        width: 100%;
+    }
+
+=======
     
     .btn-cancel{
         line-height: 6rem;
@@ -374,6 +406,7 @@ screen and (max-width: 768px){
         width: 100%;
     }
     
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     .login-item{
         width: 70%;
         height: 60%;
@@ -395,6 +428,10 @@ screen and (max-width: 768px){
     .btn-cancel{
         line-height: 6rem;
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
 }
 
 @media screen and (max-width: 1024px){
@@ -407,7 +444,10 @@ screen and (max-width: 768px){
         width: 90%;
     }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     .buttons-item{
         align-items: initial;
         flex-wrap: wrap;
@@ -424,6 +464,10 @@ screen and (max-width: 768px){
     .btn-cancel{
         line-height: 5rem;
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
 }
 
 @media (min-width: 481px) and (max-width: 767px){
@@ -432,9 +476,15 @@ screen and (max-width: 768px){
         width: 100%;
     }
 
+<<<<<<< HEAD
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+=======
   }
 
   @media (min-width: 320px) and (max-width: 480px) {
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
 
     .form-title h2{
         font-size: 2.6rem;
@@ -464,4 +514,8 @@ screen and (max-width: 768px){
     .btn-cancel{
         line-height: 4rem;
     }
+<<<<<<< HEAD
+}
+=======
   }
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43

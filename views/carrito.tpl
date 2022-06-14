@@ -39,8 +39,8 @@
                     <input type="checkbox" name="policy" id="policy"/>
                     <label for="policy"><span>Entiendo y acepto las condiciones de envío y facturación</span></label>
                 </div>
-                <form action="/pedido" method="POST">
-                    <input type="submit" name="submit-order" value="Realizar Pedido"/>
+                    <form action="/pedido" method="POST">
+                    <input type="submit" name="submit-order" value="Realizar pedido"/>
                 </form>
             </div>
         </div>
