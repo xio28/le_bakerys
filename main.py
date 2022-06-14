@@ -119,14 +119,6 @@ def post_contact():
     
     return redirect('/')
 
-@get('/clientes')
-def clients():
-    pass
-
-@get('/empleados')
-def employee():
-    pass
-
 @get("/social")
 def social():
     return template("socialmedia")
@@ -196,7 +188,8 @@ def order():
     id_client = Modules.load_session().get('user_id')
     if request.POST.get('submit-order'):
         Pedidos.do_order(id_client)
-        return redirect('/test')
+    
+    return redirect('/productos')
 
 @error(404)
 def error404(error):

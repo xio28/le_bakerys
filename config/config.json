@@ -8,7 +8,7 @@
     "productos" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, Producto VARCHAR(80), Precio DEC(4,2), Categoria VARCHAR(50), Stock INTEGER, Imagen TEXT",
 
     "carrito" : "IdProducto INTEGER, IdCliente INTEGER, Unidades INTEGER DEFAULT 1, PRIMARY KEY(IdProducto, IdCliente), FOREIGN KEY(IdProducto) REFERENCES productos (ID), FOREIGN KEY(IdCliente) REFERENCES clientes (id)",
-    "pedido" : "IdProducto INTEGER, IdCliente INTEGER, IdPedido INTEGER, Unidades INTEGER DEFAULT 1, PRIMARY KEY(IdProducto, IdCliente, IdPedido), FOREIGN KEY(IdPedido) REFERENCES pedidos (ID)",
+    "pedido" : "IdProducto INTEGER, IdCliente INTEGER, IdPedido INTEGER, Unidades INTEGER DEFAULT 1, PRIMARY KEY(IdProducto, IdCliente, IdPedido), FOREIGN KEY (IdPedido) REFERENCES compras (ID) ON UPDATE CASCADE ON DELETE CASCADE",
     
-    "compra" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, IdEmpleado INTEGER DEFAULT 0, Estado INTEGER DEFAULT 0"
+    "compra" : "ID INTEGER PRIMARY KEY AUTOINCREMENT, IdEmpleado INTEGER DEFAULT 0, Estado INTEGER DEFAULT 0, Total FLOAT DEFAULT 0, FOREIGN KEY (IdEmpleado) REFERENCES empleados (ID)"
 }
