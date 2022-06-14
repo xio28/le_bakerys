@@ -7,23 +7,21 @@
     <link rel="stylesheet" href="/static/styles/styles.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
     <link rel="stylesheet" href="/static/styles/nav-menu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     %if title == "Registro de usuario":
         <link rel="stylesheet" href="/static/styles/register.css">
     %elif title == "Contacto":
         <link rel="stylesheet" href="/static/styles/contact.css">
     %elif title == "Productos":
         <link rel="stylesheet" href="/static/styles/products.css">
-    %elif title == "Panel de cliente":
-        <link rel="stylesheet" href="/static/styles/client_panel.css">
     %elif title == "Panel de admin":
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %elif title == "Carrito de compra":
         <link rel="stylesheet" href="/static/styles/cart.css">
     %elif title == "Log In":
         <link rel="stylesheet" href="/static/styles/login.css">
-    %elif title == "social":
-        <link rel="stylesheet" href="/static/styles/social.css">
+    %elif title == "Panel de cliente" or title == "Panel de administrador":
+        <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/forms.js"></script>
@@ -31,7 +29,7 @@
     <title>{{title}}</title>
 </head>
 <body>
-    %if title != "Panel de administrador" and title != "Panel de usuario" and title != "Productos":
+    %if title != "Panel de administrador" and title != "Panel de cliente" and title != "Productos":
     <button class="menu-btn" onclick="btn()">
         <div></div>
         <div></div>

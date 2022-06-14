@@ -4,7 +4,7 @@ class Productos(Tablas):
 
     @classmethod
     def format_name(cls, name):
-        return name.replace(' ', '_')
+        return name.replace('.', '').replace('_','').replace(' ', '_')
     
     @classmethod
     def check_product(cls, product):

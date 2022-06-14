@@ -1,5 +1,5 @@
 from fileinput import filename
-from bottle import (auth_basic, debug, error, get, post, redirect, request,
+from bottle import (auth_basic, debug, error, route, get, post, redirect, request,
                     route, run, static_file, template)
 
 from controller.register import RegistrationForm
@@ -7,28 +7,25 @@ from controller.contact import ContactForm
 from model.productos import *
 from model.usuarios import *
 from model.modules import *
+from model.carrito import *
 
 
-@get('/index')
+@route('/')
+@route('/index')
 def index():
-    return static_file("index.html", root = "static")
+    return static_file("index.html", root ="static")
 
 @get('/admin')
 @auth_basic(Modules.auth_admin)
 def admin():
     return template('index')
 
-@get('/registration')
+@get('/registro')
 def register():
     form = RegistrationForm(request.POST)
     return template('registration', form=form)
 
-@get('/contact')
-def register():
-    form = ContactForm(request.POST)
-    return template('contact', form=form)
-
-@post('/registration')
+@post('/registro')
 def post_registration():
     form = RegistrationForm(request.POST) 
     if form.save.data:
@@ -37,12 +34,16 @@ def post_registration():
         f.save(f_path)
     return template('registration', form=form)
 
+@get('/contacto')
+def register():
+    form = ContactForm(request.POST)
+    return template('contact', form=form)
 
-@get('/users/clients')
+@get('/clientes')
 def clients():
     pass
 
-@get('/users/employee')
+@get('/empleados')
 def employee():
     pass
 
@@ -50,15 +51,16 @@ def employee():
 def social():
     return template("socialmedia")
 
-@get('/products')
+@get('/productos')
 def products():
     products_list = Productos.select()
-    return template("products", products_list = products_list)
+    count_products = 0
+    return template("products", products_list=products_list, count_products=count_products)
 
-@post('/products')
+@post('/productos')
 def filter():
     if request.POST.get('todos'):
-        return redirect('/products')
+        return redirect('/productos')
 
     else:
         if request.POST.get('tartas'):
@@ -78,9 +80,32 @@ def filter():
 
 @get('/carrito')
 def carrito():
-    pass
+    return f'Clicked'
 
-@get('/order')
+@post('/add_carrito/<id_product>')
+def add_carrito(id_product):
+
+    client_id = Modules.load_session().get('user_id')
+
+    if not Carrito.shoplist_check(id_product, client_id):
+        data = {
+            'IdProducto' : id_product,
+            'IdCliente' : client_id
+        }
+
+        Carrito.insert(data)
+
+        return f'{Carrito.select()}'
+    return f'{Carrito.select()}'
+
+
+@post('/login')
+def login():
+
+    if "usuario registrado todo ok":
+        Clientes.client_log('email')
+
+@get('/pedido')
 def order():
     pass
 
@@ -101,10 +126,6 @@ def font(filepath):
 def img(filepath):
     return static_file(filepath, root="static/resources/img")
 
-@get("/static/resources/img/upload/products/<filepath:re:.*\.(jpg|png|gif|ico|svg|jpeg|webp)>")
-def img_product(filepath):
-    return static_file(filepath, root="static/resources/img/upload/products")
-
 @get("/static/resources/video/<filepath:re:.*\.mp4>")
 def video(filepath):
     return static_file(filepath, root="static/resources/video")
@@ -114,6 +135,5 @@ def js(filepath):
     return static_file(filepath, root="static/js")
 
 
-
 if __name__ == '__main__':
-    run(host='localhost', port=8080, debug=True, reloader=True)
+    run(host='localhost', port=8081, debug=True, reloader=True)

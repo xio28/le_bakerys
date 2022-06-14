@@ -1,15 +1,15 @@
 .menu-btn {
     background: var(--dark-golden);
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     position: fixed;
-    top: 1rem !important;
-    left: 1rem !important;
+    top: 2rem;
+    left: 2rem;
     border: 1px solid var(--white);
     display: flex;
     flex-direction: column;
@@ -26,9 +26,9 @@
 }
 .menu-btn div {
     background: rgb(255, 255, 255);
-    width: 25px;
-    height: 3px;
-    margin: 3px auto;
+    width: 40px;
+    height: 5px;
+    margin: 3.7px auto;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;

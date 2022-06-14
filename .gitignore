@@ -9,7 +9,6 @@
 __pycache__/
 venv/
 .venv/
-.venv_macos/
 
 #VsCode
 *workspace*

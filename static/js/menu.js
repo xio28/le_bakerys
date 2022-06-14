@@ -11,6 +11,7 @@ $(() => {
                                 .css("animation-duration", "0.5s")
                                 .css("animation-fill-mode", "forwards");
             
+            $(".menu-items li a").css("opacity", "1");
             setTimeout(function() {
                 $(".menu-btn").css("transform", "rotate(90deg)")
             }, 1);
@@ -19,6 +20,8 @@ $(() => {
             $(".menu-items").css("animation-name", "menu-off")
                             .css("animation-fill-mode", "none");
             $("menu-items li").css("animation", "fade-in 1.5s 1.2s forwards;");
+
+            $(".menu-items li a").css("opacity", "0");
 
             setTimeout(function() {
                 $(".menu-items").css("display", "none")
