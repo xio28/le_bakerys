@@ -116,7 +116,7 @@
                                 {{ formEmp.user_image }}
                                 <label for="file-reg"><i class="file-icon fa-color fa fa-solid fa-upload"></i><span>Subir imagen</span></label>
                             </div>
-                            {{ formEmp.save }}
+                            {{ formEmp.save_emp }}
                         </form>
                         <table>
                             <tr>
@@ -158,7 +158,7 @@
                                 {{ formPro.user_image }}
                                 <label for="file-reg"><i class="file-icon fa-color fa fa-solid fa-upload"></i><span>Subir imagen</span></label>
                             </div>
-                            {{ formPro.save }}
+                            {{ formPro.save_pro }}
                         </form>
                         <table>
                             <tr>

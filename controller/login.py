@@ -5,14 +5,14 @@ from wtforms import Form, PasswordField, SubmitField, EmailField, validators, Va
 
 class LogInForm(Form):
 
-    email = EmailField([
-                                        validators.InputRequired(message="Campo vacío."),
+    email = EmailField("", [
+                                        validators.InputRequired(),
                                         validators.Email(),
                                     ],
                                     render_kw={'placeholder': 'Email'})
-    password = PasswordField([
+    password = PasswordField("", [
                                         validators.Length(min=10, max=60),
-                                        validators.InputRequired(),
+                                        validators.InputRequired()
                                     ], 
                                         render_kw={'placeholder': 'Contraseña'})
     save = SubmitField('Log In')

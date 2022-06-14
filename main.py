@@ -83,11 +83,6 @@ def panel():
     form = ChangePassForm(request.POST)
     return template('client_panel', form=form)
 
-@get('/admin')
-@auth_basic(Modules.auth_admin)
-def admin():
-    return template('index')
-
 @get('/registro')
 def register():
     form = RegistrationForm(request.POST)
@@ -225,6 +220,10 @@ def video(filepath):
 @get("/static/js/<filepath:re:.*\.js>")
 def js(filepath):
     return static_file(filepath, root="static/js")
+
+@get("/static/src/<filepath:re:.*\.html>")
+def src(filepath):
+    return static_file(filepath, root="static/src")
 
 
 if __name__ == '__main__':
