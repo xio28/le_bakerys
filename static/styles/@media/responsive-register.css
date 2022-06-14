@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 @media screen and (max-width: 1280px){
+=======
+@media screen and (max-width: 1280px) and (max-height: 720px){
+    input{
+        width: 80%;
+    }
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
 
     .buttons-item{
         flex-wrap: wrap;
@@ -16,6 +23,7 @@
     .btn-cancel{
         line-height: 6rem;
     }
+<<<<<<< HEAD
 
     .left-content {
         display: none !important;
@@ -27,6 +35,12 @@
 }
 
 @media screen and (max-width: 768px){
+=======
+}
+
+@media screen and (max-width: 720px) and (max-height: 1280px),
+screen and (max-width: 768px) and (max-height: 1024px){
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     .left-content{
         display: none;
     }
@@ -126,4 +140,8 @@
     .btn-cancel{
         line-height: 4rem;
     }
+<<<<<<< HEAD
   }
+=======
+  }
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43

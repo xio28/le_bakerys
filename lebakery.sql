@@ -1,155 +1,49 @@
-insert into empleados (Email, Nombre, Apellido1, Apellido2) values
-    ('lcaser1@slideshare.net','Dafnée', 'Lacoste', 'Penas'),
-    ('clorkingsd@dell.com', 'Gaïa', 'Cannam', 'Cicutto'),
-    ('ajerrold5@house.gov', 'Angèle', 'Duncombe', 'McKinna'),
-    ('bcallinan2@virginia.edu', 'Adèle', 'Draper', 'Kornes');
+INSERT INTO usuarios (Email, Password, Nombre, Apellido1, Apellido2, Imagen) VALUES 
+    ('cliente_1@email.com', '1234', 'Dafnée', 'Lacoste', 'Penas', 'static/resources/img/upload/users/default.avatar.png'),
+    ('cliente_2@email.com', '1234', 'Gaïa', 'Cannam', 'Cicutto', 'static/resources/img/upload/users/default.avatar.png'),
+    ('cliente_3@email.com', '1234', 'Angèle', 'Duncombe', 'McKinna', 'static/resources/img/upload/users/default.avatar.png'),
+    ('cliente_4@email.com', '1234', 'Noëlla', 'Sheldon', 'Lauritsen', 'static/resources/img/upload/users/default.avatar.png'),
+    ('empleado_1@email.com', '1234', 'Loïs', 'Dulake', 'Mersh', 'static/resources/img/upload/users/default.avatar.png'),
+    ('empleado_2@email.com', '1234', 'Björn', 'Feighney', 'Covotti', 'static/resources/img/upload/users/default.avatar.png');
 
+INSERT INTO clientes (Email, Nif, Contacto, Calle, Codigo_Postal, Ciudad) VALUES
+    ('cliente_1@email.com' , "65189837V", '434583333', 'Canio n23', 27705, 'Durham'),
+    ('cliente_2@email.com' , "65112837A", '124583333', 'Canio n24', 27705, 'Durham'),
+    ('cliente_3@email.com' , "12189837C", '134123333', 'Canio n25', 27705, 'Durham'),
+    ('cliente_4@email.com' , "45189837X", '453583333', 'Canio n26', 27705, 'Durham');
 
-insert into empleados (Email, UserPassword) values 
-    ('tfladgate0@chronoengine.com', '3bqOowtU7z'),
-    ('lcaser1@slideshare.net', 'kXOnd3dnSdL'),
-    ('bcallinan2@virginia.edu', 'wdOgex7tF'),
-    ('alighterness3@facebook.com', 'iFfw9sXfg9y'),
-    ('cjannasch4@people.com.cn', 'jLMsQWA'),
-    ('ajerrold5@house.gov', 'aGQu3IzC'),
-    ('slamberto6@timesonline.co.uk', 'b0kEtD8l'),
-    ('csprigging7@cisco.com', 'fH7HWCc4qB6'),
-    ('npikhno8@4shared.com', 'bQ6F7eGKV'),
-    ('cdurning9@meetup.com', 'KDtXLEsAbq'),
-    ('loganiana@army.mil', 'SbnXE5xUo'),
-    ('lglencroscheb@time.com', 'a6gUz4qOI'),
-    ('kprantonic@archive.org', 'BGheFQZP'),
-    ('clorkingsd@dell.com', 'RisXNyImrhqU'),
-    ('pralline@cbc.ca', 'rokd40Jy'),
-    ('cmckintoshf@umn.edu', 'ZAPvuKgH'),
-    ('jperlg@cocolog-nifty.com', 'u0I98H2tgFno'),
-    ('woverburyh@squidoo.com', 'PQh9tzOg'),
-    ('bdoorbari@nba.com', 'U30pG9K'),
-    ('wbredesj@weibo.com', 'tdHUk2');
+INSERT INTO empleados (Email) VALUES
+    ('empleado_1@email.com'),
+    ('empleado_2@email.com');
 
-
-insert into clientes (Email, DNI, Nombre, Apellido1, Apellido2, Telefono, Direccion, CodigoPostal, Ciudad, PoliticaDePriv) values
-    ('tfladgate0@chronoengine.com', "65189837V", 'Noëlla', 'Sheldon', 'Lauritsen', '434583333', 'Canio n23', 27705, 'Durham', TRUE),
-    ('alighterness3@facebook.com', "80016033E", 'Angélique', 'Wayne', 'Fasson', '238783991', 'Bellavista n25', 32083, 'Balice', TRUE),
-    ('cjannasch4@people.com.cn', "05338968R", 'Loïs', 'Dulake', 'Mersh', '306922417', 'Inglaterra n34', 94242, 'Nueva Esperanza', TRUE),
-    ('slamberto6@timesonline.co.uk', "75418262C", 'Björn', 'Feighney', 'Covotti', '926993642', 'Hernan Cortes n96', 44015, 'Qiting', TRUE),
-    ('csprigging7@cisco.com', "98495126H", 'Björn', 'Logie', 'Ferraraccio', '608772985', 'Arana n32', 33189, 'Áthyra', TRUE),
-    ('npikhno8@4shared.com', "81439849T", 'Åke', 'Gonin', 'Jubert', '3268333723', "Cadiz n46", 6811, 'Giporlos', TRUE),
-    ('cdurning9@meetup.com', "95177999C", 'Anaïs', 'Blagdon', 'Quinney', '3092147958', 'Carretera 68', 33480, 'Ylöjärvi', TRUE),
-    ('loganiana@army.mil', "92373302N", 'Maëlann', 'Clixby', 'Olliar', '1533379451', 'Domingo Beltran n12', 21325, 'Tučepi', TRUE),
-    ('lglencroscheb@time.com', "05021722V", 'Annotée', 'Vaneschi', 'Devinn', '9947988942', 'Paraguary n46', 53374, 'Horní Jelení', TRUE),
-    ('pralline@cbc.ca', "89613164N", 'Aurélie', 'Burnhams', 'Gaule', '3105800184', 'Zumalakarregi Etorbidea n45', 1066, 'Taypano', TRUE),
-    ('cmckintoshf@umn.edu', "73556181L", 'Mélodie', 'Wathen', 'Gobourn', '2145604640', 'Paraguay n41', 75062, 'Irving', TRUE),
-    ('jperlg@cocolog-nifty.com', "98644666N", 'André', 'Spens', 'Betty', '2905488226', 'Rua Olmos n86', 94463, 'Buenavista', TRUE),
-    ('woverburyh@squidoo.com', "66608008P", 'Rachèle', 'Feechum', 'Georgievski', '1548349955', 'Benito Guinea n84', 38-324, 'Siedliska', TRUE),
-    ('bdoorbari@nba.com', "91836336G", 'Anaé', 'Fairburne', 'Eves', '1949431898', 'La Fontanilla n20', 34432, 'Ostrowsko', TRUE),
-    ('wbredesj@weibo.com', "47016860F", 'Kallisté', 'Deavin', 'Bome', '5373845119', 'Salamanca n13', 1275, 'Baculongan', TRUE),
-    ('rosculley0@chron.com', "53956522V", 'Vérane', 'Monini', 'Kiehl', '6321248790', 'Carril de la Fuente n32', 937814, 'Ishigaki', TRUE);
-
-
-INSERT INTO pedidos (Subtotal, Descuento, Total) VALUES
-(60.98, 5, ((60.98 * 0.20) + 60.98) - (60.98 * 0.05)),
-(60.98, 5, ((60.98 * 0.20) + 60.98) - (60.98 * 0.05)),
-(14.25, 0, ((14.25 * 0.20) + 14.25) - (14.25 * 0)),
-(19.56, 0, ((19.56 * 0.20) + 19.56) - (19.56 * 0)),
-(36.70, 10, ((36.70 * 0.20) + 36.70) - (36.70 * 0.10)),
-(36.72, 10, ((36.72 * 0.20) + 36.72) - (36.72 * 0.10)),
-(130.50, 22, ((130.50 * 0.20) + 130.50) - (130.50 * 0.22));
-
-
-INSERT INTO clientes_productos VALUES 
-    (1, 1, "La mejor tarta de red velvet. Vale su precio y mas", "2022-11-06"),
-    (1, 2, "Deiliciosos como todo lo de la carta", "2022-11-06"),
-    (1, 3, "Calidad-precio inmejorable", "2022-11-06"),
-    (3, 9, NULL, "2022-11-06"),
-    (5, 20, NULL, "2022-11-06"),
-    (5, 26, "Tan frescos como de costumbre", "2022-11-06"),
-    (7, 16, "Se nota la calidad de los alimentos", "2022-11-06"),
-    (7, 28, "Muy buena la calidad de los productos", "2022-11-06"),
-    (11, 18, "Gran postre asiático que recuerda a los originales", "2022-11-06"),
-    (11, 7, "Cremoso y fresco. Ideal para el verano", "2022-11-06"),
-    (14, 22, NULL, "2022-11-06");
---Cli Prod Com Fec
-
-INSERT INTO carrito (IDProducto, IDPedido, Precioventa, Unidades) VALUES
-(1, 2, 35, 1),
-(2, 2, 22, 1),
-(4, 2, 3.98, 1),
-
-(9, 3, 4.75, 3),
-
-(20, 4, 0.45, 20),
-(26, 4, 1.32, 8),
-
-(16, 5, 18.97, 1),
-(28, 5, 5.7, 3),
-
-(18, 6, 2.35, 8),
-(7, 6, 4.48, 4),
-
-(22, 7, 14.50, 9);
-
-
-INSERT INTO productos (Nombre, PrecioDeCoste, Categoria, Stock, Imagen) VALUES 
+INSERT INTO productos (Producto, Precio, Categoria, Stock, Imagen) VALUES 
 ("Red Velvet", 35, "Tartas", 15, 'static/resources/img/upload/products/red_velvet.png'),
-("Tarta Vianner", 22, "Tartas", 8, 'static/resources/img/upload/products/red_velvet.png'),
-("Gelato", 7.59, "Helados", 35, 'static/resources/img/upload/products/red_velvet.png'),
-("Tiramisu", 3.98, "Dulces", 20, 'static/resources/img/upload/products/red_velvet.png'),
-("Panna Cotta", 3.29, "Dulces", 11, 'static/resources/img/upload/products/red_velvet.png'),
-("Pavlola", 28.99, "Tartas", 5, 'static/resources/img/upload/products/red_velvet.png'),
-("Crema de papaya", 4.48, "Cremosos", 9, 'static/resources/img/upload/products/red_velvet.png'),
-("Buñuelos de viento", 0.98, "Dulces", 50, 'static/resources/img/upload/products/red_velvet.png'),
-("Milhojas", 4.75, "Dulces", 23, 'static/resources/img/upload/products/red_velvet.png'),
-("Crepe", 2.85, "Dulces", 12, 'static/resources/img/upload/products/red_velvet.png'),
-("Mousse de fresa", 2.91, "Cremosos", 15, 'static/resources/img/upload/products/red_velvet.png'),
-("Mousse de chocolate", 2.95, "Cremosos", 19, 'static/resources/img/upload/products/red_velvet.png'),
-("Mousse de cholate blanco", 2.91, "Cremosos", 15, 'static/resources/img/upload/products/red_velvet.png'),
-("Caballeros Pobres", 1.20, "Dulces", 8, 'static/resources/img/upload/products/red_velvet.png'),
-("Alfajores", 1.75, "Dulces", 20, 'static/resources/img/upload/products/red_velvet.png'),
-("Tarta Saint Honore", 18.97, "Tartas", 5, 'static/resources/img/upload/products/red_velvet.png'),
-("Baklava", 2.45, "Dulces", 11, 'static/resources/img/upload/products/red_velvet.png'),
-("Dragon Beard Candy", 2.35, "Dulces", 18, 'static/resources/img/upload/products/red_velvet.png'),
-("Beijinhos", 3.20, "Dulces", 21, 'static/resources/img/upload/products/red_velvet.png'),
-("Churros", 0.45, "Salados", 40, 'static/resources/img/upload/products/red_velvet.png'),
-("Suspiro limeño", 5.90, "Cremosos", 6, 'static/resources/img/upload/products/red_velvet.png'),
-("Crema catalana", 4.78, "Cremosos", 3, 'static/resources/img/upload/products/red_velvet.png'),
-("Cheesecake", 14.50, "Tartas", 25, 'static/resources/img/upload/products/red_velvet.png'),
-("Cheesecake 'Le Bakerys'", 14.50, "Tartas", 25, 'static/resources/img/upload/products/red_velvet.png'),
-("Fondant au chocolat", 5.10, "Dulces", 9, 'static/resources/img/upload/products/red_velvet.png'),
-("Macarons", 1.32, "Dulces", 15, 'static/resources/img/upload/products/red_velvet.png'),
-("Tarta  del Principe Regente", 19.98, "Dulces", 7, 'static/resources/img/upload/products/red_velvet.png'),
-("Sandwich 'Le Bakerys'", 5.70, "Salados", 5, 'static/resources/img/upload/products/red_velvet.png'),
-("Croissant", 1.45, "Dulces", 20),
-("Croissant 'Le Bakerys'", 1.45, "Dulces", 20, 'static/resources/img/upload/products/red_velvet.png');
-
-
-INSERT INTO pedidos_empleados VALUES
-(1, 2, "2022-11-06"),
-(2, 2, "2022-11-06"),
-(3, 5, "2022-11-06"),
-(4, 4, "2022-11-06"),
-(5, 3, "2022-11-06"),
-(6, 5, "2022-11-06"),
-(7, 4, "2022-11-06"),
-(8, 3, "2022-11-06");
--- IDPed IDEmp Fec
-
-
-INSERT INTO pedidos_clientes_empleados VALUES
-(1, 1, 2, "2022-11-06"),
-(2, 3, 5, "2022-11-06"),
-(3, 5, 4, "2022-11-06"),
-(4, 7, 3, "2022-11-06"),
-(5, 11, 4, "2022-11-06"),
-(6, 14, 3, "2022-11-06");
--- IDPed IDCLi IDEmp Fech
-
-
-INSERT INTO facturas VALUES
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7);
+("Tarta Vianner", 22, "Tartas", 8, 'static/resources/img/upload/products/tarta_vianner.png'),
+("Gelato", 7.59, "Helados", 35, 'static/resources/img/upload/products/gelato.png'),
+("Tiramisu", 3.98, "Dulces", 20, 'static/resources/img/upload/products/tiramisu.png'),
+("Panna Cotta", 3.29, "Dulces", 11, 'static/resources/img/upload/products/panna_cotta.png'),
+("Pavlola", 28.99, "Tartas", 5, 'static/resources/img/upload/products/pavlola.png'),
+("Crema de papaya", 4.48, "Cremosos", 9, 'static/resources/img/upload/products/crema_de_papaya.png'),
+("Buñuelos de viento", 0.98, "Dulces", 50, 'static/resources/img/upload/products/buñuelos_de_viento.png'),
+("Milhojas", 4.75, "Dulces", 23, 'static/resources/img/upload/products/milhojas.png'),
+("Crepe", 2.85, "Dulces", 12, 'static/resources/img/upload/products/crepe.png'),
+("Mousse de fresa", 2.91, "Cremosos", 15, 'static/resources/img/upload/products/mousse_de_fresa.png'),
+("Mousse de chocolate", 2.95, "Cremosos", 19, 'static/resources/img/upload/products/mousse_de_chocolate.png'),
+("Mousse de cholate blanco", 2.91, "Cremosos", 15, 'static/resources/img/upload/products/mousse_de_cholate_blanco.png'),
+("Caballeros Pobres", 1.20, "Dulces", 8, 'static/resources/img/upload/products/caballeros_pobres.png'),
+("Alfajores", 1.75, "Dulces", 20, 'static/resources/img/upload/products/alfajores.png'),
+("Tarta Saint Honore", 18.97, "Tartas", 5, 'static/resources/img/upload/products/tarta_saint_honore.png'),
+("Baklava", 2.45, "Dulces", 11, 'static/resources/img/upload/products/baklava.png'),
+("Dragon Beard Candy", 2.35, "Dulces", 18, 'static/resources/img/upload/products/dragon_beard_candy.png'),
+("Beijinhos", 3.20, "Dulces", 21, 'static/resources/img/upload/products/beijinhos.png'),
+("Churros", 0.45, "Salados", 40, 'static/resources/img/upload/products/churros.png'),
+("Suspiro limeño", 5.90, "Cremosos", 6, 'static/resources/img/upload/products/suspiro_limeño.png'),
+("Crema catalana", 4.78, "Cremosos", 3, 'static/resources/img/upload/products/crema_catalana.png'),
+("Cheesecake", 14.50, "Tartas", 25, 'static/resources/img/upload/products/cheesecake.png'),
+("Cheesecake 'Le Bakerys'", 14.50, "Tartas", 25, "static/resources/img/upload/products/cheesecake_'le_bakerys'.png"),
+("Fondant au chocolat", 5.10, "Dulces", 9, 'static/resources/img/upload/products/fondant_au_chocolat.png'),
+("Macarons", 1.32, "Dulces", 15, 'static/resources/img/upload/products/macarons.png'),
+("Tarta  del Principe Regente", 19.98, "Dulces", 7, 'static/resources/img/upload/products/tarta__del_principe_regente.png'),
+("Sandwich 'Le Bakerys'", 5.70, "Salados", 5, "static/resources/img/upload/products/sandwich_'le_bakerys'.png"),
+("Croissant", 1.45, "Dulces", 20, 'static/resources/img/upload/products/croissant.png'),
+("Croissant 'Le Bakerys'", 1.45, "Dulces", 20, "static/resources/img/upload/products/croissant_'le_bakerys'.png");

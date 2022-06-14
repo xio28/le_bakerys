@@ -177,14 +177,19 @@ def carrito_post(id_product):
 
             return redirect('/productos')
 
-@post('/pedido')
-def order():
-    id_client = Modules.load_session().get('user_id')
-    if request.POST.get('submit-order'):
-        Pedidos.do_order(id_client)
+<<<<<<< HEAD
+@get('/pedido')
+=======
+        elif request.POST.get('remove_one'):
+            Carrito.edit_unity(id_product, id_client, "remove")
+        elif request.POST.get('add_one'):
+            Carrito.edit_unity(id_product, id_client, "add")
 
-    return redirect('/productos')
-    
+        return redirect('/carrito')
+    return redirect('/login')
+
+@post('/pedido')
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
 def order():
     id_client = Modules.load_session().get('user_id')
     if request.POST.get('submit-order'):

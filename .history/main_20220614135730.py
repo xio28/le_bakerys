@@ -184,7 +184,6 @@ def order():
         Pedidos.do_order(id_client)
 
     return redirect('/productos')
-    
 def order():
     id_client = Modules.load_session().get('user_id')
     if request.POST.get('submit-order'):

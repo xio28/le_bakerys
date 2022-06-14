@@ -74,7 +74,7 @@
                             {{ form.save }}
                         </div>
                         <div class="return-login">
-                            ¿Tienes cuenta?<a href="#" class="btn-login">Entrar</a>
+                            ¿Tienes cuenta?<a href="/login" class="btn-login">Entrar</a>
                         </div>
                     </form>
                 </div>

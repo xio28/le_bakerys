@@ -337,8 +337,14 @@ input[type="submit"]:hover,
 }
 
 
+<<<<<<< HEAD
 @media screen and (max-width: 1280px){
 
+=======
+/****************** MEDIA QUERIES ********************/
+
+@media screen and (max-width: 1280px){
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     .left-content{
         display:none;
     }
@@ -346,7 +352,10 @@ input[type="submit"]:hover,
     .right-content{
         width: 100%;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     input{
         width: 100%;
     }
@@ -363,6 +372,7 @@ input[type="submit"]:hover,
         width: 60%;
         height: 6rem;
     }
+<<<<<<< HEAD
 
     .btn-cancel{
         line-height: 6rem;
@@ -380,6 +390,23 @@ input[type="submit"]:hover,
         width: 100%;
     }
 
+=======
+    
+    .btn-cancel{
+        line-height: 6rem;
+    }
+}
+
+@media screen and (max-width: 720px),
+screen and (max-width: 768px){
+    .left-content{
+        display: none;
+    }
+    .right-content{
+        width: 100%;
+    }
+    
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     .login-item{
         width: 70%;
         height: 60%;
@@ -401,7 +428,10 @@ input[type="submit"]:hover,
     .btn-cancel{
         line-height: 6rem;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
 }
 
 @media screen and (max-width: 1024px){
@@ -414,6 +444,10 @@ input[type="submit"]:hover,
         width: 90%;
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
     .buttons-item{
         align-items: initial;
         flex-wrap: wrap;
@@ -430,7 +464,10 @@ input[type="submit"]:hover,
     .btn-cancel{
         line-height: 5rem;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
 }
 
 @media (min-width: 481px) and (max-width: 767px){
@@ -439,9 +476,15 @@ input[type="submit"]:hover,
         width: 100%;
     }
 
+<<<<<<< HEAD
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+=======
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43
 
     .form-title h2{
         font-size: 2.6rem;
@@ -471,4 +514,8 @@ input[type="submit"]:hover,
     .btn-cancel{
         line-height: 4rem;
     }
+<<<<<<< HEAD
 }
+=======
+  }
+>>>>>>> 0553d4d92a842163b4d43f2e918b5a1ca738ee43

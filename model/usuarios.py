@@ -26,6 +26,9 @@ class Usuarios(Tablas):
         log = {'user_email' : query[1], 'user_id' : query[0], 'user_type' : type}
         Modules.write_session(log)
 
+    @classmethod
+    def user_logged(cls):
+        return True if Modules.load_session().get('user_id') != 0 and cls._get_name() == 'clientes' else False
 class Clientes(Usuarios):
     pass
 
