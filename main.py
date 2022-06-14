@@ -84,12 +84,13 @@ def delete_item(no):
 
 @get('/login')
 def login():
-    return static_file('log-in.html', root='static/src')
+    form = LogInForm(request.POST)
+    return template('login', form=form)
 
 
 @post('/login')
 def login_post():
-    return static_file('log-in.html', root='static/src')
+    return static_file('login', root='static/src')
 
 @get('/registro')
 def register():
