@@ -1,0 +1,556 @@
+.apanel-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+/***********************************/
+/*********** NAV PANEL *************/
+/***********************************/
+
+.nav-panel {
+    width: 420px;
+    height: 100%;
+    position: fixed;
+    background-color: #333;
+    overflow: hidden;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+.nav-panel.active {
+    width: 90px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h2, span {
+    color: var(--white);
+    font-family: var(--body-font);
+}
+
+.nav-panel ul {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-panel ul li {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+.nav-panel ul li:first-child {
+    margin-bottom: 5rem;
+}
+
+.nav-panel ul li:last-child {
+    margin-top: auto;
+}
+
+.nav-panel ul li:hover {
+    background-color: #4d4d4d;
+}
+
+.nav-panel ul li:nth-child(1):hover {
+    background-color: #4d4d4d;
+}
+
+.nav-panel ul li a {
+    width: 100%;
+    display: block;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 3rem 2rem 3rem 0;
+}
+
+.nav-panel .title {
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.nav-panel span {
+    font-size: 2.5rem;
+}
+
+.nav-panel .icon-title {
+    min-width: 3.8rem !important;
+    height: 3.8rem !important;
+}
+
+.nav-panel .icon {
+    display: inline-block;
+    min-width: 3rem;
+    height: 3rem;
+    line-height: 60px;
+    padding-right: 1rem;
+    background-position: center;
+    background-size: cover;
+    margin: 0 3rem;
+}
+
+.i-cake {
+    background-image: url('/static/resources/img/l-cake.png');
+}
+
+.i-pass {
+    background-image: url('/static/resources/img/lock.png');
+}
+
+.i-customers {
+    background-image: url('/static/resources/img/user.png');
+}
+
+.i-employees {
+    background-image: url('/static/resources/img/employees.png');
+}
+
+.i-products {
+    background-image: url('/static/resources/img/products.png');
+}
+
+.i-see {
+    background-image: url('/static/resources/img/see.png');
+}
+
+.i-orders {
+    background-image: url('/static/resources/img/orders.png');
+}
+
+.i-logout {
+    background-image: url('/static/resources/img/logout.png');
+}
+
+.nav-panel h2{
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+/************************************/
+/*********** MAIN PANEL *************/
+/************************************/
+
+.content-panel {
+    position: absolute;
+    width: calc(100% - 420px);
+    left: 420px;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+.content-panel.active {
+    width: calc(100% - 90px);
+    left: 90px;
+}
+
+.content-panel .topbar {
+    width: 100%;
+    height: 70px;
+    background-color: var(--turquoise);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.toggle::before {
+    content: '\f0c9';
+    font-family: 'FontAwesome';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 5rem;
+    text-align: center;
+    color: #333;
+}
+
+.user {
+    position: relative;
+    min-width: 6rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/************************************/
+/************ MAIN BOX **************/
+/************************************/
+
+.main-box {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.main-box .manage-table {
+    overflow-x: auto;
+}
+
+.boxes {
+    display: none;
+}
+
+.boxes h2 {
+    color: #333;
+    font-size: 5rem;
+    border-bottom: 5px double #333;
+    margin: 2rem 0 3rem;
+}
+
+.show {
+    display: block;
+}
+
+.manage-table table {
+    min-width: 1200px;
+    font-family: var(--body-font);
+    font-size: 2rem;
+}
+
+.manage-table table .euro {
+    color: #333;
+}
+
+.manage-table table th:last-child {
+    background-color: transparent;
+}
+
+.manage-table table tr {
+    height: 5rem;
+}
+
+.manage-table table tr:first-child {
+    background-color: #333;
+    height: 7rem;
+    color: var(--white);
+}
+
+.manage-table table tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+.manage-table table td {
+    text-align: center;
+    min-width: 15rem;
+    pad
+}
+
+#add-employees table td {
+    min-width: 20%;
+    text-align: center;
+}
+
+.manage-table table td:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.manage-table table .status-td, .status-see-orders {
+    background-color: #cc1100;
+    color: var(--white);
+}
+
+.manage-table table .prepared {
+    background-color: #06c058 !important;
+}
+
+.manage-table table a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    min-width: 5rem;
+    width: 4rem;
+    margin: 0 10px;
+}
+
+.manage-table table i {
+    width: 100%;
+    font-size: 3rem;
+    color: var(--white);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: .8rem;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.manage .eye-color i {
+    background-color: var(--dark-golden);
+}
+
+.manage .trash-color i {
+    background-color: #cc1100;
+}
+
+.manage .thumb-color i {
+    background-color: #06c058;
+}
+
+.thumb-red {
+    background-color: #cc1100 !important;
+}
+
+/*************************************/
+/************ FORM PASS **************/
+/*************************************/
+
+.form {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.form form {
+    min-width: 60%;
+    width: 60%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    margin-bottom: 5rem;
+}
+
+.form label, input {
+    width: 60%;
+    font-family: var(--body-font);
+}
+
+.form label {
+    font-size: 3.4rem;
+    font-weight: bold;
+    font-family: var(--subtitle-regular);
+    padding: 1.8rem 0;
+}
+
+.form input {
+    border: 1px;
+    font-size: 1.8rem;
+    color: #333;
+    outline: none;
+    height: 50px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: .8rem;
+    border-collapse: collapse;
+    font-family: var(--body-font);
+}
+
+.form input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+    background-color: rgba(255, 191, 105, .5);
+    resize: none;
+}
+
+.form input[type="submit"] {
+    background-color: var(--tan);
+    width: 20rem;
+    height: 50px;
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+    color: var(--white);
+}
+
+.form input:focus {
+    outline: none !important;
+    border: 2px solid var(--dark-golden);
+    box-shadow: 0 0 10px #999;
+}
+
+/******************************************/
+/************ FORM EMPLOYEES **************/
+/******************************************/
+
+.form-add .input-cont {
+    width: 60%;
+    height: 7rem;
+    position: relative;
+    margin: 3rem 0;
+}
+
+.form-add .file-icon {
+    height: 4rem;
+    min-width: 3rem;
+    font-size: 2.1rem !important;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    display: inline-flex !important;
+    justify-content: flex-start;
+    align-items: center;
+    fill: currentColor !important;
+    color: var(--white) !important;
+    padding-left: .5rem;
+}
+
+.form-add input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    box-shadow: none !important;
+}
+
+.form-add input[type="file"] + label {
+    position: absolute;
+    min-width: 15rem;
+    width: 18rem;
+    max-width: 100%;
+    height: 60px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    color: var(--white);
+    background-color: #333;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.form-add input[type="file"] + label > span {
+    max-width: 100%;
+    padding: 0 1rem 0 3rem;
+}
+
+.form-add input[type="file"]:focus + label,
+input[type="file"] + label:hover {
+    background-color: var(--turquoise);
+}
+
+.form-add select {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 3rem 0;
+    height: 60px;
+    min-width: 20rem;
+    width: 18rem;
+    max-width: 100%;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0 1rem;
+    color: var(--white);
+    background-color: #333;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+}
+
+.actions-form {
+    min-height: 0 !important;
+    display: block !important;
+    margin-bottom: 0 !important;
+}
+
+/*****************************************/
+/************ MEDIA QUERIES **************/
+/*****************************************/
+
+@media (max-width: 1024px) {
+    
+    .nav-panel {
+        left: -420px;
+    }
+
+    .nav-panel.active {
+        left: 0;
+    }
+
+    .content-panel {
+        width: 100%;
+        left: 0;
+    }
+
+    .content-panel.active {
+        width: calc(100% - 90px);
+        left: 90px;
+    }
+
+    .form form {
+        min-width: 60%;
+        width: 100%;
+    }
+
+}
