@@ -218,22 +218,58 @@ def carrito():
     total = Carrito.get_total(id_client)[0][0]
     return template('carrito', datas = datas, total=total)
 
-@post('/carrito/<id_product>')
-def carrito_post(id_product):
+@post('/productos')
+def filter():
+    if request.POST.get('todos'):
+        return redirect('/productos')
+
+    else:
+        if request.POST.get('tartas'):
+            category = 'Tartas'
+
+        elif request.POST.get('helados'):
+            category = 'Helados'
+
+        elif request.POST.get('dulces'):
+            category = 'Dulces'
+
+        elif request.POST.get('salados'):
+                category = 'Salados'
+
+        products_list = Productos.get_select(['*'], {'Categoria' : category})
+        count_products = Carrito.get_select(['Count(IdProducto)'], {'IdCliente' : Modules.load_session().get('user_id')})
+        return template("products", products_list = products_list, count_products=count_products)
+
+get('/carrito')
+def carrito():
     id_client = Modules.load_session().get('user_id')
+    datas = Carrito.inner_carrito(Modules.load_session().get('user_id'))
+    total = Carrito.get_total(id_client)[0][0]
+    return template('carrito', datas = datas, total=total)
+
+
+@post('/carrito/<id_product>')
+def add_carrito(id_product):
+    id_client = Modules.load_session().get('user_id')
+    stock = Productos.get_select(['Stock'], {'ID':id_product})[0][0]
 
     if Clientes.user_logged():
         if request.POST.get('add_product'):
-
             if not Carrito.shoplist_check(id_product, id_client):
                 data = {
                     'IdProducto' : id_product,
-                    'IdCliente' : id_client,
+                    'IdCliente' : id_client
                 }
 
+                client_id = Modules.load_session().get('user_id')
                 Carrito.insert(data)
 
-            return redirect('/productos')
+        elif request.POST.get('remove_one'):
+            Carrito.edit_unity(id_product, id_client, "remove")
+        elif request.POST.get('add_one'):
+            Carrito.edit_unity(id_product, id_client, "add")
+
+    return redirect('/carrito')
 
 @post('/pedido')
 def order():

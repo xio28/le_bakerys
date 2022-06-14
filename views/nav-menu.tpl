@@ -7,11 +7,11 @@
     <ul class="menu-items">
         <li class="nav-item"><a href='/' data-item='Inicio'>Inicio</a></li>
         <li class="nav-item"><a href='/products' data-item='Productos'>Productos</a></li>
-        <li class="nav-item"><a href='#' data-item='Conócenos'>Conócenos</a></li>
-        <li class="nav-item"><a href='#' data-item='Redes'>Redes</a></li>
-        <li class="nav-item"><a href='#' data-item='Blog'>Blog</a></li>
-        <li class="nav-item"><a href='#' data-item='Contacto'>Contacto</a></li>
-      </ul>
+        <li class="nav-item"><a href='/conocenos' data-item='Conócenos'>Conócenos</a></li>
+        <li class="nav-item"><a href='/social' data-item='Redes'>Redes</a></li>
+        <li class="nav-item"><a href='/static/src/blog.html' data-item='Blog'>Blog</a></li>
+        <li class="nav-item"><a href='/contacto' data-item='Contacto'>Contacto</a></li>
+    </ul>
 </nav>
 
 <script>
