@@ -43,6 +43,25 @@ class Tablas(ABC):
             return data
 
     @classmethod
+    def field_select(cls, fields: list):
+        data = ""
+        try:
+            conn = cls._connect()
+            c = conn.cursor()
+            c.execute(f"SELECT {','.join(fields)} FROM {cls._get_name()}")
+            data = c.fetchall()
+            conn.commit()
+            c.close ()
+        
+        except sqlite3.Error as error:
+            print('Error while executing sqlite script', error)
+
+        finally:
+            if conn:
+                conn.close()
+            return data
+
+    @classmethod
     def get_select(cls, fields: list, where: dict):
         data = ""
         where_clause = '{} LIKE ?'.format(list(where)[0])
@@ -82,7 +101,7 @@ class Tablas(ABC):
             c.close()
         
         except sqlite3.Error as error:
-            print('Error while executing sqlite script aqui papu', error)
+            print('Error while executing sqlite script', error)
 
         finally:
             if conn:
@@ -114,7 +133,7 @@ class Tablas(ABC):
 
     @classmethod
     def delete(cls, where: dict):
-        where_clause = '{} LIKE ?'.format(list(where)[0])
+        where_clause = '{} = ?'.format(list(where)[0])
         value = list(where.values())[0]
         query = f'DELETE FROM {cls._get_name()} WHERE {where_clause}'
 
@@ -122,6 +141,27 @@ class Tablas(ABC):
             conn = cls._connect()
             c = conn.cursor()
             c.execute(query, (value,))
+            conn.commit()
+            c.close()
+
+        except sqlite3.Error as error:
+            print('Error while executing sqlite script', error)
+
+        finally:
+            if conn:
+                conn.close()
+
+    @classmethod
+    def delete_and(cls, where: dict):
+        keys = [key for key in where.keys()]
+        values = [val for val in where.values()]
+        where_clause = f'{keys[0]} = ? AND {keys[-1]} = ?'
+        query = 'DELETE FROM {} WHERE {}'.format(cls._get_name(), where_clause)
+
+        try:
+            conn = cls._connect()
+            c = conn.cursor()
+            c.execute(query, values)
             conn.commit()
             c.close()
 

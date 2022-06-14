@@ -41,8 +41,8 @@
         %for product in products_list:
             %if product[-2] > 0:
             <div class="product_card" data-tilt data-tilt-reverse="true">
-                <form action="/add_carrito/{{product[0]}}" method="POST">
-                    <button>
+                <form action="/carrito/{{product[0]}}" method="POST">
+                    <button type="submit" value="add_product" name="add_product">
                         <i class="fa fa-solid fa-cart-plus"></i>
                     </button>
                 </form>
@@ -59,12 +59,25 @@
             %end
         %end
         </div>
-        <button class="shop-btn">
-            <img src="/static/resources/img/shopping-basket.png" alt="">
-        </button>
-        <div class="count-info">{{count_products}}</div>
+        <form action="/carrito" method="GET">
+            <button class="shop-btn">
+                <img src="/static/resources/img/shopping-basket.png" alt="">
+            </button>
+            <div class="count-info">{{count_products[0][0]}}</div>
+        </form>
     </div>
 %include("footer.tpl")
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            var scrollpos = localStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function(e) {
+            localStorage.setItem('scrollpos', window.scrollY);
+        };
+    </script>
 
 </body>
 </html>
