@@ -233,5 +233,9 @@ def js(filepath):
     return static_file(filepath, root="static/js")
 
 
+@get("/static/src/<filepath:re:.*.html>")
+def src(filepath):
+    return static_file(filepath, root="static/src")
+
 if __name__ == '__main__':
     run(host='localhost', port=8081, debug=True, reloader=True)
