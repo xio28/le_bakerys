@@ -5,7 +5,7 @@
             <div class="form-item">
                 <div class="left-content"></div>
                 <div class="right-content">
-                    <form action="/registration" method="POST" enctype="multipart/form-data"  autocomplete="off">
+                    <form action="/registro" method="POST" enctype="multipart/form-data" autocomplete="on">
                         <div class="fieldset-item">
                             <fieldset>
                                 <legend>Datos de usuario:</legend>

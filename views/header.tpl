@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     %if title == "Registro de usuario":
         <link rel="stylesheet" href="/static/styles/register.css">
+        <link rel="stylesheet" href="/static/styles/@media/responsive-register.css">
     %elif title == "Contacto":
         <link rel="stylesheet" href="/static/styles/contact.css">
     %elif title == "Productos":
