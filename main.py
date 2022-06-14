@@ -88,6 +88,15 @@ def panel():
 def admin():
     return template('index')
 
+@get('/login')
+def login():
+    return static_file('log-in.html', root='static/src')
+
+
+@post('/login')
+def login_post():
+    return static_file('log-in.html', root='static/src')
+
 @get('/registro')
 def register():
     form = RegistrationForm(request.POST)
@@ -166,32 +175,27 @@ def carrito():
 @post('/carrito/<id_product>')
 def carrito_post(id_product):
     id_client = Modules.load_session().get('user_id')
-    
-    if request.POST.get('add_product'):
 
-        if not Carrito.shoplist_check(id_product, id_client):
-            data = {
-                'IdProducto' : id_product,
-                'IdCliente' : id_client
-            }
+    if Clientes.user_logged():
+        if request.POST.get('add_product'):
 
-            Carrito.insert(data)
+            if not Carrito.shoplist_check(id_product, id_client):
+                data = {
+                    'IdProducto' : id_product,
+                    'IdCliente' : id_client
+                }
 
-        return redirect('/productos')
+                Carrito.insert(data)
 
-    elif request.POST.get('remove_one'):
-        Carrito.edit_unity(id_product, id_client, "remove")
-    elif request.POST.get('add_one'):
-        Carrito.edit_unity(id_product, id_client, "add")
+            return redirect('/productos')
 
-    return redirect('/carrito')
+        elif request.POST.get('remove_one'):
+            Carrito.edit_unity(id_product, id_client, "remove")
+        elif request.POST.get('add_one'):
+            Carrito.edit_unity(id_product, id_client, "add")
 
-
-@post('/login')
-def login():
-
-    if "usuario registrado todo ok":
-        Clientes.client_log('email')
+        return redirect('/carrito')
+    return redirect('/login')
 
 @get('/pedido')
 def order():
@@ -203,7 +207,8 @@ def error404(error):
 
 @get('/test')
 def test():
-    return f"{Carrito.inner_carrito(Modules.load_session().get('user_id'))}"
+    #return f"{Carrito.inner_carrito(Modules.load_session().get('user_id'))}"
+    return static_file('carrito.html', root='static/src')
     
 # Static Routes
 @get("/static/styles/<filepath:re:.*\.css>")
