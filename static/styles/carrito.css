@@ -3,7 +3,6 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .card-item{
@@ -15,6 +14,7 @@
     column-gap: 1rem;
     padding: 0.6% 2% 2% 2%;
     box-shadow: 2px 2px 4px 2px #ccc;
+    overflow-y: auto;
 }
 
 .card-title{
@@ -55,17 +55,18 @@
 
 .product{
     width: 100%;
-    height: 24rem;
+    height: 30rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-bottom: 2px solid var(--turquoise);
+    margin-bottom: 2rem;
 }
 
 .info, .product {
     width: 100%;
     display: grid;
-    grid-template-columns: 50% 20% 10% 10% 10%;
+    grid-template-columns: 50% 20% 15% 15%;
     justify-items: center;
 }
 
@@ -95,6 +96,13 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 10%;
+}
+
+.units form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .price, .total{
@@ -136,6 +144,7 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 0.4%;
+    max-height: 45%;
 }
 
 
@@ -185,4 +194,115 @@ input[type="submit"]{
     color: var(--white);
     border-style: none;
     cursor: pointer;
+}
+
+
+/**************** MEDIA QUERIES ****************/
+
+/********* DESKTOP ********/
+
+@media screen and (width: 1530px){
+    .policy span{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1280px){
+    .card-item{
+        width: 98%;
+    }
+
+    .card-title{
+        margin-top: 0;
+        justify-content: center;
+    }
+
+    .policy{
+        flex-wrap: nowrap;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .card-item{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        row-gap: 2rem;
+    }
+
+    .to-pay{
+        row-gap: 2.4rem;
+        width: 100%;
+        height: 50rem;
+        justify-content: center;
+    }
+
+    .bold-total{
+        justify-content: space-around;
+    }
+
+    .policy{
+        flex-wrap: nowrap;
+    }
+}
+
+/***** TABLET ******/
+
+@media screen and (max-width: 890px){
+
+    /* .info{
+        display: none;
+    } */
+
+    .products{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .info{
+        grid-template-columns: 40% 20% 20% 20%;
+    }
+
+    .product{
+        width: 100%;
+        height: 50rem;
+        grid-template-columns: 40% 20% 20% 20%;
+    }
+
+    .product-img{
+        min-width: 35rem;
+    }
+
+    .unit-text{
+        width: 100%;
+        text-align: center;
+    }
+
+    .units form{
+        row-gap: 1rem;
+    }
+
+    .units form button{
+        width: 60%;
+    }
+
+    .to-pay{
+        min-width: 35rem;
+        min-height: 24rem;
+    }
+
+    .policy{
+        flex-wrap: nowrap;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .product{
+        width: 100%;
+    }
+
 }
