@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/styles.css">
+    <link rel="stylesheet" href="/static/styles/blog.css">
+    <link rel="stylesheet" href="/static/styles/@media/blog.css">
+    <link rel="stylesheet" href="/static/styles/nav-menu.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>BLOG - Le bakery's</title>
+</head>
+<body>
+    <h2 class="h2-title">Le Bl<i class="fa fa-solid fa-cookie-bite"></i>guery's</h2>
+    <div class="menu">
+        <button class="menu-btn" onclick="btn()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <nav>
+            <ul class="menu-items">
+                <li class="nav-item"><a href='/' data-item='Inicio'>Inicio</a></li>
+                <li class="nav-item"><a href='/products' data-item='Productos'>Productos</a></li>
+                <li class="nav-item"><a href='/conocenos' data-item='Conócenos'>Conócenos</a></li>
+                <li class="nav-item"><a href='/social' data-item='Redes'>Redes</a></li>
+                <li class="nav-item"><a href='/static/src/blog.html' data-item='Blog'>Blog</a></li>
+                <li class="nav-item"><a href='/contacto' data-item='Contacto'>Contacto</a></li>
+              </ul>
+        </nav>
+    </div>
+    <div class="main__container">
+        <div class="articles__container">
+            <article>
+                <h3>Torrijas</h3>
+                <img src="/static/resources/img/articlesImg/torrijas.jpg" alt="imagen de torrijas">
+                <div class="article-data">
+                    <h4>Gonzalo D'Ambrosio</h4>
+                    <p>03 JUN 2018</p>
+                    <a href="/static/src/articlesImg/article1.html" class="link-article">Continuar leyendo <i class="fa fa-solid fa-newspaper"></i></a>
+                </div>
+            </article>
+            <article>
+                <h3>Crema catalana</h3>
+                <img src="/static/resources/img/articlesImg/crema_catalana.jpg" alt="imagen de crema catalana">
+                <div class="article-data">
+                    <h4>Silvia Marty</h4>
+                    <p>07 ABR 2015</p>
+                    <a href="/static/src/articles/article2.html" class="link-article">Continuar leyendo <i class="fa fa-solid fa-newspaper"></i></a>
+                </div>
+            </article>
+            <article>
+                <h3>Donuts</h3>
+                <img src="/static/resources/img/articlesImg/donuts.jpg" alt="imagen de donuts sobre una rejilla">
+                <div class="article-data">
+                    <h4>Gonzalo D'Ambrosio</h4>
+                    <p>23 JUL 2020</p>
+                    <a href="/static/src/articles/article3.html" class="link-article">Continuar leyendo <i class="fa fa-solid fa-newspaper"></i></a>
+                </div>
+            </article>
+            <article>
+                <h3>Bizcocho de Zanahorias</h3>
+                <img src="/static/resources/img/articlesImg/BizcochoZanahorias.jpg" alt="imagen de bizcocho de zanahorias y unas zanahorias">
+                <div class="article-data">
+                    <h4>Samantha Vallejo-Nágera</h4>
+                    <p>30 FEB 2017</p>
+                    <a href="/static/src/articles/article4.html" class="link-article">Continuar leyendo <i class="fa fa-solid fa-newspaper"></i></a>
+                </div>
+            </article>
+            <article>
+                <h3>Tarta de Santiago</h3>
+                <img src="/static/resources/img/articlesImg/tartadesantiago.jpg" alt="imagen de un pedazo de tarta de Santiago">
+                <div class="article-data">
+                    <h4>Sergio Fernández</h4>
+                    <p>12 SEPT 2014</p>
+                    <a href="/static/src/articles/article5.html" class="link-article">Continuar leyendo <i class="fa fa-solid fa-newspaper"></i></a>
+                </div>
+            </article>
+            <article>
+                <h3>Milhojas de nata y fresas</h3>
+                <img src="/static/resources/img/articlesImg/milhojas.jpg" alt="imagen de milhojas de nata y fresas">
+                <div class="article-data">
+                    <h4>Juan Pozuelo</h4>
+                    <p>04 MAY 2016</p>
+                    <a href="/static/src/articles/article6.html" class="link-article">Continuar leyendo <i class="fa fa-solid fa-newspaper"></i></a>
+                </div>
+             </article>
+             <article>
+                <h3>Sándwiches de helado</h3>
+                <img src="/static/resources/img/articlesImg/sandwichhelado.jpg" alt="imagen de sándwich de helado">
+                <div class="article-data">
+                    <h4>Mary Berg</h4>
+                    <p>24 AGO 2016</p>
+                    <a href="/static/src/articles/article7.html" class="link-article">Continuar leyendo <i class="fa fa-solid fa-newspaper"></i></a>
+                </div>
+             </article>
+            <article>
+                <h3>Flan de leche de coco</h3>
+                <img src="/static/resources/img/articlesImg/flan.jpg" alt="imagen de flan de leche y coco">
+                <div class="article-data">
+                    <h4>Nicola Poltronieri</h4>
+                    <p>15 NOV 2019</p>
+                    <a href="/static/src/articles/article8.html" class="link-article">Continuar leyendo <i class="fa fa-solid fa-newspaper"></i></a>
+                </div>
+            </article>
+        </div>        
+        <div id="blog-sidebar">
+            <div class="sidebar-border">
+                <div class="pic-of-the-day">
+                    <h4>Imagen del día</h4>
+                    <img src="/static/resources/img/about-us-slide2.jpg" alt="imagen de como se elabora una masa">
+                    <p>Masa para croissants</p>
+                </div>
+                <div class="search">
+                    <h4>Si buscas algo en concreto...</h4>
+                    <div class="search-input">
+                        <input type="text" placeholder="¿Qué vas a buscar?">
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="newsletter-sidebar">
+                    <h4>Newsletter</h4>
+                    <form action="https://www.iesanaluisabenitez.org" method="POST">
+                        <input type="email" placeholder="Introduce tu email..." required>
+                        <input type="submit" value="Suscribir">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="waves"></div>
+        <div class="footer__container">
+            <div class="collaborate">
+                <ul>
+                    <li><h4>Colabora con Le Bakery's</h4></li>
+                    <li><a href="#">Trabaja con nosotros</a></li>
+                    <li><a href="#">Le Bakery's para todos</a></li>
+                    <li><a href="#">Repartidores</a></li>
+                    <li><a href="#">Business</a></li>
+                </ul>
+            </div>
+            <div class="interest-links">
+                <ul>
+                    <li><h4>Enlaces de interés</h4></li>
+                    <li><a href="#">Acerca de nosotros</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Seguridad</a></li>
+                </ul>
+            </div>
+            <div class="policies">
+                <ul>
+                    <li><a href="#">Condiciones de uso</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Política de cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="social-network">
+            <ul>
+                <li class="icon-footer"><a href="#"><img src="/static/resources/img/facebook.png" alt="icono facebook"></a></li>
+                <li class="icon-footer"><a href="#"><img src="/static/resources/img/instagram.png" alt="icono instagram"></a></li>
+                <li class="icon-footer"><a href="#"><img src="/static/resources/img/twitter.png" alt="icono twitter"></a></li>
+                <li class="icon-footer"><a href="#"><img src="/static/resources/img/tiktok.png" alt="icono tiktok"></a></li>
+                <li class="icon-footer"><a href="#"><img src="/static/resources/img/linkedin.png" alt="icono linkedin"></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        function btn() {        
+            if($(".menu-items").css("display") == "none") {
+                $(".menu-items").css("display", "grid")
+                                .css("animation", "menu-in 1.5s forwards")
+                
+                $(".menu-btn div").css("animation-name", "open-menu")
+                                    .css("animation-duration", "0.5s")
+                                    .css("animation-fill-mode", "forwards");
+                
+                $(".menu-items li a").css("opacity", "1");
+                
+                setTimeout(function() {
+                    $(".menu-btn").css("transform", "rotate(90deg)")
+                }, 1);
+                
+            } else {
+                $(".menu-items").css("animation-name", "menu-off");
+                $(".menu-items li").css("animation", "fade-in 1.5s 1.2s forwards");
+                $(".menu-items li a").css("opacity", "0");
+    
+                setTimeout(function() {
+                    $(".menu-items").css("display", "none")
+                }, 1500);
+                
+                $(".menu-btn div").css("animation-name", "close-menu")
+                                    .css("animation-duration", "0.5s")
+                                    .css("animation-fill-mode", "forwards");
+                
+                setTimeout(function() {
+                    $(".menu-btn").css("transform", "rotate(0deg)")
+                }, 15);
+            };
+        };
+    </script>
+</body>
+</html>
