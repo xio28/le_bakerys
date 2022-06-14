@@ -62,6 +62,25 @@ class Tablas(ABC):
             return data
 
     @classmethod
+    def field_select(cls, fields: list):
+        data = ""
+        try:
+            conn = cls._connect()
+            c = conn.cursor()
+            c.execute(f"SELECT {','.join(fields)} FROM {cls._get_name()}")
+            data = c.fetchall()
+            conn.commit()
+            c.close ()
+        
+        except sqlite3.Error as error:
+            print('Error while executing sqlite script', error)
+
+        finally:
+            if conn:
+                conn.close()
+            return data
+
+    @classmethod
     def get_select(cls, fields: list, where: dict):
         data = ""
         where_clause = '{} LIKE ?'.format(list(where)[0])
@@ -73,7 +92,7 @@ class Tablas(ABC):
             c = conn.cursor()
             c.execute(query, (value,))
             data = c.fetchall()
-
+            conn.commit()
             c.close()
         
         except sqlite3.Error as error:
@@ -85,7 +104,7 @@ class Tablas(ABC):
             return data
 
     @classmethod
-    def get_select_and(cls, fields: list, where:list):
+    def get_select_and(cls, fields: list, where:dict):
         data = ""
         keys = [key for key in where.keys()]
         values = [val for val in where.values()]
@@ -97,7 +116,7 @@ class Tablas(ABC):
             c = conn.cursor()
             c.execute(query, values)
             data = c.fetchall()
-
+            conn.commit()
             c.close()
         
         except sqlite3.Error as error:
@@ -133,7 +152,7 @@ class Tablas(ABC):
 
     @classmethod
     def delete(cls, where: dict):
-        where_clause = '{} LIKE ?'.format(list(where)[0])
+        where_clause = '{} = ?'.format(list(where)[0])
         value = list(where.values())[0]
         query = f'DELETE FROM {cls._get_name()} WHERE {where_clause}'
 
@@ -141,6 +160,27 @@ class Tablas(ABC):
             conn = cls._connect()
             c = conn.cursor()
             c.execute(query, (value,))
+            conn.commit()
+            c.close()
+
+        except sqlite3.Error as error:
+            print('Error while executing sqlite script', error)
+
+        finally:
+            if conn:
+                conn.close()
+
+    @classmethod
+    def delete_and(cls, where: dict):
+        keys = [key for key in where.keys()]
+        values = [val for val in where.values()]
+        where_clause = f'{keys[0]} = ? AND {keys[-1]} = ?'
+        query = 'DELETE FROM {} WHERE {}'.format(cls._get_name(), where_clause)
+
+        try:
+            conn = cls._connect()
+            c = conn.cursor()
+            c.execute(query, values)
             conn.commit()
             c.close()
 
@@ -176,6 +216,7 @@ class Tablas(ABC):
                 conn.close()
 
     @classmethod
+<<<<<<< HEAD
     def inner_select(cls):
         data = ""
         query = """
@@ -184,19 +225,38 @@ class Tablas(ABC):
             INNER JOIN empleados emp
             ON emp.Email = user.Email
         """
+=======
+    def update_and(cls, data: dict, where: dict):
+        keys = [key for key in where.keys()]
+        new_values = ','.join([f'{key} = {val}' for key, val in data.items()])
+        where_values = [val for val in where.values()]
+        where_clause = f'{keys[0]} LIKE ? AND {keys[-1]} LIKE ?'
+        query = f'UPDATE {cls._get_name()} SET {new_values} WHERE {where_clause}'
+>>>>>>> 40d96c846bb047c6ea8990fa79788092750bde02
 
         try:
             conn = cls._connect()
             c = conn.cursor()
+<<<<<<< HEAD
             c.execute(query)
             data = c.fetchall()
             conn.commit()
             c.close()
         
+=======
+            c.execute(query, where_values)
+            conn.commit()
+            c.close()
+
+>>>>>>> 40d96c846bb047c6ea8990fa79788092750bde02
         except sqlite3.Error as error:
             print('Error while executing sqlite script', error)
 
         finally:
             if conn:
+<<<<<<< HEAD
                 conn.close()
             return data
+=======
+                conn.close()
+>>>>>>> 40d96c846bb047c6ea8990fa79788092750bde02
