@@ -216,8 +216,7 @@ class Tablas(ABC):
                 conn.close()
 
     @classmethod
-<<<<<<< HEAD
-    def inner_select(cls):
+    def inner_empleado(cls):
         data = ""
         query = """
             SELECT emp.ID, emp.Email, user.Nombre, user.Apellido1
@@ -225,38 +224,41 @@ class Tablas(ABC):
             INNER JOIN empleados emp
             ON emp.Email = user.Email
         """
-=======
+        try:
+            conn = cls._connect()
+            c = conn.cursor()
+            c.execute(query)
+            data = c.fetchall()
+            conn.commit()
+            c.close()
+        
+        except sqlite3.Error as error:
+            print('Error while executing sqlite script', error)
+
+        finally:
+            if conn:
+                conn.close()
+            return data
+
+    @classmethod
     def update_and(cls, data: dict, where: dict):
         keys = [key for key in where.keys()]
         new_values = ','.join([f'{key} = {val}' for key, val in data.items()])
         where_values = [val for val in where.values()]
         where_clause = f'{keys[0]} LIKE ? AND {keys[-1]} LIKE ?'
         query = f'UPDATE {cls._get_name()} SET {new_values} WHERE {where_clause}'
->>>>>>> 40d96c846bb047c6ea8990fa79788092750bde02
 
         try:
             conn = cls._connect()
             c = conn.cursor()
-<<<<<<< HEAD
-            c.execute(query)
-            data = c.fetchall()
-            conn.commit()
-            c.close()
-        
-=======
             c.execute(query, where_values)
             conn.commit()
             c.close()
 
->>>>>>> 40d96c846bb047c6ea8990fa79788092750bde02
         except sqlite3.Error as error:
             print('Error while executing sqlite script', error)
 
         finally:
             if conn:
-<<<<<<< HEAD
                 conn.close()
-            return data
-=======
-                conn.close()
->>>>>>> 40d96c846bb047c6ea8990fa79788092750bde02
+
