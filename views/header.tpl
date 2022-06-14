@@ -23,7 +23,7 @@
     %elif title == "Panel de cliente" or title == "Panel de administrador":
         <link rel="stylesheet" href="/static/styles/admin_panel.css">
     %elif title == "Resumen | Le Bakery's":
-    <link rel="stylesheet" type="text/css" href="/static/styles/carrito.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/styles/carrito.css"/>
     %end
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/js/forms.js"></script>

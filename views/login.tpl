@@ -1,26 +1,29 @@
 %include('header.tpl', title='Log In')
 <div class="container-login">
-        <div class="login-item">
-            <div class="print-f">
-                <h3>Identificarse</h3>
-            </div>
-            <form action="/login" method="POST">
-                <div class="user">
-                    {{ form.email }}
-                    {{ form.password }}
-                </div>
-                <div class="buttons-item">
-                    <div class="check-item">
-                        <input type="checkbox" name="cookies" id="cookies"/> <span>Recuérdame</span>
-                    </div>
-                    {{ form.save }}
-                </div>
-            </form>
-            <div class="register-i">
-                <p>¿No tienes cuenta?</p>
-                <a href="/registro">Créate una</a>
-            </div>
+    <div class="login-item">
+        <div class="errors-block">
+            
         </div>
+        <div class="print-f">
+            <h3>Identificarse</h3>
+        </div>
+        <form action="/login" method="POST">
+            <div class="user">
+                {{ form.email }}
+                {{ form.password }}
+            </div>
+            <div class="buttons-item">
+                <div class="check-item">
+                    <input type="checkbox" name="cookies" id="cookies"/> <span>Recuérdame</span>
+                </div>
+                {{ form.save }}
+            </div>
+        </form>
+        <div class="register-i">
+            <p>¿No tienes cuenta?</p>
+            <a href="register.html">Créate una</a>
+        </div>
+    </div>
     </div>
     <script>
         function btn() {        
