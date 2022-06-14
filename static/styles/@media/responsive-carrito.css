@@ -1,0 +1,75 @@
+/********* DESKTOP ********/
+
+@media screen and (width: 1530px){
+    .policy span{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1280px){
+    .card-item{
+        width: 98%;
+    }
+
+    .policy{
+        flex-wrap: nowrap;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .card-item{
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2.4rem;
+        width: 90%;
+    }
+
+    .to-pay{
+        row-gap: 2.4rem;
+    }
+
+    .policy{
+        flex-wrap: nowrap;
+    }
+}
+
+@media screen and (max-width: 890px){
+    .info{
+        display: none;
+    }
+
+    .products{
+        width: 70%;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .product{
+        width: 60%;
+        height: 50rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-img{
+        min-width: 35rem;
+    }
+
+    .to-pay{
+        min-width: 35rem;
+        min-height: 24rem;
+    }
+
+    .policy{
+        flex-wrap: nowrap;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .product{
+        width: 100%;
+    }
+
+}
