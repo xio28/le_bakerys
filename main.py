@@ -227,5 +227,9 @@ def src(filepath):
     return static_file(filepath, root="static/src")
 
 
+@get("/static/src/<filepath:re:.*.html>")
+def src(filepath):
+    return static_file(filepath, root="static/src")
+
 if __name__ == '__main__':
     run(host='localhost', port=8082, debug=True, reloader=True)
