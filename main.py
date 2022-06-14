@@ -197,9 +197,10 @@ def carrito_post(id_product):
         return redirect('/carrito')
     return redirect('/login')
 
-@get('/pedido')
+@post('/pedido')
 def order():
-    pass
+    
+    return f'Pedido Enviado'
 
 @error(404)
 def error404(error):
