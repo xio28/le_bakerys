@@ -241,7 +241,7 @@ h2, span {
 }
 
 .manage-table table {
-    min-width: 1600px;
+    min-width: 1200px;
     font-family: var(--body-font);
     font-size: 2rem;
 }
@@ -253,6 +253,7 @@ h2, span {
 .manage-table table th:last-child {
     background-color: transparent;
 }
+
 .manage-table table tr {
     height: 5rem;
 }
@@ -268,7 +269,6 @@ h2, span {
 }
 
 .manage-table table td {
-    min-width: 20%;
     text-align: center;
 }
 
@@ -467,7 +467,7 @@ input[type="submit"]:hover {
     overflow: hidden;
     padding: 0.625rem 1.25rem;
     color: var(--white);
-    background-color: var(--dark-golden);
+    background-color: #333;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -483,6 +483,43 @@ input[type="submit"]:hover {
 .form-add input[type="file"]:focus + label,
 input[type="file"] + label:hover {
     background-color: var(--turquoise);
+}
+
+.form-add select {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 3rem 0;
+    height: 60px;
+    min-width: 20rem;
+    width: 18rem;
+    max-width: 100%;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0 1rem;
+    color: var(--white);
+    background-color: #333;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+}
+
+.actions-form {
+    min-height: 0 !important;
+    display: block !important;
+    margin-bottom: 0 !important;
 }
 
 /*****************************************/

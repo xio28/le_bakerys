@@ -1,4 +1,15 @@
 %include("header.tpl", title = "Panel de administrador")
+        <div id="modal" style="display: none">
+            <div id="mod-add-prod">
+                
+            </div>
+            <div id="mod-add-emp">
+                
+            </div>
+            <div id="mod-see-order">
+
+            </div>
+        </div>
         <div class="apanel-container">
             <div class="nav-panel">
                 <ul>
@@ -47,9 +58,9 @@
             <div class="content-panel">
                 <div class="topbar">
                     <div class="toggle" onclick="toggleMenu();"></div>
-                        <div class="user">
-                            <img src="/static/resources/img/user.jpg" alt="user">
-                        </div>
+                    <div class="user">
+                        <img src="/static/resources/img/user.jpg" alt="user">
+                    </div>
                 </div>
                 <div class="main-box">
                     <div id="manage-orders" class="boxes manage-table show">
@@ -69,15 +80,19 @@
                                     <span class="status-span">Sin preparar</span>
                                 </td>
                                 <td class="manage">
-                                    <a class="eye-color" href="#">
+                                    <a class="eye-color" href="#mod-see-order">
                                         <i class="fa fa-solid fa-eye"></i>
                                     </a>
-                                    <a class="trash-color" href="#">
-                                        <i class="fa fa-solid fa-trash"></i>
-                                    </a>
-                                    <a class="thumb thumb-color" href="#" onclick="changeStatus();">
-                                        <i class="i-thumb fa fa-solid fa-thumbs-up"></i>
-                                    </a>
+                                    <form class="actions-form" action="/eliminar/" method="POST">
+                                        <a class="trash-color" href="#" name="delete_ord">
+                                            <i class="fa fa-solid fa-trash"></i>
+                                        </a>
+                                    </form>
+                                    <!-- <form action="/status/" method="POST"> -->
+                                        <a class="thumb thumb-color" href="#" onclick="changeStatus();">
+                                            <i class="i-thumb fa fa-solid fa-thumbs-up"></i>
+                                        </a>
+                                    <!-- </form> -->
                                 </td>
                             </tr>
                         </table>
@@ -111,17 +126,22 @@
                                 <th>Apellido</th>
                                 <th></th>
                             </tr>
+
+                            %for inrow in inrows:
                             <tr>
-                                <td>1</td>
-                                <td>jerobel@lebakerys.com</td>
-                                <td>Jerobel</td>
-                                <td>Rodríguez</td>
+                                <td>{{ inrow[0] }}</td>
+                                <td>{{ inrow[1] }}</td>
+                                <td>{{ inrow[2] }}</td>
+                                <td>{{ inrow[3] }}</td>
                                 <td class="manage">
-                                    <a class="trash-color" href="#">
-                                        <i class="fa fa-solid fa-trash"></i>
-                                    </a>
+                                    <form class="actions-form" action="/eliminar/" method="POST">
+                                        <a class="trash-color" href="#">
+                                            <i class="fa fa-solid fa-trash"></i>
+                                        </a>
+                                    </form>
                                 </td>
                             </tr>
+                            %end
                         </table>
                     </div>
                     <div id="add-products" class="boxes form form-add manage-table">
@@ -131,7 +151,6 @@
                             {{ formPro.pro_name }}
                             <label for="pass">Precio</label>
                             {{ formPro.price }}
-                            <label for="pass">Categoría</label>
                             {{ formPro.category }}
                             <label for="pass">Stock</label>
                             {{ formPro.stock }}
@@ -143,29 +162,50 @@
                         </form>
                         <table>
                             <tr>
+                                <th>ID producto</th>
                                 <th>Nombre</th>
                                 <th>Precio</th>
                                 <th>Categoría</th>
                                 <th>Stock</th>
                                 <th></th>
                             </tr>
+                            
+                            %for prow in prows:
                             <tr>
-                                <td>Red Velvet</td>
-                                <td>35<span class="euro">€</span></td>
-                                <td>Tartas</td>
-                                <td>20</td>
+                                <td>{{ prow[0] }}</td>
+                                <td>{{ prow[1] }}</td>
+                                <td>{{ prow[2] }}<span class="euro">€</span></td>
+                                <td>{{ prow[3] }}</td>
+                                <td>{{ prow[4] }}</td>
                                 <td class="manage">
-                                    <a class="trash-color" href="#">
-                                        <i class="fa fa-solid fa-trash"></i>
-                                    </a>
+                                    <form class="actions-form" action="/eliminar/{{prow[0]}}" method="POST">
+                                        <a class="trash-color" href="#" name="delete_pro">
+                                            <i class="fa fa-solid fa-trash"></i>
+                                        </a>
+                                    </form>
                                 </td>
                             </tr>
+                            %end
                         </table>
                     </div>
                 </div>
             </div>
         </div>
         <script>
+
+
+            $('#open').on('click', function(){
+                $('#popup').fadeIn('slow');         
+                $('.popup-overlay').fadeIn('slow');         
+                $('.popup-overlay').height($(window).height());         
+                return false;     
+            });      
+            $('#close').on('click', function(){
+                $('#popup').fadeOut('slow');         
+                $('.popup-overlay').fadeOut('slow');         
+                return false;
+            }); 
+
             function toggleMenu(){
                 let nav = $('.nav-panel');
                 let span = $('.title');

@@ -5,11 +5,11 @@ class Usuarios(Tablas):
     @classmethod
     def check_user(cls, email):
         user = cls.get_select(['Email'], {'Email':email})
-        return True if user not in (None, [], ()) else False
+        return True if user not in (None, "", [], ()) else False
 
     @classmethod
     def get_password(cls, email):
-        return ''.join(cls.get_select(['Password'], {'Email':email}))
+        return ''.join(cls.get_select(['Password'], {'Email':email})[0])
 
     @classmethod
     def check_credentials(cls, email, password):

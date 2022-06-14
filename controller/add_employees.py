@@ -25,4 +25,4 @@ class AddEmpForm(Form):
                                         validators.InputRequired()
                                     ],
                                         render_kw={'id': 'file-reg', 'data-multiple-caption': '{count} files selected'})
-    save = SubmitField('Añadir empleado')
+    save_emp = SubmitField('Añadir empleado')

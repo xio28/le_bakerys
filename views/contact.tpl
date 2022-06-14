@@ -8,18 +8,6 @@
             </div>
         </div>
         <div class="bottom-panel">
-            % if form.errors:
-                <div>
-                    <p>Hay errores en el formulario:</p>
-                    <ul>
-                    % for field, errors in form.errors.items():
-                        % for error in errors:
-                        <li>{{field}}: {{error}}</li>
-                        % end
-                    % end
-                    </ul>
-                </div>
-            % end
             <form action="/contact" method="POST">
                 <fieldset>
                     {{ form.c_name.label }}

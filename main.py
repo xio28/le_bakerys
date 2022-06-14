@@ -31,18 +31,51 @@ def post_login():
     if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
         return redirect('/')
     else:
-        print("Email o contraseña incorrectos.")
-        return redirect('/login')
+        print(form.errors)
+        # return redirect('/login')
+
+@post('/logout')
+def post_login():
+    form = LogInForm(request.POST) 
+    if form.save.data and Usuarios.check_credentials(form.email.data, form.password.data):
+        return redirect('/')
+    else:
+        print(form.errors)
+        # return redirect('/login')
 
 @get('/panel/admin')
 def admin_panel():
     formEmp = AddEmpForm(request.POST)
     formPro = AddProdForm(request.POST)
-    return template('admin_panel', formEmp=formEmp, formPro=formPro)
+    return template('admin_panel', formEmp=formEmp, formPro=formPro,  prows=Productos.select(), inrows=Empleados.inner_select())
 
 # @post('/panel/admin')
 # def post_admin_panel():
 #     if request.POST
+
+
+@post('/delete/<no:int>')
+def delete_item(no):
+    
+    if request.POST.delete_pro:
+        where = {'ID': no}
+        Productos.delete(where)
+    elif request.POST.delete_ord:
+        where = {'ID': no}
+        Productos.delete(where)
+
+    # return redirect('/')
+        
+@post('/add/<no:int>')
+def delete_item(no):
+    
+    if request.POST.save_pro:
+        where = {'ID': no}
+        Productos.delete(where)
+    elif request.POST.save_emp:
+        where = {'ID': no}
+        Empleados.delete(where)
+
 
 @get('/panel/cliente')
 def panel():
@@ -62,16 +95,25 @@ def register():
 @post('/registro')
 def post_registration():
     form = RegistrationForm(request.POST) 
-    if form.save.data:
-        f = request.files['user_image']
-        f_path = f'/static/resources/users/{f.filename}'
-        f.save(f_path)
-    return template('registration', form=form)
+    if form.save.data and form.validate():
+        form_data = {
+            'Email': form.email.data
+        }
+        Clientes.insert(form_data)
+    return redirect('/')
 
 @get('/contacto')
-def register():
-    form = ContactForm(request.POST)
+def contact():
+    form = ContactForm(request.POST)    
+    if form.save.data:
+        f = request.files['user_image']
     return template('contact', form=form)
+
+@post('/contacto')
+def post_contact():
+    form = ContactForm(request.POST)
+    
+    return redirect('/')
 
 @get('/clientes')
 def clients():
@@ -159,4 +201,4 @@ def js(filepath):
 
 
 if __name__ == '__main__':
-    run(host='localhost', port=8080, debug=True, reloader=True)
+    run(host='localhost', port=8081, debug=True, reloader=True)
